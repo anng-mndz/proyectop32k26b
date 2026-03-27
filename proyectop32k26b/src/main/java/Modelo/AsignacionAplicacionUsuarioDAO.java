@@ -8,10 +8,10 @@ import java.util.List;
 import Modelo.Conexion;
 
 /**
- * ============================================================
+ * 
  * AUTOR: Angoly Camila Araujo Mayen
  * CARNÉ: 9959-24-17623
- * ============================================================
+ * 
  * 
  * Clase DAO encargada de gestionar las operaciones CRUD
  * relacionadas con la asignación de aplicaciones a usuarios.
