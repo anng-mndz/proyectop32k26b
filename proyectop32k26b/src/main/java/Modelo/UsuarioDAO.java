@@ -6,6 +6,8 @@
 
 //Marco. Hernandez 9959-24-6201 
 //Marco. Hernandez 24-marzo-2026 1. mantenimiento agregar utilidad de bitacora *posible fallo en login BD no acepta id "foreign key fails"e
+//Marco. Hernandez 26-marzo-2026 2. Mantenimiento bitacora, CRUD implementado 
+//Marco. Hernandez 29-marzo-2026 3. Revision, mantenimineto 
 package Modelo;
 
 
@@ -72,48 +74,64 @@ public class UsuarioDAO {
         return usuarios;
     }
 
-    public int ingresaUsuarios(clsUsuario usuario) {
-        Connection conn = null;
-        PreparedStatement stmt = null;
-        int rows = 0;
-        try {
-            conn = Conexion.getConnection();
-            stmt = conn.prepareStatement(SQL_INSERT);
-            stmt.setString(1, usuario.getUsuNombre());
-            stmt.setString(2, usuario.getUsuContrasena());
-            stmt.setString(3, usuario.getUsuUltimaSesion());
-	    stmt.setString(4, usuario.getUsuEstatus());
-            stmt.setString(5, usuario.getUsuNombreReal());
-            stmt.setString(6, usuario.getUsuCorreo());
-            stmt.setString(7, usuario.getUsuTelefono());
-            stmt.setString(8, usuario.getUsuDireccion());
-            System.out.println("ejecutando query:" + SQL_INSERT);
-            rows = stmt.executeUpdate();
-            //
-   if (rows > 0) {
-    if (clsUsuarioConectado.getUsuId() > 0) {
-        BitacoraDAO bitacora = new BitacoraDAO();
-        System.out.println("Usuario conectado: " + clsUsuarioConectado.getUsuId());
-        bitacora.insert(
-            clsUsuarioConectado.getUsuId(),
-            10001,
-            "INSERT usuario: " + usuario.getUsuNombre()
-        );
-    } else {
-        System.out.println("No se insertó en bitácora: usuario conectado inválido");
-    }
-}
-            
-            System.out.println("Registros afectados:" + rows);
-        } catch (SQLException ex) {
-            ex.printStackTrace(System.out);
-        } finally {
-            Conexion.close(stmt);
-            Conexion.close(conn);
+   public int ingresaUsuarios(clsUsuario usuario) {
+    Connection conn = null;
+    PreparedStatement stmt = null;
+    ResultSet rs = null;
+    int rows = 0;
+
+    try {
+        conn = Conexion.getConnection();
+
+        //obtener ID generado
+        stmt = conn.prepareStatement(SQL_INSERT, Statement.RETURN_GENERATED_KEYS);
+
+        stmt.setString(1, usuario.getUsuNombre());
+        stmt.setString(2, usuario.getUsuContrasena());
+        stmt.setString(3, usuario.getUsuUltimaSesion());
+        stmt.setString(4, usuario.getUsuEstatus());
+        stmt.setString(5, usuario.getUsuNombreReal());
+        stmt.setString(6, usuario.getUsuCorreo());
+        stmt.setString(7, usuario.getUsuTelefono());
+        stmt.setString(8, usuario.getUsuDireccion());
+
+        System.out.println("ejecutando query:" + SQL_INSERT);
+
+        rows = stmt.executeUpdate();
+
+        int idGenerado = 0;
+
+        //ID real
+        rs = stmt.getGeneratedKeys();
+        if (rs.next()) {
+            idGenerado = rs.getInt(1);
         }
 
-        return rows;
+        // BITACORA
+        if (rows > 0 && idGenerado > 0) {
+            BitacoraDAO bitacora = new BitacoraDAO();
+
+            int usuarioBitacora = clsUsuarioConectado.getUsuId();
+
+            if (usuarioBitacora == 0) {
+                usuarioBitacora = idGenerado;
+            }
+
+            bitacora.insert(usuarioBitacora, 1, "INSERT usuario: " + usuario.getUsuNombre());
+        }
+
+        System.out.println("Registros afectados:" + rows);
+
+    } catch (SQLException ex) {
+        ex.printStackTrace(System.out);
+    } finally {
+        Conexion.close(rs);
+        Conexion.close(stmt);
+        Conexion.close(conn);
     }
+
+    return rows;
+}
 
     public int actualizaUsuarios(clsUsuario usuario) {
         Connection conn = null;
@@ -122,7 +140,9 @@ public class UsuarioDAO {
         try {
             conn = Conexion.getConnection();
             System.out.println("ejecutando query: " + SQL_UPDATE);
+            //cambiado abajo
             stmt = conn.prepareStatement(SQL_UPDATE);
+            //
             stmt.setString(1, usuario.getUsuNombre());
             stmt.setString(2, usuario.getUsuContrasena());
             stmt.setString(3, usuario.getUsuUltimaSesion());
@@ -135,17 +155,15 @@ public class UsuarioDAO {
             
             rows = stmt.executeUpdate();
             
- if (rows > 0) {
-    if (clsUsuarioConectado.getUsuId() > 0) {
-        BitacoraDAO bitacora = new BitacoraDAO();
-        bitacora.insert(
-            clsUsuarioConectado.getUsuId(),
-            10001,
-            "UPDATE usuario: " + usuario.getUsuNombre()
-        );
-    } else {
-        System.out.println("No se insertó en bitácora: usuario conectado inválido");
+            if (rows > 0) {
+    BitacoraDAO bitacora = new BitacoraDAO();
+
+    int usuarioBitacora = clsUsuarioConectado.getUsuId();
+    if (usuarioBitacora == 0) {
+        usuarioBitacora = usuario.getUsuId();
     }
+
+    bitacora.insert(usuarioBitacora, 1, "UPDATE usuario: " + usuario.getUsuNombre());
 }
             
             
@@ -174,16 +192,15 @@ public class UsuarioDAO {
         System.out.println("Usuario conectado antes de eliminar: " + clsUsuarioConectado.getUsuId());
 
         // BITACORA ANTES DEL DELETE
-        if (clsUsuarioConectado.getUsuId() > 0) {
-            System.out.println("Insertando en bitacora antes del delete...");
+        int usuarioBitacora = clsUsuarioConectado.getUsuId();
 
-            BitacoraDAO bitacora = new BitacoraDAO();
-            bitacora.insert(
-                clsUsuarioConectado.getUsuId(),
-                10001,
-                "DELETE usuario ID: " + usuario.getUsuId()
-            );
-        }
+if (usuarioBitacora == 0) {
+    usuarioBitacora = usuario.getUsuId();
+}
+
+BitacoraDAO bitacora = new BitacoraDAO();
+bitacora.insert(usuarioBitacora,1,"DELETE usuario ID: " + usuario.getUsuId()
+);
 
         // DELETE
         stmt = conn.prepareStatement(SQL_DELETE);
