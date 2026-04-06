@@ -8,247 +8,296 @@ import java.util.List;
 
 public class PerfilDAO {
 
-    // --- SQL Perfil ---
-    private static final String SQL_SELECT_PERFIL = "SELECT perid, pernombre, perdescripcion, perestatus FROM perfil";
-    private static final String SQL_INSERT_PERFIL = "INSERT INTO perfil(pernombre, perdescripcion, perestatus) VALUES(?, ?, ?)";
-    private static final String SQL_UPDATE_PERFIL = "UPDATE perfil SET pernombre=?, perdescripcion=?, perestatus=? WHERE perid=?";
-    private static final String SQL_DELETE_PERFIL = "DELETE FROM perfil WHERE perid=?";
-    private static final String SQL_SELECT_PERFIL_NOMBRE = "SELECT perid, pernombre, perdescripcion, perestatus FROM perfil WHERE pernombre=?";
-    private static final String SQL_SELECT_PERFIL_ID = "SELECT perid, pernombre, perdescripcion, perestatus FROM perfil WHERE perid=?";
+    private static final String SQL_SELECT =
+            "SELECT percodigo, pernombre, perestado FROM perfil";
 
-    // --- SQL Bitácora ---
-    private static final String SQL_INSERT_BITACORA = "INSERT INTO bitacora(usuId, perId, accion, fecha) VALUES(?, ?, ?, CURRENT_TIMESTAMP)";
-    private static final String SQL_UPDATE_BITACORA = "UPDATE bitacora SET usuId=?, perId=?, accion=? WHERE bitId=?";
-    private static final String SQL_DELETE_BITACORA = "DELETE FROM bitacora WHERE bitId=?";
-    private static final String SQL_SELECT_BITACORA = "SELECT bitId, usuId, perId, accion, fecha FROM bitacora";
-    private static final String SQL_SELECT_BITACORA_ID = "SELECT bitId, usuId, perId, accion, fecha FROM bitacora WHERE bitId=?";
+    private static final String SQL_INSERT =
+            "INSERT INTO perfil(pernombre, perestado) VALUES(?, ?)";
 
-    // --- Métodos CRUD Perfil ---
-    public List<clsPerfil> consultaPerfiles() {
+    private static final String SQL_UPDATE =
+            "UPDATE perfil SET pernombre=?, perestado=? WHERE percodigo=?";
+
+    private static final String SQL_DELETE =
+            "DELETE FROM perfil WHERE percodigo=?";
+
+    private static final String SQL_SELECT_ID =
+            "SELECT percodigo, pernombre, perestado FROM perfil WHERE percodigo=?";
+
+
+    private static final String SQL_INSERT_BITACORA =
+            "INSERT INTO bitacora(usucodigo, aplcodigo, bitfecha, bitip, bitequipo, bitaccion) VALUES(?, ?, ?, ?, ?, ?)";
+
+    private static final String SQL_SELECT_BITACORA =
+            "SELECT bitcodigo, usucodigo, aplcodigo, bitfecha, bitip, bitequipo, bitaccion FROM bitacora";
+
+    private static final String SQL_UPDATE_BITACORA =
+            "UPDATE bitacora SET usucodigo=?, aplcodigo=?, bitfecha=?, bitip=?, bitequipo=?, bitaccion=? WHERE bitcodigo=?";
+
+    private static final String SQL_DELETE_BITACORA =
+            "DELETE FROM bitacora WHERE bitcodigo=?";
+
+
+    
+    public List<clsPerfil> obtenerPerfiles(clsBitacora bitacora) {
         Connection conn = null;
         PreparedStatement stmt = null;
         ResultSet rs = null;
-        List<clsPerfil> perfiles = new ArrayList<>();
+        List<clsPerfil> lista = new ArrayList<>();
+
         try {
             conn = Conexion.getConnection();
-            stmt = conn.prepareStatement(SQL_SELECT_PERFIL);
+            stmt = conn.prepareStatement(SQL_SELECT);
             rs = stmt.executeQuery();
+
             while (rs.next()) {
-                clsPerfil perfil = new clsPerfil();
-                perfil.setPerId(rs.getInt("perid"));
-                perfil.setPerNombre(rs.getString("pernombre"));
-                perfil.setPerDescripcion(rs.getString("perdescripcion"));
-                perfil.setPerEstatus(rs.getString("perestatus"));
-                perfiles.add(perfil);
+                clsPerfil p = new clsPerfil();
+                p.setPercodigo(rs.getInt("percodigo"));
+                p.setPernombre(rs.getString("pernombre"));
+                p.setPerestado(rs.getString("perestado"));
+                lista.add(p);
             }
-        } catch (SQLException ex) {
-            ex.printStackTrace(System.out);
+
+            bitacora.setBitaccion("SELECT perfiles");
+            insertarBitacora(bitacora);
+
+        } catch (SQLException e) {
+            e.printStackTrace(System.out);
         } finally {
             Conexion.close(rs);
             Conexion.close(stmt);
             Conexion.close(conn);
         }
-        return perfiles;
+
+        return lista;
     }
 
-    public int ingresaPerfil(clsPerfil perfil) {
+    public int insertarPerfil(clsPerfil perfil, clsBitacora bitacora) {
         Connection conn = null;
         PreparedStatement stmt = null;
         int rows = 0;
+
         try {
             conn = Conexion.getConnection();
-            stmt = conn.prepareStatement(SQL_INSERT_PERFIL);
-            stmt.setString(1, perfil.getPerNombre());
-            stmt.setString(2, perfil.getPerDescripcion());
-            stmt.setString(3, perfil.getPerEstatus());
+            stmt = conn.prepareStatement(SQL_INSERT);
+
+            stmt.setString(1, perfil.getPernombre());
+            stmt.setString(2, perfil.getPerestado());
+
             rows = stmt.executeUpdate();
-        } catch (SQLException ex) {
-            ex.printStackTrace(System.out);
+
+            bitacora.setBitaccion("INSERT perfil " + perfil.getPernombre());
+            insertarBitacora(bitacora);
+
+        } catch (SQLException e) {
+            e.printStackTrace(System.out);
         } finally {
             Conexion.close(stmt);
             Conexion.close(conn);
         }
+
         return rows;
     }
 
-    public int actualizaPerfil(clsPerfil perfil) {
+    public int actualizarPerfil(clsPerfil perfil, clsBitacora bitacora) {
         Connection conn = null;
         PreparedStatement stmt = null;
         int rows = 0;
+
         try {
             conn = Conexion.getConnection();
-            stmt = conn.prepareStatement(SQL_UPDATE_PERFIL);
-            stmt.setString(1, perfil.getPerNombre());
-            stmt.setString(2, perfil.getPerDescripcion());
-            stmt.setString(3, perfil.getPerEstatus());
-            stmt.setInt(4, perfil.getPerId());
+            stmt = conn.prepareStatement(SQL_UPDATE);
+
+            stmt.setString(1, perfil.getPernombre());
+            stmt.setString(2, perfil.getPerestado());
+            stmt.setInt(3, perfil.getPercodigo());
+
             rows = stmt.executeUpdate();
-        } catch (SQLException ex) {
-            ex.printStackTrace(System.out);
+
+            bitacora.setBitaccion("UPDATE perfil " + perfil.getPercodigo());
+            insertarBitacora(bitacora);
+
+        } catch (SQLException e) {
+            e.printStackTrace(System.out);
         } finally {
             Conexion.close(stmt);
             Conexion.close(conn);
         }
+
         return rows;
     }
 
-    public int borrarPerfil(clsPerfil perfil) {
+    public int eliminarPerfil(clsPerfil perfil, clsBitacora bitacora) {
         Connection conn = null;
         PreparedStatement stmt = null;
         int rows = 0;
+
         try {
             conn = Conexion.getConnection();
-            stmt = conn.prepareStatement(SQL_DELETE_PERFIL);
-            stmt.setInt(1, perfil.getPerId());
+            stmt = conn.prepareStatement(SQL_DELETE);
+
+            stmt.setInt(1, perfil.getPercodigo());
+
             rows = stmt.executeUpdate();
-        } catch (SQLException ex) {
-            ex.printStackTrace(System.out);
+
+            bitacora.setBitaccion("DELETE perfil " + perfil.getPercodigo());
+            insertarBitacora(bitacora);
+
+        } catch (SQLException e) {
+            e.printStackTrace(System.out);
         } finally {
             Conexion.close(stmt);
             Conexion.close(conn);
         }
+
         return rows;
     }
 
-    public clsPerfil consultaPerfilPorNombre(clsPerfil perfil) {
+    public clsPerfil obtenerPerfilPorId(int id, clsBitacora bitacora) {
         Connection conn = null;
         PreparedStatement stmt = null;
         ResultSet rs = null;
+        clsPerfil perfil = null;
+
         try {
             conn = Conexion.getConnection();
-            stmt = conn.prepareStatement(SQL_SELECT_PERFIL_NOMBRE);
-            stmt.setString(1, perfil.getPerNombre());
+            stmt = conn.prepareStatement(SQL_SELECT_ID);
+            stmt.setInt(1, id);
             rs = stmt.executeQuery();
+
             if (rs.next()) {
-                perfil.setPerId(rs.getInt("perid"));
-                perfil.setPerNombre(rs.getString("pernombre"));
-                perfil.setPerDescripcion(rs.getString("perdescripcion"));
-                perfil.setPerEstatus(rs.getString("perestatus"));
+                perfil = new clsPerfil();
+                perfil.setPercodigo(rs.getInt("percodigo"));
+                perfil.setPernombre(rs.getString("pernombre"));
+                perfil.setPerestado(rs.getString("perestado"));
             }
-        } catch (SQLException ex) {
-            ex.printStackTrace(System.out);
+
+            bitacora.setBitaccion("SELECT perfil ID " + id);
+            insertarBitacora(bitacora);
+
+        } catch (SQLException e) {
+            e.printStackTrace(System.out);
         } finally {
             Conexion.close(rs);
             Conexion.close(stmt);
             Conexion.close(conn);
         }
+
         return perfil;
     }
 
-    public clsPerfil consultaPerfilPorId(clsPerfil perfil) {
-        Connection conn = null;
-        PreparedStatement stmt = null;
-        ResultSet rs = null;
-        try {
-            conn = Conexion.getConnection();
-            stmt = conn.prepareStatement(SQL_SELECT_PERFIL_ID);
-            stmt.setInt(1, perfil.getPerId());
-            rs = stmt.executeQuery();
-            if (rs.next()) {
-                perfil.setPerId(rs.getInt("perid"));
-                perfil.setPerNombre(rs.getString("pernombre"));
-                perfil.setPerDescripcion(rs.getString("perdescripcion"));
-                perfil.setPerEstatus(rs.getString("perestatus"));
-            }
-        } catch (SQLException ex) {
-            ex.printStackTrace(System.out);
-        } finally {
-            Conexion.close(rs);
-            Conexion.close(stmt);
-            Conexion.close(conn);
-        }
-        return perfil;
-    }
 
-    // --- Métodos CRUD Bitácora ---
-    public int registrarBitacoraPerfil(int usuId, int perId, String accion) {
+    
+    public int insertarBitacora(clsBitacora bitacora) {
         Connection conn = null;
         PreparedStatement stmt = null;
         int rows = 0;
+
         try {
             conn = Conexion.getConnection();
             stmt = conn.prepareStatement(SQL_INSERT_BITACORA);
-            stmt.setInt(1, usuId);
-            stmt.setInt(2, perId);
-            stmt.setString(3, accion);
+
+            stmt.setInt(1, bitacora.getUsucodigo());
+            stmt.setInt(2, bitacora.getAplcodigo());
+            stmt.setString(3, bitacora.getBitfecha());
+            stmt.setString(4, bitacora.getBitip());
+            stmt.setString(5, bitacora.getBitequipo());
+            stmt.setString(6, bitacora.getBitaccion());
+
             rows = stmt.executeUpdate();
-        } catch (SQLException ex) {
-            ex.printStackTrace(System.out);
+
+        } catch (SQLException e) {
+            e.printStackTrace(System.out);
         } finally {
             Conexion.close(stmt);
             Conexion.close(conn);
         }
+
         return rows;
+    }
+
+    public List<clsBitacora> obtenerBitacora() {
+        Connection conn = null;
+        PreparedStatement stmt = null;
+        ResultSet rs = null;
+        List<clsBitacora> lista = new ArrayList<>();
+
+        try {
+            conn = Conexion.getConnection();
+            stmt = conn.prepareStatement(SQL_SELECT_BITACORA);
+            rs = stmt.executeQuery();
+
+            while (rs.next()) {
+                clsBitacora b = new clsBitacora();
+                b.setBitcodigo(rs.getInt("bitcodigo"));
+                b.setUsucodigo(rs.getInt("usucodigo"));
+                b.setAplcodigo(rs.getInt("aplcodigo"));
+                b.setBitfecha(rs.getString("bitfecha"));
+                b.setBitip(rs.getString("bitip"));
+                b.setBitequipo(rs.getString("bitequipo"));
+                b.setBitaccion(rs.getString("bitaccion"));
+                lista.add(b);
+            }
+
+        } catch (SQLException e) {
+            e.printStackTrace(System.out);
+        } finally {
+            Conexion.close(rs);
+            Conexion.close(stmt);
+            Conexion.close(conn);
+        }
+
+        return lista;
     }
 
     public int actualizarBitacora(clsBitacora bitacora) {
         Connection conn = null;
         PreparedStatement stmt = null;
         int rows = 0;
+
         try {
             conn = Conexion.getConnection();
             stmt = conn.prepareStatement(SQL_UPDATE_BITACORA);
-            stmt.setInt(1, bitacora.getUsuId());
-            stmt.setInt(2, bitacora.getPerId());
-            stmt.setString(3, bitacora.getAccion());
-            stmt.setInt(4, bitacora.getBitId());
+
+            stmt.setInt(1, bitacora.getUsucodigo());
+            stmt.setInt(2, bitacora.getAplcodigo());
+            stmt.setString(3, bitacora.getBitfecha());
+            stmt.setString(4, bitacora.getBitip());
+            stmt.setString(5, bitacora.getBitequipo());
+            stmt.setString(6, bitacora.getBitaccion());
+            stmt.setInt(7, bitacora.getBitcodigo());
+
             rows = stmt.executeUpdate();
-        } catch (SQLException ex) {
-            ex.printStackTrace(System.out);
+
+        } catch (SQLException e) {
+            e.printStackTrace(System.out);
         } finally {
             Conexion.close(stmt);
             Conexion.close(conn);
         }
+
         return rows;
     }
 
-    public int borrarBitacora(clsBitacora bitacora) {
+    public int eliminarBitacora(clsBitacora bitacora) {
         Connection conn = null;
         PreparedStatement stmt = null;
         int rows = 0;
+
         try {
             conn = Conexion.getConnection();
             stmt = conn.prepareStatement(SQL_DELETE_BITACORA);
-            stmt.setInt(1, bitacora.getBitId());
+
+            stmt.setInt(1, bitacora.getBitcodigo());
+
             rows = stmt.executeUpdate();
-        } catch (SQLException ex) {
-            ex.printStackTrace(System.out);
+
+        } catch (SQLException e) {
+            e.printStackTrace(System.out);
         } finally {
             Conexion.close(stmt);
             Conexion.close(conn);
         }
+
         return rows;
     }
-
-    public List<clsBitacora> consultarBitacoras() {
-        Connection conn = null;
-        PreparedStatement stmt = null;
-        ResultSet rs = null;
-        List<clsBitacora> bitacoras = new ArrayList<>();
-        try {
-            conn = Conexion.getConnection();
-            stmt = conn.prepareStatement(SQL_SELECT_BITACORA);
-            rs = stmt.executeQuery();
-            while (rs.next()) {
-                clsBitacora bitacora = new clsBitacora();
-                bitacora.setBitId(rs.getInt("bitId"));
-                bitacora.setUsuId(rs.getInt("usuId"));
-                bitacora.setPerId(rs.getInt("perId"));
-                bitacora.setAccion(rs.getString("accion"));
-                bitacora.setFecha(rs.getTimestamp("fecha"));
-                bitacoras.add(bitacora);
-            }
-        } catch (SQLException ex) {
-            ex.printStackTrace(System.out);
-        } finally {
-            Conexion.close(rs);
-            Conexion.close(stmt);
-            Conexion.close(conn);
-        }
-        return bitacoras;
-    }
-
-    public clsBitacora consultarBitacoraPorId(int bitId) {
-        Connection conn = null;
-        PreparedStatement stmt = null;
-        Result
+}
