@@ -1,20 +1,20 @@
-C:\Users\WINDOWS\Desktop\Kev Uni\Proyecto Programación 3\proyectop32k26b\proyectop32k26b\src\main\java\Modelo\UsuarioDAO.java
-C:\Users\WINDOWS\Desktop\Kev Uni\Proyecto Programación 3\proyectop32k26b\proyectop32k26b\src\main\java\Vista\frmAsignacionAplicacionUsuario.java
-C:\Users\WINDOWS\Desktop\Kev Uni\Proyecto Programación 3\proyectop32k26b\proyectop32k26b\src\main\java\Modelo\AplicacionesDAO.java
-C:\Users\WINDOWS\Desktop\Kev Uni\Proyecto Programación 3\proyectop32k26b\proyectop32k26b\src\main\java\Vista\MdiSeguridad.java
-C:\Users\WINDOWS\Desktop\Kev Uni\Proyecto Programación 3\proyectop32k26b\proyectop32k26b\src\main\java\Controlador\clsAsignacionAplicacionUsuario.java
-C:\Users\WINDOWS\Desktop\Kev Uni\Proyecto Programación 3\proyectop32k26b\proyectop32k26b\src\main\java\Vista\frmRestablecerContraseña.java
-C:\Users\WINDOWS\Desktop\Kev Uni\Proyecto Programación 3\proyectop32k26b\proyectop32k26b\src\main\java\Controlador\clsAplicaciones.java
-C:\Users\WINDOWS\Desktop\Kev Uni\Proyecto Programación 3\proyectop32k26b\proyectop32k26b\src\main\java\Vista\frmLogin.java
-C:\Users\WINDOWS\Desktop\Kev Uni\Proyecto Programación 3\proyectop32k26b\proyectop32k26b\src\main\java\Controlador\clsUsuario.java
-C:\Users\WINDOWS\Desktop\Kev Uni\Proyecto Programación 3\proyectop32k26b\proyectop32k26b\src\main\java\Controlador\clsSeguridad.java
-C:\Users\WINDOWS\Desktop\Kev Uni\Proyecto Programación 3\proyectop32k26b\proyectop32k26b\src\main\java\Controlador\clsUsuarioConectado.java
-C:\Users\WINDOWS\Desktop\Kev Uni\Proyecto Programación 3\proyectop32k26b\proyectop32k26b\src\main\java\Modelo\Conexion.java
-C:\Users\WINDOWS\Desktop\Kev Uni\Proyecto Programación 3\proyectop32k26b\proyectop32k26b\src\main\java\Controlador\clsPerfil.java
-C:\Users\WINDOWS\Desktop\Kev Uni\Proyecto Programación 3\proyectop32k26b\proyectop32k26b\src\main\java\Modelo\PerfilDAO.java
-C:\Users\WINDOWS\Desktop\Kev Uni\Proyecto Programación 3\proyectop32k26b\proyectop32k26b\src\main\java\Vista\MantenimientoBitacora.java
-C:\Users\WINDOWS\Desktop\Kev Uni\Proyecto Programación 3\proyectop32k26b\proyectop32k26b\src\main\java\Controlador\clsBitacora.java
-C:\Users\WINDOWS\Desktop\Kev Uni\Proyecto Programación 3\proyectop32k26b\proyectop32k26b\src\main\java\Vista\frmAplicaciones.java
-C:\Users\WINDOWS\Desktop\Kev Uni\Proyecto Programación 3\proyectop32k26b\proyectop32k26b\src\main\java\Modelo\AsignacionAplicacionUsuarioDAO.java
-C:\Users\WINDOWS\Desktop\Kev Uni\Proyecto Programación 3\proyectop32k26b\proyectop32k26b\src\main\java\Modelo\BitacoraDAO.java
-C:\Users\WINDOWS\Desktop\Kev Uni\Proyecto Programación 3\proyectop32k26b\proyectop32k26b\src\main\java\Vista\frmMantenimientoUsuario.java
+C:\REPOSITORIO\proyectop32k26b\proyectop32k26b\src\main\java\Controlador\clsUsuarioConectado.java
+C:\REPOSITORIO\proyectop32k26b\proyectop32k26b\src\main\java\Controlador\clsAplicaciones.java
+C:\REPOSITORIO\proyectop32k26b\proyectop32k26b\src\main\java\Vista\frmLogin.java
+C:\REPOSITORIO\proyectop32k26b\proyectop32k26b\src\main\java\Controlador\clsAsignacionAplicacionUsuario.java
+C:\REPOSITORIO\proyectop32k26b\proyectop32k26b\src\main\java\Controlador\clsUsuario.java
+C:\REPOSITORIO\proyectop32k26b\proyectop32k26b\src\main\java\Vista\frmAplicaciones.java
+C:\REPOSITORIO\proyectop32k26b\proyectop32k26b\src\main\java\Vista\MantenimientoBitacora.java
+C:\REPOSITORIO\proyectop32k26b\proyectop32k26b\src\main\java\Vista\frmAsignacionAplicacionUsuario.java
+C:\REPOSITORIO\proyectop32k26b\proyectop32k26b\src\main\java\Modelo\BitacoraDAO.java
+C:\REPOSITORIO\proyectop32k26b\proyectop32k26b\src\main\java\Modelo\AsignacionAplicacionUsuarioDAO.java
+C:\REPOSITORIO\proyectop32k26b\proyectop32k26b\src\main\java\Vista\MdiSeguridad.java
+C:\REPOSITORIO\proyectop32k26b\proyectop32k26b\src\main\java\Controlador\clsPerfil.java
+C:\REPOSITORIO\proyectop32k26b\proyectop32k26b\src\main\java\Modelo\AplicacionesDAO.java
+C:\REPOSITORIO\proyectop32k26b\proyectop32k26b\src\main\java\Controlador\clsBitacora.java
+C:\REPOSITORIO\proyectop32k26b\proyectop32k26b\src\main\java\Modelo\UsuarioDAO.java
+C:\REPOSITORIO\proyectop32k26b\proyectop32k26b\src\main\java\Vista\frmMantenimientoPerfil.java
+C:\REPOSITORIO\proyectop32k26b\proyectop32k26b\src\main\java\Controlador\clsSeguridad.java
+C:\REPOSITORIO\proyectop32k26b\proyectop32k26b\src\main\java\Modelo\PerfilDAO.java
+C:\REPOSITORIO\proyectop32k26b\proyectop32k26b\src\main\java\Vista\frmMantenimientoUsuario.java
+C:\REPOSITORIO\proyectop32k26b\proyectop32k26b\src\main\java\Modelo\Conexion.java
