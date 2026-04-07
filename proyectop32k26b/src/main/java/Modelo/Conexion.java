@@ -31,5 +31,5 @@ public class Conexion { //aquí se encuentra la conexion a la BD llamada proyect
     public static void close(Connection conn){
         try { conn.close(); } 
         catch (SQLException ex){ ex.printStackTrace(System.out); }
-    }
+    } 
 }

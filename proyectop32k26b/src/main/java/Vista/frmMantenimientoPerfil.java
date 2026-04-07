@@ -25,27 +25,63 @@ import javax.swing.JOptionPane;
 
 
 
-
-
-
-
-
-
-
 /**
  *
  * @author visitante
  */
 public class frmMantenimientoPerfil extends javax.swing.JInternalFrame {
     
-int codigoAplicacion=11;
 
     public frmMantenimientoPerfil() {
         initComponents();
         llenadoDeTablas();
         
     }
+    
+    
+    
+    
+    
+    private clsBitacora crearBitacora(String accion) {
+    clsBitacora bitacora = new clsBitacora();
 
+    try {
+        BitacoraDAO dao = new BitacoraDAO();
+
+        // Usuario conectado (este era tu error principal)
+        bitacora.setUsucodigo(1);
+        int usuario = 1; // valor por defecto
+
+        try {
+        usuario = clsUsuarioConectado.getUsuId();
+        } catch (Exception e) {
+    System.out.println("Usuario no definido, usando default");
+    }
+
+bitacora.setUsucodigo(usuario);
+
+        // Código de aplicación (puedes dejar fijo si no tienes sistema de apps)
+        bitacora.setAplcodigo(1);
+
+        // Fecha actual
+        bitacora.setBitfecha(dao.fechaActual());
+
+        // IP y nombre del equipo
+        bitacora.setBitip(java.net.InetAddress.getLocalHost().getHostAddress());
+        bitacora.setBitequipo(java.net.InetAddress.getLocalHost().getHostName());
+
+        // Acción
+        bitacora.setBitaccion(accion);
+
+    } catch (Exception e) {
+        e.printStackTrace();
+    }
+
+    return bitacora;
+}
+    
+
+    
     public void llenadoDeTablas() {
         DefaultTableModel modelo = new DefaultTableModel();
     modelo.addColumn("Codigo Perfil");
@@ -55,7 +91,8 @@ int codigoAplicacion=11;
     tablaPerfil.setModel(modelo);
 
     PerfilDAO dao = new PerfilDAO();
-    List<clsPerfil> listaPerfiles = dao.obtenerPerfiles();
+    clsBitacora bitacora = crearBitacora("Consulta perfiles");
+    List<clsPerfil> listaPerfiles = dao.obtenerPerfiles(bitacora);
 
     String[] dato = new String[3];
     for (clsPerfil p : listaPerfiles) {
@@ -102,12 +139,9 @@ int codigoAplicacion=11;
         txtCodigo = new javax.swing.JTextField();
         label5 = new javax.swing.JLabel();
         lb = new javax.swing.JLabel();
-        jButton2 = new javax.swing.JButton();
         label4 = new javax.swing.JLabel();
-        btnActualizar = new javax.swing.JButton();
         label9 = new javax.swing.JLabel();
         txtEstado = new javax.swing.JTextField();
-        btnReportes = new javax.swing.JButton();
 
         lb2.setForeground(new java.awt.Color(204, 204, 204));
         lb2.setText(".");
@@ -191,35 +225,14 @@ int codigoAplicacion=11;
         lb.setForeground(new java.awt.Color(204, 204, 204));
         lb.setText(".");
 
-        jButton2.setText("Ayuda");
-        jButton2.addActionListener(new java.awt.event.ActionListener() {
-            public void actionPerformed(java.awt.event.ActionEvent evt) {
-                jButton2ActionPerformed(evt);
-            }
-        });
-
         label4.setFont(new java.awt.Font("Century Gothic", 1, 12)); // NOI18N
         label4.setText("ID a buscar");
-
-        btnActualizar.setText("Actualizar");
-        btnActualizar.addActionListener(new java.awt.event.ActionListener() {
-            public void actionPerformed(java.awt.event.ActionEvent evt) {
-                btnActualizarActionPerformed(evt);
-            }
-        });
 
         label9.setFont(new java.awt.Font("Century Gothic", 0, 14)); // NOI18N
         label9.setText("Estatus");
 
         txtEstado.setFont(new java.awt.Font("Century Gothic", 0, 14)); // NOI18N
         txtEstado.setBorder(javax.swing.BorderFactory.createMatteBorder(0, 0, 1, 0, new java.awt.Color(204, 204, 204)));
-
-        btnReportes.setText("Reportes");
-        btnReportes.addActionListener(new java.awt.event.ActionListener() {
-            public void actionPerformed(java.awt.event.ActionEvent evt) {
-                btnReportesActionPerformed(evt);
-            }
-        });
 
         javax.swing.GroupLayout layout = new javax.swing.GroupLayout(getContentPane());
         getContentPane().setLayout(layout);
@@ -235,7 +248,7 @@ int codigoAplicacion=11;
                         .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.TRAILING, false)
                             .addGroup(layout.createSequentialGroup()
                                 .addGap(6, 6, 6)
-                                .addComponent(label4, javax.swing.GroupLayout.DEFAULT_SIZE, 79, Short.MAX_VALUE)
+                                .addComponent(label4, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
                                 .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.UNRELATED)
                                 .addComponent(txtBuscar, javax.swing.GroupLayout.PREFERRED_SIZE, 95, javax.swing.GroupLayout.PREFERRED_SIZE)
                                 .addGap(18, 18, 18)
@@ -246,14 +259,9 @@ int codigoAplicacion=11;
                                         .addComponent(btnRegistrar, javax.swing.GroupLayout.PREFERRED_SIZE, 95, javax.swing.GroupLayout.PREFERRED_SIZE)
                                         .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
                                         .addComponent(btnModificar, javax.swing.GroupLayout.PREFERRED_SIZE, 95, javax.swing.GroupLayout.PREFERRED_SIZE))
-                                    .addGroup(layout.createSequentialGroup()
-                                        .addComponent(btnLimpiar, javax.swing.GroupLayout.PREFERRED_SIZE, 95, javax.swing.GroupLayout.PREFERRED_SIZE)
-                                        .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
-                                        .addComponent(jButton2, javax.swing.GroupLayout.PREFERRED_SIZE, 95, javax.swing.GroupLayout.PREFERRED_SIZE)))
+                                    .addComponent(btnLimpiar, javax.swing.GroupLayout.PREFERRED_SIZE, 95, javax.swing.GroupLayout.PREFERRED_SIZE))
                                 .addGap(14, 14, 14)
-                                .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING, false)
-                                    .addComponent(btnEliminar, javax.swing.GroupLayout.DEFAULT_SIZE, 95, Short.MAX_VALUE)
-                                    .addComponent(btnReportes, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)))))
+                                .addComponent(btnEliminar, javax.swing.GroupLayout.PREFERRED_SIZE, 95, javax.swing.GroupLayout.PREFERRED_SIZE))))
                     .addGroup(layout.createSequentialGroup()
                         .addContainerGap()
                         .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
@@ -267,9 +275,6 @@ int codigoAplicacion=11;
                             .addComponent(txtNombre, javax.swing.GroupLayout.PREFERRED_SIZE, 271, javax.swing.GroupLayout.PREFERRED_SIZE))))
                 .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
                 .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-                    .addGroup(layout.createSequentialGroup()
-                        .addComponent(btnActualizar)
-                        .addGap(0, 0, Short.MAX_VALUE))
                     .addGroup(layout.createSequentialGroup()
                         .addComponent(label1)
                         .addGap(294, 592, Short.MAX_VALUE))
@@ -305,10 +310,7 @@ int codigoAplicacion=11;
                             .addComponent(btnEliminar)
                             .addComponent(btnModificar))
                         .addGap(3, 3, 3)
-                        .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
-                            .addComponent(btnLimpiar)
-                            .addComponent(jButton2)
-                            .addComponent(btnReportes))
+                        .addComponent(btnLimpiar)
                         .addGap(5, 5, 5)
                         .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
                             .addComponent(btnBuscar)
@@ -317,9 +319,7 @@ int codigoAplicacion=11;
                         .addGap(23, 23, 23))
                     .addGroup(layout.createSequentialGroup()
                         .addComponent(jScrollPane1, javax.swing.GroupLayout.PREFERRED_SIZE, 303, javax.swing.GroupLayout.PREFERRED_SIZE)
-                        .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
-                        .addComponent(btnActualizar)
-                        .addContainerGap(64, Short.MAX_VALUE))))
+                        .addContainerGap(93, Short.MAX_VALUE))))
         );
 
         pack();
@@ -336,23 +336,34 @@ int codigoAplicacion=11;
     perfil.setPercodigo(Integer.parseInt(txtCodigo.getText()));
 
     PerfilDAO dao = new PerfilDAO();
-    dao.eliminarPerfil(perfil);
+    clsBitacora bitacora = crearBitacora("Eliminar perfil");
+dao.eliminarPerfil(perfil, bitacora);
 
     JOptionPane.showMessageDialog(null, "Perfil eliminado");
 
     llenadoDeTablas();
     limpiarTextos();
+    
+    
     }//GEN-LAST:event_btnEliminarActionPerformed
 
     private void btnRegistrarActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnRegistrarActionPerformed
-        clsPerfil perfil = new clsPerfil();
+        if(txtNombre.getText().isEmpty() || txtEstado.getText().isEmpty()){
+    JOptionPane.showMessageDialog(null, "Complete los campos");
+    return;
+    } 
+    
+    clsPerfil perfil = new clsPerfil();
     perfil.setPernombre(txtNombre.getText());
     perfil.setPerestado(txtEstado.getText());
 
     PerfilDAO dao = new PerfilDAO();
-    dao.insertarPerfil(perfil);
+    clsBitacora bitacora = crearBitacora("Insertar perfil");
+    dao.insertarPerfil(perfil, bitacora);
 
     JOptionPane.showMessageDialog(null, "Perfil registrado");
+    
+    
 
     llenadoDeTablas();
     limpiarTextos();
@@ -361,9 +372,14 @@ int codigoAplicacion=11;
     private void btnBuscarActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnBuscarActionPerformed
             // TODO add your handling code here:       
         PerfilDAO dao = new PerfilDAO();
+    if(txtBuscar.getText().isEmpty()){
+    JOptionPane.showMessageDialog(null, "Ingrese un ID");
+    return;
+}
     int id = Integer.parseInt(txtBuscar.getText());
 
-    clsPerfil perfil = dao.obtenerPerfilPorId(id);
+    clsBitacora bitacora = crearBitacora("Buscar perfil");
+clsPerfil perfil = dao.obtenerPerfilPorId(id, bitacora);
 
     if(perfil != null){
         txtCodigo.setText(String.valueOf(perfil.getPercodigo()));
@@ -376,18 +392,28 @@ int codigoAplicacion=11;
 
     private void btnModificarActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnModificarActionPerformed
 //        // TODO add your handling code here:
-        clsPerfil perfil = new clsPerfil();
+    if(txtCodigo.getText().isEmpty()){
+    JOptionPane.showMessageDialog(null, "Seleccione un registro");
+    return;
+    }
+    
+
+
+    clsPerfil perfil = new clsPerfil();
     perfil.setPercodigo(Integer.parseInt(txtCodigo.getText()));
     perfil.setPernombre(txtNombre.getText());
     perfil.setPerestado(txtEstado.getText());
 
     PerfilDAO dao = new PerfilDAO();
-    dao.actualizarPerfil(perfil);
+    clsBitacora bitacora = crearBitacora("Modificar perfil");
+dao.actualizarPerfil(perfil, bitacora);
 
     JOptionPane.showMessageDialog(null, "Perfil modificado");
 
     llenadoDeTablas();
     limpiarTextos();
+    
+    
     }//GEN-LAST:event_btnModificarActionPerformed
 
     private void btnLimpiarActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnLimpiarActionPerformed
@@ -414,32 +440,29 @@ int codigoAplicacion=11;
         } catch (Exception e) {
             System.out.println(e);}
     }   
-    private void jButton2ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jButton2ActionPerformed
-        // TODO add your handling code here:
-       
-    }//GEN-LAST:event_jButton2ActionPerformed
+    
+    
+    public static void main(String args[]) {
+    javax.swing.JFrame frame = new javax.swing.JFrame("Perfil");
+    javax.swing.JDesktopPane desktop = new javax.swing.JDesktopPane();
+    
+    frame.add(desktop);
 
-    private void btnActualizarActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnActualizarActionPerformed
-        // TODO add your handling code here:
-        llenadoDeTablas();
-    }//GEN-LAST:event_btnActualizarActionPerformed
+    frmMantenimientoPerfil ventana = new frmMantenimientoPerfil();
+    desktop.add(ventana);
+    ventana.setVisible(true);
 
-    private void btnReportesActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnReportesActionPerformed
-        // TODO add your handling code here:
-        
-        
-    }//GEN-LAST:event_btnReportesActionPerformed
-
+    frame.setSize(1000, 600);
+    frame.setDefaultCloseOperation(javax.swing.JFrame.EXIT_ON_CLOSE);
+    frame.setVisible(true);
+}
 
     // Variables declaration - do not modify//GEN-BEGIN:variables
-    private javax.swing.JButton btnActualizar;
     private javax.swing.JButton btnBuscar;
     private javax.swing.JButton btnEliminar;
     private javax.swing.JButton btnLimpiar;
     private javax.swing.JButton btnModificar;
     private javax.swing.JButton btnRegistrar;
-    private javax.swing.JButton btnReportes;
-    private javax.swing.JButton jButton2;
     private javax.swing.JScrollPane jScrollPane1;
     private javax.swing.JLabel label1;
     private javax.swing.JLabel label3;

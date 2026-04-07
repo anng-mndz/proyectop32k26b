@@ -19,6 +19,9 @@ import javax.swing.JOptionPane;
  * @author visitante
  */
 public class MdiSeguridad extends javax.swing.JFrame {
+    
+    frmAplicaciones vistaAplicaciones;
+    frmMantenimientoPerfil vistaPerfiles;
 
     /**
      * Creates new form MdiGeneral
@@ -33,6 +36,8 @@ public class MdiSeguridad extends javax.swing.JFrame {
         //setDefaultCloseOperation(EXIT_ON_CLOSE);
         
     }
+    
+    
 
     /**
      * This method is called from within the constructor to initialize the form.
@@ -128,7 +133,6 @@ public class MdiSeguridad extends javax.swing.JFrame {
         });
         mnuCatalogosMantenimientos.add(mantenimientoUsuarios);
 
-        mantenimientoAplicaciones.setSelected(true);
         mantenimientoAplicaciones.setText("Mantenimiento Aplicaciones");
         mantenimientoAplicaciones.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
@@ -137,8 +141,8 @@ public class MdiSeguridad extends javax.swing.JFrame {
         });
         mnuCatalogosMantenimientos.add(mantenimientoAplicaciones);
 
-        mantenimientoModulos.setSelected(true);
         mantenimientoModulos.setText("Mantenimiento Modulos");
+        mantenimientoModulos.setBorderPainted(false);
         mantenimientoModulos.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
                 mantenimientoModulosActionPerformed(evt);
@@ -146,8 +150,8 @@ public class MdiSeguridad extends javax.swing.JFrame {
         });
         mnuCatalogosMantenimientos.add(mantenimientoModulos);
 
-        mantenimientoPerfiles.setSelected(true);
         mantenimientoPerfiles.setText("Mantenimiento Perfiles");
+        mantenimientoPerfiles.setBorderPainted(false);
         mantenimientoPerfiles.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
                 mantenimientoPerfilesActionPerformed(evt);
@@ -155,8 +159,8 @@ public class MdiSeguridad extends javax.swing.JFrame {
         });
         mnuCatalogosMantenimientos.add(mantenimientoPerfiles);
 
-        mantenimientoTipoUsuarios.setSelected(true);
         mantenimientoTipoUsuarios.setText("Mantenimiento Tipo de Usuarios");
+        mantenimientoTipoUsuarios.setBorderPainted(false);
         mantenimientoTipoUsuarios.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
                 mantenimientoTipoUsuariosActionPerformed(evt);
@@ -191,7 +195,6 @@ public class MdiSeguridad extends javax.swing.JFrame {
         });
         mnuProcesos.add(aplicacionesUsuarios);
 
-        menuperfilUsuario.setSelected(true);
         menuperfilUsuario.setText("Perfil Usuario");
         menuperfilUsuario.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
@@ -217,7 +220,6 @@ public class MdiSeguridad extends javax.swing.JFrame {
             }
         });
 
-        consultaBitacora.setSelected(true);
         consultaBitacora.setText("Consulta de Bitacora");
         consultaBitacora.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
@@ -275,6 +277,19 @@ public class MdiSeguridad extends javax.swing.JFrame {
                         System.exit(0);
                     }
     }
+    
+    
+    //metodo para cerra ventanas
+    public void cerrarVentanas(){
+    if(vistaAplicaciones != null){
+        vistaAplicaciones.dispose();
+    }
+    if(vistaPerfiles != null){
+        vistaPerfiles.dispose();
+    }
+}
+       
+    
     private void mnuCatalogosMantenimientosActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_mnuCatalogosMantenimientosActionPerformed
         // TODO add your handling code here:
 
@@ -308,12 +323,20 @@ public class MdiSeguridad extends javax.swing.JFrame {
 
     private void mantenimientoAplicacionesActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_mantenimientoAplicacionesActionPerformed
         // TODO add your handling code here:
-        frmAplicaciones ventana = new frmAplicaciones();
-        jDesktopPane1.add(ventana);
-        Dimension desktopSize = jDesktopPane1.getSize();
-        Dimension FrameSize = ventana.getSize();
-        ventana.setLocation((desktopSize.width - FrameSize.width) / 2, (desktopSize.height - FrameSize.             height) / 2);
-        ventana.setVisible(true);
+         cerrarVentanas();
+
+    vistaAplicaciones = new frmAplicaciones();
+    jDesktopPane1.add(vistaAplicaciones);
+    vistaAplicaciones.setVisible(true);
+
+    Dimension desktopSize = jDesktopPane1.getSize();
+    Dimension FrameSize = vistaAplicaciones.getSize();
+    vistaAplicaciones.setLocation(
+        (desktopSize.width - FrameSize.width) / 2, 
+        (desktopSize.height - FrameSize.height) / 2
+    );
+
+    mantenimientoPerfiles.setSelected(false);
     }//GEN-LAST:event_mantenimientoAplicacionesActionPerformed
 
     private void mantenimientoModulosActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_mantenimientoModulosActionPerformed
@@ -327,11 +350,20 @@ public class MdiSeguridad extends javax.swing.JFrame {
 
     private void mantenimientoPerfilesActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_mantenimientoPerfilesActionPerformed
         // TODO add your handling code here:
-        //frmPerfiles ventana = new frmPerfiles();
-        //jDesktopPane1.add(ventana);
-        //Dimension desktopSize = jDesktopPane1.getSize();
-        //Dimension FrameSize = ventana.getSize();
-        //ventana.setLocation((desktopSize.width - FrameSize.width) / 2, (desktopSize.height - FrameSize.             height) / 2);        
+        cerrarVentanas();
+
+    vistaPerfiles = new frmMantenimientoPerfil();
+    jDesktopPane1.add(vistaPerfiles);
+    vistaPerfiles.setVisible(true);
+
+    Dimension desktopSize = jDesktopPane1.getSize();
+    Dimension FrameSize = vistaPerfiles.getSize();
+    vistaPerfiles.setLocation(
+        (desktopSize.width - FrameSize.width) / 2, 
+        (desktopSize.height - FrameSize.height) / 2
+    );
+
+    mantenimientoAplicaciones.setSelected(false);
     }//GEN-LAST:event_mantenimientoPerfilesActionPerformed
 
     private void mantenimientoTipoUsuariosActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_mantenimientoTipoUsuariosActionPerformed
@@ -376,12 +408,27 @@ public class MdiSeguridad extends javax.swing.JFrame {
     }//GEN-LAST:event_menuperfilUsuarioActionPerformed
 
     private void mIAplicacionPerfilActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_mIAplicacionPerfilActionPerformed
-        frmProcesoAplicacionPerfil ventana = new frmProcesoAplicacionPerfil();
-        jDesktopPane1.add(ventana);
-        Dimension desktopSize = jDesktopPane1.getSize();
-        Dimension FrameSize = ventana.getSize();
-        ventana.setLocation((desktopSize.width - FrameSize.width) / 2, (desktopSize.height - FrameSize.             height) / 2);
-        ventana.setVisible(true);
+        if(mantenimientoPerfiles.isSelected()){
+        if(vistaPerfiles == null || vistaPerfiles.isClosed()){
+            
+            vistaPerfiles = new frmMantenimientoPerfil();
+            jDesktopPane1.add(vistaPerfiles);
+            vistaPerfiles.setVisible(true);
+
+            Dimension desktopSize = jDesktopPane1.getSize();
+            Dimension FrameSize = vistaPerfiles.getSize();
+            vistaPerfiles.setLocation(
+                (desktopSize.width - FrameSize.width) / 2, 
+                (desktopSize.height - FrameSize.height) / 2
+            );
+        }
+    } else {
+        if(vistaPerfiles != null){
+            vistaPerfiles.dispose();
+        }
+    }
+
+    mantenimientoAplicaciones.setSelected(false);
     }//GEN-LAST:event_mIAplicacionPerfilActionPerformed
 
     private void mnuProcesosActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_mnuProcesosActionPerformed

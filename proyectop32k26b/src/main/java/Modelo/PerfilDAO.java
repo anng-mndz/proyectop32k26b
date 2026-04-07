@@ -2,6 +2,7 @@ package Modelo;
 
 import Controlador.clsPerfil;
 import Controlador.clsBitacora;
+import Vista.frmMantenimientoPerfil;
 import java.sql.*;
 import java.util.ArrayList;
 import java.util.List;
@@ -9,29 +10,29 @@ import java.util.List;
 public class PerfilDAO {
 
     private static final String SQL_SELECT =
-            "SELECT percodigo, pernombre, perestado FROM perfil";
+            "SELECT percodigo, pernombre, perestado FROM perfiles";
 
     private static final String SQL_INSERT =
-            "INSERT INTO perfil(pernombre, perestado) VALUES(?, ?)";
+            "INSERT INTO perfiles (pernombre, perestado) VALUES(?, ?)";
 
     private static final String SQL_UPDATE =
-            "UPDATE perfil SET pernombre=?, perestado=? WHERE percodigo=?";
+            "UPDATE perfiles SET pernombre=?, perestado=? WHERE percodigo=?";
 
     private static final String SQL_DELETE =
-            "DELETE FROM perfil WHERE percodigo=?";
+            "DELETE FROM perfiles WHERE percodigo=?";
 
     private static final String SQL_SELECT_ID =
-            "SELECT percodigo, pernombre, perestado FROM perfil WHERE percodigo=?";
+            "SELECT percodigo, pernombre, perestado FROM perfiles WHERE percodigo=?";
 
 
     private static final String SQL_INSERT_BITACORA =
-            "INSERT INTO bitacora(usucodigo, aplcodigo, bitfecha, bitip, bitequipo, bitaccion) VALUES(?, ?, ?, ?, ?, ?)";
+            "INSERT INTO bitacora(usuid, aplcodigo, bitfecha, bitip, bitequipo, bitaccion) VALUES(?, ?, ?, ?, ?, ?)";
 
     private static final String SQL_SELECT_BITACORA =
-            "SELECT bitcodigo, usucodigo, aplcodigo, bitfecha, bitip, bitequipo, bitaccion FROM bitacora";
+            "SELECT bitcodigo, usuid, aplcodigo, bitfecha, bitip, bitequipo, bitaccion FROM bitacora";
 
     private static final String SQL_UPDATE_BITACORA =
-            "UPDATE bitacora SET usucodigo=?, aplcodigo=?, bitfecha=?, bitip=?, bitequipo=?, bitaccion=? WHERE bitcodigo=?";
+            "UPDATE bitacora SET usuid=?, aplcodigo=?, bitfecha=?, bitip=?, bitequipo=?, bitaccion=? WHERE bitcodigo=?";
 
     private static final String SQL_DELETE_BITACORA =
             "DELETE FROM bitacora WHERE bitcodigo=?";
@@ -57,8 +58,8 @@ public class PerfilDAO {
                 lista.add(p);
             }
 
-            bitacora.setBitaccion("SELECT perfiles");
-            insertarBitacora(bitacora);
+            //bitacora.setBitaccion("SELECT perfiles");
+            //insertarBitacora(bitacora);
 
         } catch (SQLException e) {
             e.printStackTrace(System.out);
@@ -171,8 +172,8 @@ public class PerfilDAO {
                 perfil.setPerestado(rs.getString("perestado"));
             }
 
-            bitacora.setBitaccion("SELECT perfil ID " + id);
-            insertarBitacora(bitacora);
+            //bitacora.setBitaccion("SELECT perfil ID " + id);
+            //insertarBitacora(bitacora);
 
         } catch (SQLException e) {
             e.printStackTrace(System.out);

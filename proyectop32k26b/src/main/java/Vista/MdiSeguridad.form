@@ -76,7 +76,6 @@
                 </MenuItem>
                 <MenuItem class="javax.swing.JCheckBoxMenuItem" name="mantenimientoAplicaciones">
                   <Properties>
-                    <Property name="selected" type="boolean" value="true"/>
                     <Property name="text" type="java.lang.String" value="Mantenimiento Aplicaciones"/>
                   </Properties>
                   <Events>
@@ -85,8 +84,8 @@
                 </MenuItem>
                 <MenuItem class="javax.swing.JCheckBoxMenuItem" name="mantenimientoModulos">
                   <Properties>
-                    <Property name="selected" type="boolean" value="true"/>
                     <Property name="text" type="java.lang.String" value="Mantenimiento Modulos"/>
+                    <Property name="borderPainted" type="boolean" value="false"/>
                   </Properties>
                   <Events>
                     <EventHandler event="actionPerformed" listener="java.awt.event.ActionListener" parameters="java.awt.event.ActionEvent" handler="mantenimientoModulosActionPerformed"/>
@@ -94,8 +93,8 @@
                 </MenuItem>
                 <MenuItem class="javax.swing.JCheckBoxMenuItem" name="mantenimientoPerfiles">
                   <Properties>
-                    <Property name="selected" type="boolean" value="true"/>
                     <Property name="text" type="java.lang.String" value="Mantenimiento Perfiles"/>
+                    <Property name="borderPainted" type="boolean" value="false"/>
                   </Properties>
                   <Events>
                     <EventHandler event="actionPerformed" listener="java.awt.event.ActionListener" parameters="java.awt.event.ActionEvent" handler="mantenimientoPerfilesActionPerformed"/>
@@ -103,8 +102,8 @@
                 </MenuItem>
                 <MenuItem class="javax.swing.JCheckBoxMenuItem" name="mantenimientoTipoUsuarios">
                   <Properties>
-                    <Property name="selected" type="boolean" value="true"/>
                     <Property name="text" type="java.lang.String" value="Mantenimiento Tipo de Usuarios"/>
+                    <Property name="borderPainted" type="boolean" value="false"/>
                   </Properties>
                   <Events>
                     <EventHandler event="actionPerformed" listener="java.awt.event.ActionListener" parameters="java.awt.event.ActionEvent" handler="mantenimientoTipoUsuariosActionPerformed"/>
@@ -140,7 +139,6 @@
             </MenuItem>
             <MenuItem class="javax.swing.JCheckBoxMenuItem" name="menuperfilUsuario">
               <Properties>
-                <Property name="selected" type="boolean" value="true"/>
                 <Property name="text" type="java.lang.String" value="Perfil Usuario"/>
               </Properties>
               <Events>
@@ -167,7 +165,6 @@
           <SubComponents>
             <MenuItem class="javax.swing.JCheckBoxMenuItem" name="consultaBitacora">
               <Properties>
-                <Property name="selected" type="boolean" value="true"/>
                 <Property name="text" type="java.lang.String" value="Consulta de Bitacora"/>
               </Properties>
               <Events>
