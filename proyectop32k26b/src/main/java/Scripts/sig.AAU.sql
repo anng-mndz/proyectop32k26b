@@ -1,9 +1,1 @@
-/* 
- * Click nbfs://nbhost/SystemFileSystem/Templates/Licenses/license-default.txt to change this license
- * Click nbfs://nbhost/SystemFileSystem/Templates/Other/SQLTemplate.sql to edit this template
- */
-/**
- * Author:  VA
- * Created: 8/04/2026
- */
-
+INSERT INTO aplicaciones (Aplcodigo, UsuId, APLUins, APLUsel, APLUupd, APLUdel, APLUrep) VALUES (10012, "asignacionaplicacionusuarios", 1)
