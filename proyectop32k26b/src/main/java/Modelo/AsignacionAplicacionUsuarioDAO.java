@@ -1,5 +1,37 @@
 package Modelo;
 
+/**
+ * Data Access Object para la gestión de Asignaciones de Aplicaciones a Usuarios
+ * 
+ * Proporciona métodos para realizar operaciones CRUD sobre las asignaciones
+ * de aplicaciones a usuarios, incluyendo la gestión automática de registros
+ * en la bitácora del sistema.
+ * 
+ * Funcionalidades principales:
+ * - Insertar nuevas asignaciones de aplicaciones a usuarios
+ * - Actualizar permisos de acceso (Insert, Select, Update, Delete, Report)
+ * - Eliminar asignaciones de aplicaciones
+ * - Recuperar aplicaciones asignadas a un usuario
+ * - Recuperar aplicaciones disponibles para un usuario
+ * - Obtener permisos específicos de una asignación
+ * - Registro automático de operaciones en bitácora
+ * 
+ * Todas las operaciones generan automáticamente registros en la tabla bitacora
+ * con información de usuario, aplicación, acción y datos de conexión.
+ * 
+ * @author Camila Araujo
+ * @carnet 9959-24-17623
+ * @author Angel Méndez (Implementación de bitácora automática)
+ * @carnet 9959-24-6845
+ * @since 2026-04-08
+ * 
+ * Modificaciones realizadas por Angel:
+ * - Agregado registro automático en bitácora para operaciones CRUD
+ * - Mejora en textos de acciones para optimizar espacio en BD
+ * - Implementación de selección múltiple de aplicaciones
+ * - Validaciones mejoradas en consultas
+ */
+
 import Controlador.clsAsignacionAplicacionUsuario;
 import Controlador.clsAplicaciones;
 import java.sql.*;
@@ -30,6 +62,12 @@ public class AsignacionAplicacionUsuarioDAO {
 
             resultado = stmt.executeUpdate();
 
+            // ✅ REGISTRAR EN BITÁCORA (texto corto)
+            if (resultado > 0) {
+                String accion = "Asignación App";
+                new BitacoraDAO().insert(asignacion.getUsuId(), asignacion.getAplcodigo(), accion);
+            }
+
         } catch (SQLException ex) {
             ex.printStackTrace(System.out);
         }
@@ -37,34 +75,44 @@ public class AsignacionAplicacionUsuarioDAO {
         return resultado;
     }
     
-public int actualizaAsignacion(clsAsignacionAplicacionUsuario asig) {
+    public int actualizaAsignacion(clsAsignacionAplicacionUsuario asig) {
 
-    int resultado = 0;
+        int resultado = 0;
 
-    String sql = "UPDATE asignacionaplicacionusuarios "
-            + "SET APLUins=?, APLUsel=?, APLUupd=?, APLUdel=?, APLUrep=? "
-            + "WHERE Aplcodigo=? AND UsuId=?";
+        String sql = "UPDATE asignacionaplicacionusuarios "
+                + "SET APLUins=?, APLUsel=?, APLUupd=?, APLUdel=?, APLUrep=? "
+                + "WHERE Aplcodigo=? AND UsuId=?";
 
-    try (Connection conn = Conexion.getConnection();
-         PreparedStatement ps = conn.prepareStatement(sql)) {
+        try (Connection conn = Conexion.getConnection();
+             PreparedStatement ps = conn.prepareStatement(sql)) {
 
-        ps.setString(1, asig.getAPLUins());
-        ps.setString(2, asig.getAPLUsel());
-        ps.setString(3, asig.getAPLUupd());
-        ps.setString(4, asig.getAPLUdel());
-        ps.setString(5, asig.getAPLUrep());
+            ps.setString(1, asig.getAPLUins());
+            ps.setString(2, asig.getAPLUsel());
+            ps.setString(3, asig.getAPLUupd());
+            ps.setString(4, asig.getAPLUdel());
+            ps.setString(5, asig.getAPLUrep());
 
-        ps.setInt(6, asig.getAplcodigo());
-        ps.setInt(7, asig.getUsuId());
+            ps.setInt(6, asig.getAplcodigo());
+            ps.setInt(7, asig.getUsuId());
 
-        resultado = ps.executeUpdate();
+            resultado = ps.executeUpdate();
 
-    } catch (Exception e) {
-        e.printStackTrace();
+            // ✅ REGISTRAR EN BITÁCORA (texto corto)
+            if (resultado > 0) {
+                String accion = "Mod Perm: I:" + asig.getAPLUins() + 
+                              ",S:" + asig.getAPLUsel() + 
+                              ",U:" + asig.getAPLUupd() + 
+                              ",D:" + asig.getAPLUdel() + 
+                              ",R:" + asig.getAPLUrep();
+                new BitacoraDAO().insert(asig.getUsuId(), asig.getAplcodigo(), accion);
+            }
+
+        } catch (Exception e) {
+            e.printStackTrace();
+        }
+
+        return resultado;
     }
-
-    return resultado;
-}
 
     // ELIMINAR asignación
     public int borrarAsignacion(clsAsignacionAplicacionUsuario asignacion) {
@@ -81,6 +129,12 @@ public int actualizaAsignacion(clsAsignacionAplicacionUsuario asig) {
             stmt.setInt(2, asignacion.getUsuId());
 
             resultado = stmt.executeUpdate();
+
+            // ✅ REGISTRAR EN BITÁCORA (texto corto)
+            if (resultado > 0) {
+                String accion = "Eliminar App";
+                new BitacoraDAO().insert(asignacion.getUsuId(), asignacion.getAplcodigo(), accion);
+            }
 
         } catch (SQLException ex) {
             ex.printStackTrace(System.out);
@@ -127,44 +181,44 @@ public int actualizaAsignacion(clsAsignacionAplicacionUsuario asig) {
         return lista;
     }
 
-// OBTENER PERMISOS DE UNA ASIGNACION
-public clsAsignacionAplicacionUsuario getPermisos(int usuId, int aplCodigo) {
+    // OBTENER PERMISOS DE UNA ASIGNACION
+    public clsAsignacionAplicacionUsuario getPermisos(int usuId, int aplCodigo) {
 
-    clsAsignacionAplicacionUsuario asig = null;
+        clsAsignacionAplicacionUsuario asig = null;
 
-    String sql = "SELECT * FROM asignacionaplicacionusuarios "
-            + "WHERE UsuId=? AND Aplcodigo=?";
+        String sql = "SELECT * FROM asignacionaplicacionusuarios "
+                + "WHERE UsuId=? AND Aplcodigo=?";
 
-    try (Connection conn = Conexion.getConnection();
-         PreparedStatement ps = conn.prepareStatement(sql)) {
+        try (Connection conn = Conexion.getConnection();
+             PreparedStatement ps = conn.prepareStatement(sql)) {
 
-        ps.setInt(1, usuId);
-        ps.setInt(2, aplCodigo);
+            ps.setInt(1, usuId);
+            ps.setInt(2, aplCodigo);
 
-        ResultSet rs = ps.executeQuery();
+            ResultSet rs = ps.executeQuery();
 
-        if (rs.next()) {
+            if (rs.next()) {
 
-            asig = new clsAsignacionAplicacionUsuario();
+                asig = new clsAsignacionAplicacionUsuario();
 
-            asig.setUsuId(rs.getInt("UsuId"));
-            asig.setAplcodigo(rs.getInt("Aplcodigo"));
+                asig.setUsuId(rs.getInt("usuid"));
+                asig.setAplcodigo(rs.getInt("aplcodigo"));
 
-            asig.setAPLUins(rs.getString("APLUins"));
-            asig.setAPLUsel(rs.getString("APLUsel"));
-            asig.setAPLUupd(rs.getString("APLUupd"));
-            asig.setAPLUdel(rs.getString("APLUdel"));
-            asig.setAPLUrep(rs.getString("APLUrep"));
+                asig.setAPLUins(rs.getString("apluins"));
+                asig.setAPLUsel(rs.getString("aplusel"));
+                asig.setAPLUupd(rs.getString("apluupd"));
+                asig.setAPLUdel(rs.getString("apludel"));
+                asig.setAPLUrep(rs.getString("aplurep"));
+            }
+
+        } catch (Exception e) {
+            e.printStackTrace();
         }
 
-    } catch (Exception e) {
-        e.printStackTrace();
+        return asig;
     }
 
-    return asig;
-}
-
-    // APLICACIONES DISPONIBLES (CORREGIDO)
+    // APLICACIONES DISPONIBLES
     public List<clsAplicaciones> getAplicacionesDisponibles(int usuId) {
 
         List<clsAplicaciones> lista = new ArrayList<>();
@@ -177,7 +231,7 @@ public clsAsignacionAplicacionUsuario getPermisos(int usuId, int aplCodigo) {
               + "  FROM asignacionaplicacionusuarios "
               + "  WHERE UsuId = ?"
               + ") "
-              + "AND APLESTADO = 1";   // ← CORREGIDO
+              + "AND APLESTADO = 1";
 
         try (Connection conn = Conexion.getConnection();
              PreparedStatement stmt = conn.prepareStatement(sql)) {

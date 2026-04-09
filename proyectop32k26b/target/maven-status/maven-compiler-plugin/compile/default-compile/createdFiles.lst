@@ -58,6 +58,7 @@ Controlador\clsSeguridad.class
 Vista\frmProcesoAplicacionUsuario$4.class
 Vista\frmMantenimientoAplicaciones$6.class
 Vista\MdiSeguridad$9.class
+Vista\frmLogin$6.class
 Vista\frmMantenimientoAplicaciones$9.class
 Modelo\AplicacionesDAO.class
 Vista\frmProcesoAplicacionPerfil$5.class
