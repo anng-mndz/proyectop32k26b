@@ -1,0 +1,623 @@
+/*
+ * Click nbfs://nbhost/SystemFileSystem/Templates/Licenses/license-default.txt to change this license
+ * Click nbfs://nbhost/SystemFileSystem/Templates/GUIForms/JInternalFrame.java to edit this template
+ */
+package Vista;
+
+import Controlador.clsBitacora;
+import Modelo.BitacoraDAO;
+import Modelo.AplicacionesDAO;
+import Controlador.clsAplicaciones;
+import Controlador.clsAsignacionAplicacionPerfil;
+import Modelo.AsignacionAplicacionPerfilDAO;
+import Controlador.clsSeguridad;
+import Controlador.clsBitacora;
+import Controlador.clsUsuario;
+import Controlador.clsUsuarioConectado;
+import Modelo.BitacoraDAO;
+import Modelo.Conexion;
+import java.util.List;
+import javax.swing.table.DefaultTableModel;
+import java.io.File;
+import java.sql.Connection;
+import java.sql.ResultSet;
+import java.util.HashMap;
+import java.util.HashSet;
+import java.util.Map;
+import java.util.Set;
+import javax.swing.JOptionPane;
+import javax.swing.DefaultListModel;
+import java.awt.HeadlessException;
+
+
+
+
+/**
+ *
+ * @author Angel R
+ */
+public class frmProcesoAplicacionPerfil extends javax.swing.JInternalFrame {
+
+    int codigoAplicacion = 10011;
+    
+    /**
+     * Creates new form frmProcesoAplicacionPerfil
+     */
+    
+    public frmProcesoAplicacionPerfil() {
+        initComponents();
+        limpiarPermisos();
+   
+    DefaultListModel modeloD = new DefaultListModel();
+    DefaultListModel modeloA = new DefaultListModel();
+    AppDis.setModel(modeloD);
+    AppAsig.setModel(modeloA);
+    }
+    
+private void moverAAsignadas() {
+    //Obtener el modelo actual de la lista
+    DefaultListModel modeloDis = (DefaultListModel) AppDis.getModel();
+    DefaultListModel modeloAsig = (DefaultListModel) AppAsig.getModel();
+
+    //Obtener el valor seleccionado
+    Object seleccionado = AppDis.getSelectedValue();
+
+    if (seleccionado != null) {
+        //Pasarlo a la otra lista
+        modeloAsig.addElement(seleccionado);
+        //Quitarlo de la original
+        modeloDis.removeElement(seleccionado);
+    } else {
+        JOptionPane.showMessageDialog(this, "Seleccione un código de la lista izquierda");
+    }
+    }
+
+private void moverADisponibles() {
+    DefaultListModel modeloAsig = (DefaultListModel) AppAsig.getModel();
+    DefaultListModel modeloDis = (DefaultListModel) AppDis.getModel();
+    
+    Object seleccionado = AppAsig.getSelectedValue();
+
+    if (seleccionado != null) {
+        try {
+            int idApp = Integer.parseInt(seleccionado.toString());
+            int idPerfil = Integer.parseInt(codigoIngresado.getText());
+
+            AsignacionAplicacionPerfilDAO dao = new AsignacionAplicacionPerfilDAO();
+            clsAsignacionAplicacionPerfil asignacionABorrar = new clsAsignacionAplicacionPerfil();
+            asignacionABorrar.setAplcodigo(idApp);
+            asignacionABorrar.setPercodigo(idPerfil);
+            
+            int filasBorradas = dao.delete(asignacionABorrar); 
+            // -------------------------------------------------------------
+
+            //Si se borró con éxito en la BD, procedemos con Bitácora e Interfaz
+            if (filasBorradas > 0) {
+                BitacoraDAO bitacoradao = new BitacoraDAO();
+                int idUsuario = clsUsuarioConectado.getUsuId();
+                bitacoradao.insert(idUsuario, codigoAplicacion, "Borrar");
+
+                //Actualizar la interfaz visual
+                modeloDis.addElement(seleccionado);
+                modeloAsig.removeElement(seleccionado);
+                limpiarPermisos();
+            } else {
+                JOptionPane.showMessageDialog(this, "No se pudo eliminar el registro de la base de datos.");
+            }
+
+        } catch (NumberFormatException e) {
+            JOptionPane.showMessageDialog(this, "Error con los códigos de ID: " + e.getMessage());
+        }
+    } else {
+        JOptionPane.showMessageDialog(this, "Seleccione un código de la lista derecha (Asignadas).");
+    }   
+}
+
+private void pasarTodosAAsignadas() {
+    DefaultListModel modeloDis = (DefaultListModel) AppDis.getModel();
+    DefaultListModel modeloAsig = (DefaultListModel) AppAsig.getModel();
+
+    // Recorremos todos los elementos del modelo origen
+    for (int i = 0; i < modeloDis.getSize(); i++) {
+        modeloAsig.addElement(modeloDis.getElementAt(i));
+    }
+    // Una vez copiados, limpiamos la lista de disponibles
+    modeloDis.clear();
+}
+
+private void regresarTodosADisponibles() {
+  DefaultListModel modeloAsig = (DefaultListModel) AppAsig.getModel();
+    DefaultListModel modeloDis = (DefaultListModel) AppDis.getModel();
+    String idPerfilStr = codigoIngresado.getText();
+
+    if (idPerfilStr.isEmpty()) {
+        JOptionPane.showMessageDialog(this, "No hay un perfil seleccionado.");
+        return;
+    }
+
+    try {
+        int idPerfil = Integer.parseInt(idPerfilStr);
+        AsignacionAplicacionPerfilDAO dao = new AsignacionAplicacionPerfilDAO();
+
+        // 1. Llamada al DAO (Aquí se hace el trabajo sucio de la BD)
+        int filasBorradas = dao.borrarTodoDePerfil(idPerfil);
+
+        BitacoraDAO bitacoradao = new BitacoraDAO();
+        bitacoradao.insert(clsUsuarioConectado.getUsuId(), codigoAplicacion, "Borrar");
+        // 2. Actualizar la Interfaz Gráfica
+        // Pasamos todos los elementos de "Asignadas" a "Disponibles" visualmente
+        for (int i = 0; i < modeloAsig.getSize(); i++) {
+            modeloDis.addElement(modeloAsig.getElementAt(i));
+        }
+
+        // 3. Limpiar todo
+        modeloAsig.clear();
+        limpiarPermisos();
+        
+        if (filasBorradas > 0) {
+            JOptionPane.showMessageDialog(this, "Se han quitado todos los registros de la base de datos.");
+        }
+
+    } catch (NumberFormatException e) {
+        JOptionPane.showMessageDialog(this, "El código de perfil debe ser un número válido.");
+    }
+}
+private void limpiarPermisos() {
+    // Desmarcamos todos los RadioButtons
+    jRadioButton1.setSelected(false);
+    jRadioButton2.setSelected(false);
+    jRadioButton3.setSelected(false);
+    jRadioButton4.setSelected(false);
+    jRadioButton5.setSelected(false);
+    
+    // Opcional: Desactivarlos para que no se puedan tocar si no hay selección
+    jRadioButton1.setEnabled(false);
+    jRadioButton2.setEnabled(false);
+    jRadioButton3.setEnabled(false);
+    jRadioButton4.setEnabled(false);
+    jRadioButton5.setEnabled(false);
+    
+    appSelect.setText("Seleccione aplicación para ver permisos");
+}
+private void activarPermisos() {
+    jRadioButton1.setEnabled(true);
+    jRadioButton2.setEnabled(true);
+    jRadioButton3.setEnabled(true);
+    jRadioButton4.setEnabled(true);
+    jRadioButton5.setEnabled(true);
+}
+
+        private void limpiarListasYPermisos() {
+    // 1. Limpiar los modelos de las listas
+    DefaultListModel modeloDis = (DefaultListModel) AppDis.getModel();
+    DefaultListModel modeloAsig = (DefaultListModel) AppAsig.getModel();
+    
+    modeloDis.clear();
+    modeloAsig.clear();
+
+    // 2. Desmarcar todos los RadioButtons
+    jRadioButton1.setSelected(false);
+    jRadioButton2.setSelected(false);
+    jRadioButton3.setSelected(false);
+    jRadioButton4.setSelected(false);
+    jRadioButton5.setSelected(false);
+    
+    // 3. Desactivarlos (importante para que no editen sin una App seleccionada)
+    jRadioButton1.setEnabled(false);
+    jRadioButton2.setEnabled(false);
+    jRadioButton3.setEnabled(false);
+    jRadioButton4.setEnabled(false);
+    jRadioButton5.setEnabled(false);
+    
+    // 4. Resetear etiquetas informativas
+    appSelect.setText("Seleccione aplicación para ver permisos");
+}
+        
+        
+    /**
+     * This method is called from within the constructor to initialize the form.
+     * WARNING: Do NOT modify this code. The content of this method is always
+     * regenerated by the Form Editor.
+     */
+    @SuppressWarnings("unchecked")
+    // <editor-fold defaultstate="collapsed" desc="Generated Code">//GEN-BEGIN:initComponents
+    private void initComponents() {
+
+        btnObtener = new javax.swing.JButton();
+        jRadioButton5 = new javax.swing.JRadioButton();
+        btnPasarUno = new javax.swing.JButton();
+        jLabel5 = new javax.swing.JLabel();
+        btnRegresarUno = new javax.swing.JButton();
+        jLabel6 = new javax.swing.JLabel();
+        btnPasarTodos = new javax.swing.JButton();
+        guardar = new javax.swing.JButton();
+        btnRegresarTodos = new javax.swing.JButton();
+        jLabel4 = new javax.swing.JLabel();
+        jRadioButton1 = new javax.swing.JRadioButton();
+        jRadioButton2 = new javax.swing.JRadioButton();
+        codigoIngresado = new javax.swing.JTextField();
+        jLabel2 = new javax.swing.JLabel();
+        jLabel3 = new javax.swing.JLabel();
+        jScrollPane1 = new javax.swing.JScrollPane();
+        AppDis = new javax.swing.JList<>();
+        jScrollPane2 = new javax.swing.JScrollPane();
+        AppAsig = new javax.swing.JList<>();
+        jRadioButton3 = new javax.swing.JRadioButton();
+        appSelect = new javax.swing.JLabel();
+        jRadioButton4 = new javax.swing.JRadioButton();
+
+        setTitle("Asignacion Aplicación Perfil");
+
+        btnObtener.setText("Obtener info");
+        btnObtener.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                btnObtenerActionPerformed(evt);
+            }
+        });
+
+        jRadioButton5.setText("Reporte");
+
+        btnPasarUno.setText(">");
+        btnPasarUno.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                btnPasarUnoActionPerformed(evt);
+            }
+        });
+
+        jLabel5.setText("Aplcodigo");
+
+        btnRegresarUno.setText("<");
+        btnRegresarUno.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                btnRegresarUnoActionPerformed(evt);
+            }
+        });
+
+        jLabel6.setText("Aplcodigo");
+
+        btnPasarTodos.setText(">>");
+        btnPasarTodos.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                btnPasarTodosActionPerformed(evt);
+            }
+        });
+
+        guardar.setText("Guardar");
+        guardar.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                guardarActionPerformed(evt);
+            }
+        });
+
+        btnRegresarTodos.setText("<<");
+        btnRegresarTodos.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                btnRegresarTodosActionPerformed(evt);
+            }
+        });
+
+        jLabel4.setText("Ingrese codigo de perfil");
+
+        jRadioButton1.setText("Insert");
+
+        jRadioButton2.setText("Select");
+
+        jLabel2.setText("Aplicaciones Disponibles");
+
+        jLabel3.setText("Aplicaciones Asignadas");
+
+        AppDis.addMouseListener(new java.awt.event.MouseAdapter() {
+            public void mouseClicked(java.awt.event.MouseEvent evt) {
+                AppDisMouseClicked(evt);
+            }
+        });
+        AppDis.addListSelectionListener(new javax.swing.event.ListSelectionListener() {
+            public void valueChanged(javax.swing.event.ListSelectionEvent evt) {
+                AppDisValueChanged(evt);
+            }
+        });
+        jScrollPane1.setViewportView(AppDis);
+
+        AppAsig.addMouseListener(new java.awt.event.MouseAdapter() {
+            public void mouseClicked(java.awt.event.MouseEvent evt) {
+                AppAsigMouseClicked(evt);
+            }
+        });
+        AppAsig.addListSelectionListener(new javax.swing.event.ListSelectionListener() {
+            public void valueChanged(javax.swing.event.ListSelectionEvent evt) {
+                AppAsigValueChanged(evt);
+            }
+        });
+        jScrollPane2.setViewportView(AppAsig);
+
+        jRadioButton3.setText("Update");
+
+        appSelect.setText("Seleccione aplicación para ver permisos");
+
+        jRadioButton4.setText("Delete");
+
+        javax.swing.GroupLayout layout = new javax.swing.GroupLayout(getContentPane());
+        getContentPane().setLayout(layout);
+        layout.setHorizontalGroup(
+            layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+            .addGroup(layout.createSequentialGroup()
+                .addContainerGap()
+                .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+                    .addGroup(layout.createSequentialGroup()
+                        .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+                            .addComponent(jLabel2)
+                            .addComponent(jScrollPane1, javax.swing.GroupLayout.PREFERRED_SIZE, 133, javax.swing.GroupLayout.PREFERRED_SIZE)
+                            .addComponent(jLabel5))
+                        .addGap(102, 102, 102)
+                        .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+                            .addComponent(btnPasarUno)
+                            .addComponent(btnRegresarUno)
+                            .addComponent(btnPasarTodos, javax.swing.GroupLayout.PREFERRED_SIZE, 55, javax.swing.GroupLayout.PREFERRED_SIZE)
+                            .addComponent(btnRegresarTodos, javax.swing.GroupLayout.PREFERRED_SIZE, 55, javax.swing.GroupLayout.PREFERRED_SIZE))
+                        .addGap(32, 32, 32)
+                        .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+                            .addComponent(jLabel3)
+                            .addGroup(layout.createSequentialGroup()
+                                .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+                                    .addComponent(jScrollPane2, javax.swing.GroupLayout.PREFERRED_SIZE, 133, javax.swing.GroupLayout.PREFERRED_SIZE)
+                                    .addComponent(jLabel6))
+                                .addGap(54, 54, 54)
+                                .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+                                    .addComponent(jRadioButton1)
+                                    .addComponent(jRadioButton2)
+                                    .addComponent(jRadioButton3)
+                                    .addComponent(jRadioButton4)
+                                    .addComponent(jRadioButton5)
+                                    .addComponent(guardar))))
+                        .addGap(0, 0, Short.MAX_VALUE))
+                    .addGroup(layout.createSequentialGroup()
+                        .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+                            .addGroup(layout.createSequentialGroup()
+                                .addComponent(jLabel4)
+                                .addGap(18, 18, 18)
+                                .addComponent(codigoIngresado, javax.swing.GroupLayout.PREFERRED_SIZE, 222, javax.swing.GroupLayout.PREFERRED_SIZE)
+                                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
+                                .addComponent(btnObtener))
+                            .addGroup(layout.createSequentialGroup()
+                                .addGap(93, 93, 93)
+                                .addComponent(appSelect)))
+                        .addContainerGap(javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))))
+        );
+        layout.setVerticalGroup(
+            layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+            .addGroup(layout.createSequentialGroup()
+                .addGap(18, 18, 18)
+                .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
+                    .addComponent(jLabel4)
+                    .addComponent(codigoIngresado, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
+                    .addComponent(btnObtener))
+                .addGap(27, 27, 27)
+                .addComponent(appSelect)
+                .addGap(18, 18, 18)
+                .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
+                    .addComponent(jLabel2)
+                    .addComponent(jLabel3))
+                .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+                    .addGroup(layout.createSequentialGroup()
+                        .addGap(6, 6, 6)
+                        .addComponent(jLabel5)
+                        .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.UNRELATED)
+                        .addComponent(jScrollPane1, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE))
+                    .addGroup(layout.createSequentialGroup()
+                        .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.UNRELATED)
+                        .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+                            .addGroup(layout.createSequentialGroup()
+                                .addComponent(btnPasarUno)
+                                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
+                                .addComponent(btnRegresarUno)
+                                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
+                                .addComponent(btnPasarTodos)
+                                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
+                                .addComponent(btnRegresarTodos))
+                            .addGroup(layout.createSequentialGroup()
+                                .addComponent(jRadioButton1)
+                                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
+                                .addComponent(jRadioButton2)
+                                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
+                                .addComponent(jRadioButton3)
+                                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
+                                .addComponent(jRadioButton4)
+                                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
+                                .addComponent(jRadioButton5)))
+                        .addGap(18, 18, 18)
+                        .addComponent(guardar))
+                    .addGroup(layout.createSequentialGroup()
+                        .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
+                        .addComponent(jLabel6)
+                        .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.UNRELATED)
+                        .addComponent(jScrollPane2, javax.swing.GroupLayout.PREFERRED_SIZE, 146, javax.swing.GroupLayout.PREFERRED_SIZE)))
+                .addContainerGap(javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))
+        );
+
+        pack();
+    }// </editor-fold>//GEN-END:initComponents
+
+    private void btnObtenerActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnObtenerActionPerformed
+        // TODO add your handling code here:
+        try {
+            int idPerfil = Integer.parseInt(codigoIngresado.getText());
+            AsignacionAplicacionPerfilDAO dao = new AsignacionAplicacionPerfilDAO();
+
+            if (dao.verificarExistenciaPerfil(idPerfil)) {
+                // Si existe, procedes a cargar las listas
+                cargarListas(idPerfil);
+
+                // --- REGISTRO EN BITÁCORA COMO CONSULTA ---
+                BitacoraDAO bitacoradao = new BitacoraDAO();
+                // Usamos el ID del usuario conectado y la acción "CONSULTA"
+                bitacoradao.insert(clsUsuarioConectado.getUsuId(), codigoAplicacion, "Consulta");
+                // ------------------------------------------
+            } else {
+                // Si NO existe, alerta y limpieza
+                JOptionPane.showMessageDialog(this, "ERROR: El código de perfil " + idPerfil + " no existe en el sistema.");
+                limpiarListasYPermisos();
+            }
+        } catch (NumberFormatException e) {
+            JOptionPane.showMessageDialog(this, "Por favor, ingrese un código numérico válido.");
+        }
+
+    }//GEN-LAST:event_btnObtenerActionPerformed
+
+    private void cargarListas(int idPerfil) {
+    //Obtener los modelos de las listas para manipularlos
+    DefaultListModel modeloD = (DefaultListModel) AppDis.getModel();
+    DefaultListModel modeloA = (DefaultListModel) AppAsig.getModel();
+    
+    //Limpiar lo que haya actualmente en pantalla
+    modeloD.clear();
+    modeloA.clear();
+
+    //Instanciar el DAO
+    AsignacionAplicacionPerfilDAO asigDao = new AsignacionAplicacionPerfilDAO();
+
+    //Llenar Lista de Asignadas (registros en la tabla asignacion)
+    List<clsAsignacionAplicacionPerfil> asignadas = asigDao.obtenerAsignadas(idPerfil);
+    for (clsAsignacionAplicacionPerfil asig : asignadas) {
+        // Agregamos el código de la aplicación al modelo
+        modeloA.addElement(asig.getAplcodigo());
+    }
+
+    //Llenar Lista de Disponibles (aplicaciones que NO tiene ese perfil)
+    List<clsAplicaciones> disponibles = asigDao.obtenerDisponibles(idPerfil);
+    for (clsAplicaciones app : disponibles) {
+        modeloD.addElement(app.getAplcodigo());
+    }
+}
+    private void btnPasarUnoActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnPasarUnoActionPerformed
+        // TODO add your handling code here:
+        moverAAsignadas();
+    }//GEN-LAST:event_btnPasarUnoActionPerformed
+
+    private void btnRegresarUnoActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnRegresarUnoActionPerformed
+        // TODO add your handling code here:
+        moverADisponibles();
+    }//GEN-LAST:event_btnRegresarUnoActionPerformed
+
+    private void btnPasarTodosActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnPasarTodosActionPerformed
+        // TODO add your handling code here:
+        pasarTodosAAsignadas();
+    }//GEN-LAST:event_btnPasarTodosActionPerformed
+
+    private void guardarActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_guardarActionPerformed
+        // TODO add your handling code here:
+        String idPerfilStr = codigoIngresado.getText();
+        Object appSeleccionada = AppAsig.getSelectedValue();
+
+        if (idPerfilStr.isEmpty() || appSeleccionada == null) {
+            JOptionPane.showMessageDialog(this, "Debe ingresar un perfil y seleccionar una aplicación de la lista 'Asignadas'");
+            return;
+        }
+
+        try {
+            int idPerfil = Integer.parseInt(idPerfilStr);
+            int idApp = Integer.parseInt(appSeleccionada.toString());
+
+            //Crear el objeto con los datos de los RadioButtons
+            clsAsignacionAplicacionPerfil asig = new clsAsignacionAplicacionPerfil();
+            asig.setPercodigo(idPerfil);
+            asig.setAplcodigo(idApp);
+
+            asig.setAPLPins(jRadioButton1.isSelected() ? "S" : "N"); // Insertar
+           asig.setAPLPsel(jRadioButton2.isSelected() ? "S" : "N"); // Seleccionar
+            asig.setAPLPupd(jRadioButton3.isSelected() ? "S" : "N"); // Actualizar
+           asig.setAPLPdel(jRadioButton4.isSelected() ? "S" : "N"); // Eliminar
+           asig.setAPLPrep(jRadioButton5.isSelected() ? "S" : "N"); // Reportes
+
+            //Llamar al DAO para guardar o actualizar
+            AsignacionAplicacionPerfilDAO dao = new AsignacionAplicacionPerfilDAO();
+
+            BitacoraDAO bitacoradao = new BitacoraDAO();
+            bitacoradao.insert(clsUsuarioConectado.getUsuId(), codigoAplicacion, "Actualizar");
+
+            // Verificamos si ya existe para decidir si hacer INSERT o UPDATE
+            if (dao.obtenerRegistroEspecifico(idApp, idPerfil) == null) {
+                dao.insert(asig);
+                JOptionPane.showMessageDialog(this, "Aplicación asignada con éxito");
+            } else {
+                dao.update(asig);
+                JOptionPane.showMessageDialog(this, "Permisos actualizados con éxito");
+            }
+
+        } catch (NumberFormatException e) {
+            JOptionPane.showMessageDialog(this, "El código de perfil debe ser numérico");
+        }
+
+    }//GEN-LAST:event_guardarActionPerformed
+
+    private void btnRegresarTodosActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnRegresarTodosActionPerformed
+        // TODO add your handling code here:
+        regresarTodosADisponibles();
+    }//GEN-LAST:event_btnRegresarTodosActionPerformed
+
+    private void AppDisMouseClicked(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_AppDisMouseClicked
+        // TODO add your handling code here
+
+    }//GEN-LAST:event_AppDisMouseClicked
+
+    private void AppDisValueChanged(javax.swing.event.ListSelectionEvent evt) {//GEN-FIRST:event_AppDisValueChanged
+        // TODO add your handling code here:
+    }//GEN-LAST:event_AppDisValueChanged
+
+    private void AppAsigMouseClicked(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_AppAsigMouseClicked
+        // TODO add your handling code here:
+    }//GEN-LAST:event_AppAsigMouseClicked
+
+    private void AppAsigValueChanged(javax.swing.event.ListSelectionEvent evt) {//GEN-FIRST:event_AppAsigValueChanged
+        // TODO add your handling code here:
+        if (!evt.getValueIsAdjusting()) {
+            Object seleccionado = AppAsig.getSelectedValue();
+            if (seleccionado != null) {
+                activarPermisos(); // Tu método que hace setEnabled(true)
+
+                int idApp = Integer.parseInt(seleccionado.toString());
+                int idPerfil = Integer.parseInt(codigoIngresado.getText());
+
+                // Consultar a la BD los permisos actuales
+                AsignacionAplicacionPerfilDAO dao = new AsignacionAplicacionPerfilDAO();
+                clsAsignacionAplicacionPerfil actual = dao.obtenerRegistroEspecifico(idApp, idPerfil);
+
+                if (actual != null) {
+                    jRadioButton1.setSelected(actual.getAPLPins() == "S");
+                    jRadioButton2.setSelected(actual.getAPLPsel() == "S");
+                    jRadioButton3.setSelected(actual.getAPLPupd() == "S");
+                    jRadioButton4.setSelected(actual.getAPLPdel() == "S");
+                    jRadioButton5.setSelected(actual.getAPLPrep() == "S");
+                } else {
+                    limpiarPermisos(); // Si es nueva, todos desmarcados
+                    activarPermisos();
+                }
+            }
+        }
+    }//GEN-LAST:event_AppAsigValueChanged
+
+
+    // Variables declaration - do not modify//GEN-BEGIN:variables
+    private javax.swing.JList<String> AppAsig;
+    private javax.swing.JList<String> AppDis;
+    private javax.swing.JLabel appSelect;
+    private javax.swing.JButton btnObtener;
+    private javax.swing.JButton btnPasarTodos;
+    private javax.swing.JButton btnPasarUno;
+    private javax.swing.JButton btnRegresarTodos;
+    private javax.swing.JButton btnRegresarUno;
+    private javax.swing.JTextField codigoIngresado;
+    private javax.swing.JButton guardar;
+    private javax.swing.JLabel jLabel2;
+    private javax.swing.JLabel jLabel3;
+    private javax.swing.JLabel jLabel4;
+    private javax.swing.JLabel jLabel5;
+    private javax.swing.JLabel jLabel6;
+    private javax.swing.JRadioButton jRadioButton1;
+    private javax.swing.JRadioButton jRadioButton2;
+    private javax.swing.JRadioButton jRadioButton3;
+    private javax.swing.JRadioButton jRadioButton4;
+    private javax.swing.JRadioButton jRadioButton5;
+    private javax.swing.JScrollPane jScrollPane1;
+    private javax.swing.JScrollPane jScrollPane2;
+    // End of variables declaration//GEN-END:variables
+}

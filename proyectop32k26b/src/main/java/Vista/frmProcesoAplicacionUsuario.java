@@ -16,7 +16,7 @@ import javax.swing.table.DefaultTableModel;
  *
  * @author mende
  */
-public class frmAsignacionAplicacionUsuario extends javax.swing.JFrame {
+public class frmProcesoAplicacionUsuario extends javax.swing.JFrame {
 
     // ── Modelos y listas ──────────────────────────────────────────────────
 private final DefaultListModel<String> modeloDisponibles = new DefaultListModel<>();
@@ -28,7 +28,7 @@ private DefaultTableModel     modeloBitacora;
 private int usuId;
 private int aplCodigo;
 
-    public frmAsignacionAplicacionUsuario() {
+    public frmProcesoAplicacionUsuario() {
         initComponents();
         configurarTabla();
         cargarUsuariosEnCombo();
@@ -388,21 +388,23 @@ private int aplCodigo;
                 }
             }
         } catch (ClassNotFoundException ex) {
-            java.util.logging.Logger.getLogger(frmAsignacionAplicacionUsuario.class.getName()).log(java.util.logging.Level.SEVERE, null, ex);
+            java.util.logging.Logger.getLogger(frmProcesoAplicacionUsuario.class.getName()).log(java.util.logging.Level.SEVERE, null, ex);
         } catch (InstantiationException ex) {
-            java.util.logging.Logger.getLogger(frmAsignacionAplicacionUsuario.class.getName()).log(java.util.logging.Level.SEVERE, null, ex);
+            java.util.logging.Logger.getLogger(frmProcesoAplicacionUsuario.class.getName()).log(java.util.logging.Level.SEVERE, null, ex);
         } catch (IllegalAccessException ex) {
-            java.util.logging.Logger.getLogger(frmAsignacionAplicacionUsuario.class.getName()).log(java.util.logging.Level.SEVERE, null, ex);
+            java.util.logging.Logger.getLogger(frmProcesoAplicacionUsuario.class.getName()).log(java.util.logging.Level.SEVERE, null, ex);
         } catch (javax.swing.UnsupportedLookAndFeelException ex) {
-            java.util.logging.Logger.getLogger(frmAsignacionAplicacionUsuario.class.getName()).log(java.util.logging.Level.SEVERE, null, ex);
+            java.util.logging.Logger.getLogger(frmProcesoAplicacionUsuario.class.getName()).log(java.util.logging.Level.SEVERE, null, ex);
         }
+        //</editor-fold>
+        //</editor-fold>
         //</editor-fold>
         //</editor-fold>
 
         /* Create and display the form */
         java.awt.EventQueue.invokeLater(new Runnable() {
             public void run() {
-                new frmAsignacionAplicacionUsuario().setVisible(true);
+                new frmProcesoAplicacionUsuario().setVisible(true);
             }
         });
     }

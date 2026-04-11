@@ -1,4 +1,4 @@
-//Dulce Marìa Martìnez Arèvalo 9959-24-4564
+//Astrid Fernanda Ruíz López - 9959 24 2976 Diseño y Correción de errores
 
 package Vista;
 
@@ -9,12 +9,12 @@ import Modelo.BitacoraDAO;
 import java.util.List;
 import javax.swing.table.DefaultTableModel;
 
-public class MantenimientoBitacora extends javax.swing.JInternalFrame {  
+public class frmMantenimientoBitacora extends javax.swing.JInternalFrame {  
     //---Constantes registro en bitacora---
     int idUsuario = Controlador.clsUsuarioConectado.getUsuId(); //este se mandó a llamar del clsUsuarioConectado
     private static final int Aplcodigo = 10005; //Codigo de aplicacion dado en clase para bitacora
 
-    public MantenimientoBitacora() {
+    public frmMantenimientoBitacora() {
         initComponents();
         llenadoDeTabla();
 
@@ -278,7 +278,7 @@ public class MantenimientoBitacora extends javax.swing.JInternalFrame {
         ));
         jScrollPane1.setViewportView(jTable1);
 
-        setDefaultCloseOperation(javax.swing.WindowConstants.EXIT_ON_CLOSE);
+        setDefaultCloseOperation(javax.swing.WindowConstants.DISPOSE_ON_CLOSE);
 
         cboxTipoBusqueda.setFont(new java.awt.Font("Segoe UI", 0, 14)); // NOI18N
         cboxTipoBusqueda.setModel(new javax.swing.DefaultComboBoxModel<>(new String[] { "Código", "Usuario", "Aplicación", "Accion", "Rango de Fechas" }));
@@ -526,20 +526,21 @@ public class MantenimientoBitacora extends javax.swing.JInternalFrame {
                 }
             }
         } catch (ClassNotFoundException ex) {
-            java.util.logging.Logger.getLogger(MantenimientoBitacora.class.getName()).log(java.util.logging.Level.SEVERE, null, ex);
+            java.util.logging.Logger.getLogger(frmMantenimientoBitacora.class.getName()).log(java.util.logging.Level.SEVERE, null, ex);
         } catch (InstantiationException ex) {
-            java.util.logging.Logger.getLogger(MantenimientoBitacora.class.getName()).log(java.util.logging.Level.SEVERE, null, ex);
+            java.util.logging.Logger.getLogger(frmMantenimientoBitacora.class.getName()).log(java.util.logging.Level.SEVERE, null, ex);
         } catch (IllegalAccessException ex) {
-            java.util.logging.Logger.getLogger(MantenimientoBitacora.class.getName()).log(java.util.logging.Level.SEVERE, null, ex);
+            java.util.logging.Logger.getLogger(frmMantenimientoBitacora.class.getName()).log(java.util.logging.Level.SEVERE, null, ex);
         } catch (javax.swing.UnsupportedLookAndFeelException ex) {
-            java.util.logging.Logger.getLogger(MantenimientoBitacora.class.getName()).log(java.util.logging.Level.SEVERE, null, ex);
+            java.util.logging.Logger.getLogger(frmMantenimientoBitacora.class.getName()).log(java.util.logging.Level.SEVERE, null, ex);
         }
+        //</editor-fold>
         //</editor-fold>
 
         /* Create and display the form */
         java.awt.EventQueue.invokeLater(new Runnable() {
             public void run() {
-                new MantenimientoBitacora().setVisible(true);
+                new frmMantenimientoBitacora().setVisible(true);
             }
         });
     }

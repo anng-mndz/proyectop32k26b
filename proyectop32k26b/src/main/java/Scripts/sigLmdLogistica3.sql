@@ -25,9 +25,9 @@ SET time_zone = "+00:00";
 -- Dumping data for table `aplicaciones`
 --
 
-INSERT INTO `aplicaciones` (`Aplcodigo`, `Aplnombre`, `Aplestado`) VALUES
-(10001, 'Mantenimiento Usuarios', '1'),
-(10002, 'Mantenimiento Aplicaciones', '1');
+INSERT INTO aplicaciones (Aplcodigo, Aplnombre, Aplestado) VALUES
+(10, 'Mantenimiento Usuarios', '1'),
+(11, 'Mantenimiento Aplicaciones', '1');
 COMMIT;
 
 /*!40101 SET CHARACTER_SET_CLIENT=@OLD_CHARACTER_SET_CLIENT */;
