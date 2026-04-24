@@ -44,7 +44,7 @@ private static final String SQL_UPDATE =
 // Consulta para obtener datos específicos de asignaciones por perfil
 private static final String SQL_QUERY =
     "SELECT Aplcodigo, Percodigo, APLPins, APLPsel, APLPupd, APLPdel, APLPdel FROM asignacionaplicacionperfil WHERE Percodigo=?"; // Nota: APLPdel está repetido (posible error)
-
+    
 
 // Método que verifica si un perfil existe en la tabla perfiles
 public boolean verificarExistenciaPerfil(int perCodigo) {

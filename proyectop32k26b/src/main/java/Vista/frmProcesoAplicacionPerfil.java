@@ -46,7 +46,17 @@ public class frmProcesoAplicacionPerfil extends javax.swing.JInternalFrame {
     
     public frmProcesoAplicacionPerfil() {
         initComponents();
+    // 1. Permitir que la ventana se pueda cerrar
+    setClosable(true); 
+    // 2. Permitir que se pueda minimizar (opcional)
+    setIconifiable(true);
+    // 3. Permitir que se pueda maximizar (opcional)
+    setMaximizable(false);
+    // 4. Hacer que se destruya la instancia al cerrar para liberar memoria
+    setDefaultCloseOperation(DISPOSE_ON_CLOSE);
         limpiarPermisos();
+        
+        
    
     DefaultListModel modeloD = new DefaultListModel();
     DefaultListModel modeloA = new DefaultListModel();
@@ -444,6 +454,8 @@ private void activarPermisos() {
             AsignacionAplicacionPerfilDAO dao = new AsignacionAplicacionPerfilDAO();
 
             if (dao.verificarExistenciaPerfil(idPerfil)) {
+                  AppAsig.clearSelection(); 
+                  limpiarPermisos(); 
                 // Si existe, procedes a cargar las listas
                 cargarListas(idPerfil);
 
@@ -471,7 +483,7 @@ private void activarPermisos() {
     //Limpiar lo que haya actualmente en pantalla
     modeloD.clear();
     modeloA.clear();
-
+    AppAsig.clearSelection(); 
     //Instanciar el DAO
     AsignacionAplicacionPerfilDAO asigDao = new AsignacionAplicacionPerfilDAO();
 
@@ -487,6 +499,8 @@ private void activarPermisos() {
     for (clsAplicaciones app : disponibles) {
         modeloD.addElement(app.getAplcodigo());
     }
+    AppAsig.revalidate();
+    AppAsig.repaint();
 }
     private void btnPasarUnoActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnPasarUnoActionPerformed
         // TODO add your handling code here:
@@ -530,23 +544,47 @@ private void activarPermisos() {
 
             //Llamar al DAO para guardar o actualizar
             AsignacionAplicacionPerfilDAO dao = new AsignacionAplicacionPerfilDAO();
+            
+            boolean resultadoExitoso = false;
+            String accionParaBitacora = "";
 
-            BitacoraDAO bitacoradao = new BitacoraDAO();
-            bitacoradao.insert(clsUsuarioConectado.getUsuId(), codigoAplicacion, "Actualizar");
+            
 
-            // Verificamos si ya existe para decidir si hacer INSERT o UPDATE
-            if (dao.obtenerRegistroEspecifico(idApp, idPerfil) == null) {
-                dao.insert(asig);
+         if (dao.obtenerRegistroEspecifico(idApp, idPerfil) == null) {
+            if(dao.insert(asig) > 0) {
+                resultadoExitoso = true;
+                accionParaBitacora = "Insertar";
                 JOptionPane.showMessageDialog(this, "Aplicación asignada con éxito");
-            } else {
-                dao.update(asig);
+            }
+        } else {
+            if(dao.update(asig) > 0) {
+                resultadoExitoso = true;
+                accionParaBitacora = "Actualizar";
                 JOptionPane.showMessageDialog(this, "Permisos actualizados con éxito");
             }
-
-        } catch (NumberFormatException e) {
-            JOptionPane.showMessageDialog(this, "El código de perfil debe ser numérico");
         }
 
+        // 4. EJECUCIÓN DE BITÁCORA (Solo si la base de datos confirmó el cambio)
+        if (resultadoExitoso) {
+            try {
+                int idUsuario = clsUsuarioConectado.getUsuId();
+                
+                // Si el ID de usuario es 0, la bitácora suele fallar por llaves foráneas
+                if (idUsuario != 0) {
+                    BitacoraDAO bitacoradao = new BitacoraDAO();
+                    // Usamos el código de aplicación global o el seleccionado
+                    bitacoradao.insert(idUsuario, codigoAplicacion, accionParaBitacora);
+                } else {
+                    System.out.println("Advertencia: ID de usuario es 0, bitácora podría no grabarse.");
+                }
+            } catch (Exception e) {
+                System.out.println("Error al registrar en bitácora: " + e.getMessage());
+            }
+        }
+
+    } catch (NumberFormatException e) {
+        JOptionPane.showMessageDialog(this, "El código de perfil debe ser numérico");
+    }
     }//GEN-LAST:event_guardarActionPerformed
 
     private void btnRegresarTodosActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnRegresarTodosActionPerformed
@@ -569,30 +607,41 @@ private void activarPermisos() {
 
     private void AppAsigValueChanged(javax.swing.event.ListSelectionEvent evt) {//GEN-FIRST:event_AppAsigValueChanged
         // TODO add your handling code here:
-        if (!evt.getValueIsAdjusting()) {
-            Object seleccionado = AppAsig.getSelectedValue();
-            if (seleccionado != null) {
-                activarPermisos(); // Tu método que hace setEnabled(true)
+            if (!evt.getValueIsAdjusting()) {
+        Object seleccionado = AppAsig.getSelectedValue();
+        
+        if (seleccionado != null) {
+            activarPermisos(); // Habilita los RadioButtons (setEnabled(true))
 
+            try {
+                // Convertimos el valor seleccionado a entero (ID de la aplicación)
                 int idApp = Integer.parseInt(seleccionado.toString());
                 int idPerfil = Integer.parseInt(codigoIngresado.getText());
 
-                // Consultar a la BD los permisos actuales
+                // Consultar a la BD los permisos específicos para este Perfil y App
                 AsignacionAplicacionPerfilDAO dao = new AsignacionAplicacionPerfilDAO();
                 clsAsignacionAplicacionPerfil actual = dao.obtenerRegistroEspecifico(idApp, idPerfil);
 
                 if (actual != null) {
-                    jRadioButton1.setSelected(actual.getAPLPins() == "S");
-                    jRadioButton2.setSelected(actual.getAPLPsel() == "S");
-                    jRadioButton3.setSelected(actual.getAPLPupd() == "S");
-                    jRadioButton4.setSelected(actual.getAPLPdel() == "S");
-                    jRadioButton5.setSelected(actual.getAPLPrep() == "S");
+                    // Usamos .trim() para limpiar espacios y .equalsIgnoreCase para comparar contenido
+                    jRadioButton1.setSelected("S".equalsIgnoreCase(actual.getAPLPins().trim())); // Insertar
+                    jRadioButton2.setSelected("S".equalsIgnoreCase(actual.getAPLPsel().trim())); // Seleccionar
+                    jRadioButton3.setSelected("S".equalsIgnoreCase(actual.getAPLPupd().trim())); // Actualizar
+                    jRadioButton4.setSelected("S".equalsIgnoreCase(actual.getAPLPdel().trim())); // Eliminar
+                    jRadioButton5.setSelected("S".equalsIgnoreCase(actual.getAPLPrep().trim())); // Reportes
+                    
+                    appSelect.setText("App seleccionada: " + idApp);
                 } else {
-                    limpiarPermisos(); // Si es nueva, todos desmarcados
+                    // Si el registro no existe en la tabla de asignación, limpiamos pero dejamos activo
+                    limpiarPermisos(); 
                     activarPermisos();
+                    appSelect.setText("Nueva asignación para App: " + idApp);
                 }
+            } catch (NumberFormatException e) {
+                System.out.println("Error al convertir IDs: " + e.getMessage());
             }
         }
+    }
     }//GEN-LAST:event_AppAsigValueChanged
 
 

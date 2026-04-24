@@ -10,4 +10,4 @@
 
 USE sig;
 INSERT INTO aplicaciones (Aplcodigo, Aplnombre, Aplestado) VALUES (10005, 'BITACORA', '1');
-
+INSERT INTO aplicaciones (Aplcodigo, Aplnombre, Aplestado) VALUES (2, 'Cambiar COntraseña', '1')

@@ -19,7 +19,7 @@ import javax.swing.JOptionPane;
  * @author miais
  */
 public class frmRestablecerContraseña extends javax.swing.JFrame {
-      int codigoAplicacion = 1;
+      int codigoAplicacion = 2;
 
     /**
      * Creates new form frmRestablecerContraseña
