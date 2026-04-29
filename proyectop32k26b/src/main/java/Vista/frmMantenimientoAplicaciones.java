@@ -325,7 +325,7 @@ AplicacionesDAO dao = new AplicacionesDAO(); //inicializar llamada al DAO
 
     private void btnRegistrarActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnRegistrarActionPerformed
         clsAplicaciones app = new clsAplicaciones();
-        app.setAplcodigo(Integer.parseInt(txtCodigo.getText())); // 🔥 ESTA ES LA CLAVE
+        app.setAplcodigo(Integer.parseInt(txtCodigo.getText())); 
         app.setAplnombre(txtNombreReal.getText());
         app.setAplestado(txtEstatus.getText());
 

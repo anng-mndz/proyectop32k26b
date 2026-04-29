@@ -226,7 +226,7 @@ public class AplicacionesDAO {
         BitacoraDAO bitacora = new BitacoraDAO();
 
         // ID de aplicación para bitácora (debe existir en la BD)
-        int aplCodigoBitacora = 1;
+        int aplCodigoBitacora = 10002;
 
         bitacora.insert(usuario, aplCodigoBitacora, accion);
     }

@@ -6,10 +6,12 @@
 package Vista;
 
 
-
+import Controlador.clsUsuarioConectado;
+import Modelo.PermisosDAO;
 import java.awt.Dimension;
 import java.awt.event.WindowAdapter;
 import java.awt.event.WindowEvent;
+import java.util.List;
 import javax.swing.JFrame;
 import javax.swing.JOptionPane;
 
@@ -33,7 +35,15 @@ public class MdiSeguridad extends javax.swing.JFrame {
         cerrar();
         
         //setDefaultCloseOperation(EXIT_ON_CLOSE);
+    
         
+    //!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!    
+    //Agregadopor Astrid para cargar permisos del usuario conectado al abrir el MDI
+    //Agreguen los permisos correspondientes a un usuario y luego quitan los comentarios de las lineas de abajo, si no va les va aparcer bloqueado
+    //int usuId = clsUsuarioConectado.getUsuId();
+    //PermisosDAO permisosDAO = new PermisosDAO();
+    //List<Integer> appsPermitidas = permisosDAO.obtenerAplicacionesPermitidas(usuId);
+    //configurarVisibilidadBotones(appsPermitidas);
     }
     
     
@@ -256,6 +266,47 @@ public class MdiSeguridad extends javax.swing.JFrame {
                     }
     }
     
+    //Roquel
+     // Método para bloquear o desbloquear opciones según los permisos
+public void configurarVisibilidadBotones(List<Integer> appsPermitidas) {
+    
+    mantenimientoUsuarios.setEnabled(false);
+    frmMantenimientoPerfiles.setEnabled(false);
+    frmMantenimientoAplicaciones.setEnabled(false);
+    frmMantenimientoBitacora.setEnabled(false);
+    frmProcesoPerfilUsuario.setEnabled(false);
+    frmProcesoAplicacionPerfil.setEnabled(false);
+    frmProcesoAplicacionUsuario.setEnabled(false);
+
+    // Recorre la lista y enciende las que el usuario tenga asignadas
+    for (int codigoApp : appsPermitidas) {
+        switch (codigoApp) {
+            case 10: // Código numérico le pertenece a cada ventana
+                mantenimientoUsuarios.setEnabled(true);
+                break;
+            case 10007:
+                frmMantenimientoPerfiles.setEnabled(true);
+                break;
+            case 11:
+                frmMantenimientoAplicaciones.setEnabled(true);
+                break;
+            case 10005:
+                frmMantenimientoBitacora.setEnabled(true);
+                break;
+            case 10010:
+                frmProcesoPerfilUsuario.setEnabled(true);
+                break;
+            case 10011:
+                frmProcesoAplicacionPerfil.setEnabled(true);
+                break;
+            case 10012:
+                frmProcesoAplicacionUsuario.setEnabled(true);
+                break;
+        }
+    }
+}
+    
+    
     
     
     private void mnuArchivoActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_mnuArchivoActionPerformed
@@ -319,6 +370,7 @@ public class MdiSeguridad extends javax.swing.JFrame {
         Dimension desktopSize = jDesktopPane1.getSize();
         Dimension FrameSize = ventana.getSize();
         ventana.setLocation((desktopSize.width - FrameSize.width) / 2, (desktopSize.height - FrameSize.height) / 2);
+        ventana.setVisible(true);
     }//GEN-LAST:event_frmMantenimientoAplicacionesActionPerformed
 
     private void frmMantenimientoBitacoraActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_frmMantenimientoBitacoraActionPerformed

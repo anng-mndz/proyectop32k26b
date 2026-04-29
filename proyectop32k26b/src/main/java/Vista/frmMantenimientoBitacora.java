@@ -3,9 +3,11 @@
 package Vista;
 
 //Astrid modificó para agregar la consulta y arreglar errores
+//Modificación por Astrid para los permisos del mdi
 
 import Controlador.clsBitacora;
 import Modelo.BitacoraDAO;
+import Modelo.PermisosDAO;
 import java.util.List;
 import javax.swing.table.DefaultTableModel;
 
@@ -29,8 +31,21 @@ public class frmMantenimientoBitacora extends javax.swing.JInternalFrame {
         setResizable(true);
         setTitle("Bitácora");
         setVisible(true);
+        //Deben agregar esta línea para cargar el metodo 
+        cargarPermisos();
         
         cboxTipoBusquedaActionPerformed(null);
+    }
+    
+    //Agregado por Astrid, para los permisos del mdi
+     //agregar este metodo para el sistema de seguridad de permisos, con su aplicación correspondiente
+    public void cargarPermisos() {
+    PermisosDAO permisosDAO = new PermisosDAO();
+
+    boolean puedeBuscar = permisosDAO.puedeBuscar(idUsuario, 10005);
+
+    btnBuscar.setEnabled(puedeBuscar);
+    cboxTipoBusqueda.setEnabled(puedeBuscar);
     }
 
     // Llenado de tabla

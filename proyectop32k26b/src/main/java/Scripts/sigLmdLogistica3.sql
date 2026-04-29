@@ -3,7 +3,7 @@
 -- https://www.phpmyadmin.net/
 --
 -- Host: 127.0.0.1
--- Generation Time: Apr 06, 2026 at 07:32 PM
+-- Generation Time: Apr 09, 2026 at 05:59 AM
 -- Server version: 10.4.32-MariaDB
 -- PHP Version: 8.2.12
 
@@ -18,11 +18,11 @@ SET time_zone = "+00:00";
 /*!40101 SET NAMES utf8mb4 */;
 
 --
--- Database: sig
+-- Database: `sig`
 --
 
 --
--- Dumping data for table aplicaciones
+-- Dumping data for table `aplicaciones`
 --
 
 INSERT INTO aplicaciones (Aplcodigo, Aplnombre, Aplestado) VALUES

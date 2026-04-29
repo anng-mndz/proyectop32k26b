@@ -198,10 +198,18 @@ public class clsUsuario {
         UsuarioDAO daousuario = new UsuarioDAO();
         return daousuario.borrarUsuarios(usuario);
     }          
-    public int setIngresarUsuario(clsUsuario usuario)
+    
+    //modificacion agregar codigoAplicacion
+    /*
+     public int setIngresarUsuario(clsUsuario usuario)
     {
         UsuarioDAO daousuario = new UsuarioDAO();
         return daousuario.ingresaUsuarios(usuario);
+    }  */
+    public int setIngresarUsuario(clsUsuario usuario, int codigoAplicacion)
+    {
+        UsuarioDAO daousuario = new UsuarioDAO();
+        return daousuario.ingresaUsuarios(usuario, codigoAplicacion);
     }              
     public int setModificarUsuario(clsUsuario usuario)
     {

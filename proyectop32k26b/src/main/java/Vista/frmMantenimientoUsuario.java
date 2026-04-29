@@ -4,6 +4,11 @@
  * To change this template file, choose Tools | Templates
  * and open the template in the editor.
  */
+
+//Marco. Hernandez 9959-24-6201 
+//Marco. Hernandez 08-abril-2026 1. Mantenimiento "registros" implementados. Actualizacion de codigoAplicacion.
+                               //2. Solucion Ultima Sesion "Ya no obligatorio agregar fecha para registrar".
+                               //3. Se agrego a la ventana A = Activo, I = Inactivo", Para comprension del Usuario.
 package Vista;
 
 import Controlador.clsSeguridad;
@@ -12,6 +17,7 @@ import Controlador.clsUsuario;
 import Controlador.clsUsuarioConectado;
 import Modelo.BitacoraDAO;
 import Modelo.Conexion;
+import Modelo.PermisosDAO;
 import java.util.List;
 import javax.swing.table.DefaultTableModel;
 import java.io.File;
@@ -29,7 +35,7 @@ import javax.swing.JOptionPane;
  */
 public class frmMantenimientoUsuario extends javax.swing.JInternalFrame {
     
-int codigoAplicacion=10;
+int codigoAplicacion=10001;
 
     public void llenadoDeCombos() {
         /*EmpleadoDAO empleadoDAO = new EmpleadoDAO();
@@ -76,7 +82,24 @@ int codigoAplicacion=10;
         initComponents();
         llenadoDeTablas();
         llenadoDeCombos();
+        //Linea para cargar el metodo (agregar)
+        cargarPermisos(); //Prueba para la cosa d seguridad
     }
+    
+    //metodo gregado por Astrid, para los permisos del mdi
+    public void cargarPermisos() {
+    int usuId = clsUsuarioConectado.getUsuId();
+    PermisosDAO permisosDAO = new PermisosDAO();
+
+    //METODO PARA EL SISTEMA DE SEGURIDAD DE PERMISOS AGREGAR A SUS FORMULARIOS CORRESPONDIENTES
+    // Todos usan código 10 = Mantenimiento Usuario
+    btnRegistrar.setEnabled( permisosDAO.puedeInsertar (usuId, 10) );
+    btnBuscar.setEnabled  ( permisosDAO.puedeBuscar   (usuId, 10) );
+    btnModificar.setEnabled( permisosDAO.puedeModificar(usuId, 10) );
+    btnEliminar.setEnabled ( permisosDAO.puedeEliminar (usuId, 10) );
+    btnReportes.setEnabled( permisosDAO.puedeReportar (usuId, 10) );
+}
+
 
     /**
      * This method is called from within the constructor to initialize the form.
@@ -121,8 +144,8 @@ int codigoAplicacion=10;
         txtConfContraseña = new javax.swing.JTextField();
         label7 = new javax.swing.JLabel();
         btnReportes = new javax.swing.JButton();
+        jLabel1 = new javax.swing.JLabel();
 
-        lb2.setForeground(new java.awt.Color(204, 204, 204));
         lb2.setText(".");
 
         setClosable(true);
@@ -201,7 +224,6 @@ int codigoAplicacion=10;
         label5.setFont(new java.awt.Font("Century Gothic", 1, 12)); // NOI18N
         label5.setText("Contraseña");
 
-        lb.setForeground(new java.awt.Color(204, 204, 204));
         lb.setText(".");
 
         jButton2.setText("Ayuda");
@@ -269,6 +291,8 @@ int codigoAplicacion=10;
                 btnReportesActionPerformed(evt);
             }
         });
+
+        jLabel1.setText("Estatus: A = Activo     I = Inactivo\"");
 
         javax.swing.GroupLayout layout = new javax.swing.GroupLayout(getContentPane());
         getContentPane().setLayout(layout);
@@ -350,14 +374,16 @@ int codigoAplicacion=10;
                 .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
                 .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
                     .addGroup(layout.createSequentialGroup()
-                        .addComponent(btnActualizar)
-                        .addGap(0, 0, Short.MAX_VALUE))
-                    .addGroup(layout.createSequentialGroup()
                         .addComponent(label1)
                         .addGap(294, 585, Short.MAX_VALUE))
                     .addGroup(layout.createSequentialGroup()
                         .addComponent(jScrollPane1, javax.swing.GroupLayout.DEFAULT_SIZE, 624, Short.MAX_VALUE)
-                        .addContainerGap())))
+                        .addContainerGap())
+                    .addGroup(layout.createSequentialGroup()
+                        .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+                            .addComponent(btnActualizar)
+                            .addComponent(jLabel1))
+                        .addGap(0, 0, Short.MAX_VALUE))))
         );
         layout.setVerticalGroup(
             layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
@@ -367,7 +393,7 @@ int codigoAplicacion=10;
                 .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
                     .addGroup(layout.createSequentialGroup()
                         .addComponent(lb)
-                        .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
+                        .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, 23, Short.MAX_VALUE)
                         .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
                             .addComponent(label3)
                             .addComponent(txtNombre, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE))
@@ -403,7 +429,7 @@ int codigoAplicacion=10;
                         .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
                             .addComponent(label13)
                             .addComponent(txtDireccion, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE))
-                        .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
+                        .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, 23, Short.MAX_VALUE)
                         .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
                             .addComponent(btnRegistrar)
                             .addComponent(btnEliminar)
@@ -421,9 +447,11 @@ int codigoAplicacion=10;
                         .addGap(23, 23, 23))
                     .addGroup(layout.createSequentialGroup()
                         .addComponent(jScrollPane1, javax.swing.GroupLayout.PREFERRED_SIZE, 303, javax.swing.GroupLayout.PREFERRED_SIZE)
-                        .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
+                        .addGap(18, 18, 18)
                         .addComponent(btnActualizar)
-                        .addContainerGap(64, Short.MAX_VALUE))))
+                        .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
+                        .addComponent(jLabel1)
+                        .addContainerGap(javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))))
         );
 
         pack();
@@ -433,50 +461,63 @@ int codigoAplicacion=10;
         // TODO add your handling code here:
         int registrosBorrados=0;
         clsUsuario usuario = new clsUsuario();
-        usuario.setUsuId(Integer.parseInt(txtbuscado.getText()));
+       usuario.setUsuId(Integer.parseInt(txtbuscado.getText()));
+       //objeto
+        Modelo.UsuarioDAO dao = new Modelo.UsuarioDAO();
         registrosBorrados=usuario.setBorrarUsuario(usuario);
         JOptionPane.showMessageDialog(null, "Registro Borrado\n", 
                     "Información del Sistema", JOptionPane.INFORMATION_MESSAGE);
         llenadoDeTablas();
         
         int resultadoBitacora=0;
-        clsBitacora bitacoraRegistro = new clsBitacora();
-        bitacoraRegistro.setUsucodigo(usuario.getUsuId());
-        bitacoraRegistro.setAplcodigo(codigoAplicacion);
-        bitacoraRegistro.setBitaccion("DEL");
+        //Duplicidad con el insert
+       // clsBitacora bitacoraRegistro = new clsBitacora();
+       // bitacoraRegistro.setUsucodigo(usuario.getUsuId());
+       // bitacoraRegistro.setAplcodigo(codigoAplicacion);
+       // bitacoraRegistro.setBitaccion("DEL");
         BitacoraDAO bitacoradao = new BitacoraDAO();
-        resultadoBitacora = bitacoradao.insert(usuario.getUsuId(), codigoAplicacion, "ACCION");      
+        
+        //se agrego clsUsuarioConectado.getUsuId() por usuario.getUsuID
+        resultadoBitacora = bitacoradao.insert(clsUsuarioConectado.getUsuId(), codigoAplicacion, "DELETE");      
         
         limpiarTextos();
     }//GEN-LAST:event_btnEliminarActionPerformed
     int contador=0; 
     private void btnRegistrarActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnRegistrarActionPerformed
-        String cont=txtContrasena.getText(),conf=txtConfContraseña.getText();
+       String cont=txtContrasena.getText(),conf=txtConfContraseña.getText();
         if(cont.equals(conf)){
             clsSeguridad c = new clsSeguridad();
             clsUsuario usuario = new clsUsuario();
             usuario.setUsuNombre(txtNombre.getText());
             usuario.setUsuContrasena(c.encode(txtContrasena.getText()));
                     
-            //Agregando codificado de contraseña = Anthony Avalos 
+                //Agregando codificado de contraseña = Anthony Avalos 
             //usuario.setContrasenaUsuario(txtContrasena.getText());
-            usuario.setUsuUltimaSesion(txtUltimaSesion.getText());
+
+           usuario.setUsuUltimaSesion("0001-01-01 00:00:00");
             usuario.setUsuEstatus(txtEstatus.getText());
             usuario.setUsuNombreReal(txtNombreReal.getText());
             usuario.setUsuCorreo(txtCorreo.getText());
             usuario.setUsuTelefono(txtTelefono.getText());
             usuario.setUsuDireccion(txtDireccion.getText());
             
-            usuario.setIngresarUsuario(usuario);
+            usuario.setIngresarUsuario(usuario, codigoAplicacion);
             JOptionPane.showMessageDialog(null, "Registro Ingresado\n", 
                         "Información del Sistema", JOptionPane.INFORMATION_MESSAGE);
-            int resultadoBitacora=0;
-            clsBitacora bitacoraRegistro = new clsBitacora();
-            bitacoraRegistro.setUsucodigo(usuario.getUsuId());
-            bitacoraRegistro.setAplcodigo(codigoAplicacion);
-            bitacoraRegistro.setBitaccion("INS");
-            BitacoraDAO bitacoradao = new BitacoraDAO();
-            resultadoBitacora = bitacoradao.insert(usuario.getUsuId(), codigoAplicacion, "INS");         
+            
+            int resultadoBitacora = 0;
+           /* BitacoraDAO bitacoradao = new BitacoraDAO();
+            
+            // Lineeas comentadas porque el método insert ya recibe los datos directamente
+            // bitacoraRegistro.setUsucodigo(usuario.getUsuId()); 
+            // bitacoraRegistro.setAplcodigo(codigoAplicacion);
+            // bitacoraRegistro.setBitaccion("INS");
+            
+            // // BitacoraDAO bitacoradao = new BitacoraDAO(); // Comentado por duplicidad
+            
+            // Se cambio usuario.getUsuId() por clsUsuarioConectado.getUsuid() para evitar el error de ID 0
+            resultadoBitacora = bitacoradao.insert(clsUsuarioConectado.getUsuId(), codigoAplicacion, "INS");      
+            */
             llenadoDeTablas();
             limpiarTextos();
         }else{
@@ -488,7 +529,7 @@ int codigoAplicacion=10;
                         "Información del Sistema", JOptionPane.INFORMATION_MESSAGE);
                 esperar5min();
             }
-           }
+        }
     }//GEN-LAST:event_btnRegistrarActionPerformed
 
     private void btnBuscarActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnBuscarActionPerformed
@@ -518,10 +559,10 @@ int codigoAplicacion=10;
         
         clsSeguridad c = new clsSeguridad();
         clsUsuario usuario = new clsUsuario();
+        
         usuario.setUsuId(Integer.parseInt(txtbuscado.getText()));
         usuario.setUsuNombre(txtNombre.getText());
         usuario.setUsuContrasena(c.encode(txtContrasena.getText()));
-        
         //agregando codificado de contraseña modificar = Anthony Avalos
         //usuario.setContrasenaUsuario(txtContrasena.getText());
         usuario.setUsuUltimaSesion(txtUltimaSesion.getText());
@@ -531,14 +572,16 @@ int codigoAplicacion=10;
         usuario.setUsuTelefono(txtTelefono.getText());
         usuario.setUsuDireccion(txtDireccion.getText());
         
-        usuario.setModificarUsuario(usuario);
+        Modelo.UsuarioDAO dao = new Modelo.UsuarioDAO();
+        dao.actualizaUsuarios(usuario);
+      //duplica  usuario.setModificarUsuario(usuario);
         JOptionPane.showMessageDialog(null, "Registro Modificado\n", 
                     "Información del Sistema", JOptionPane.INFORMATION_MESSAGE);        
         llenadoDeTablas();
         
         int resultadoBitacora=0;
         BitacoraDAO bitacoradao = new BitacoraDAO();
-    resultadoBitacora = bitacoradao.insert(usuario.getUsuId(), codigoAplicacion, "ACCION");
+    resultadoBitacora = bitacoradao.insert(usuario.getUsuId(), codigoAplicacion, "UPDATE");
         
         limpiarTextos();
     }//GEN-LAST:event_btnModificarActionPerformed
@@ -606,6 +649,7 @@ int codigoAplicacion=10;
     private javax.swing.JButton btnRegistrar;
     private javax.swing.JButton btnReportes;
     private javax.swing.JButton jButton2;
+    private javax.swing.JLabel jLabel1;
     private javax.swing.JScrollPane jScrollPane1;
     private javax.swing.JLabel label1;
     private javax.swing.JLabel label10;
