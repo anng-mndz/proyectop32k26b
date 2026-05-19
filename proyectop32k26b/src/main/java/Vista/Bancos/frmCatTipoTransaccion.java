@@ -210,142 +210,122 @@ public class frmCatTipoTransaccion extends javax.swing.JInternalFrame {
 
     private void btnEliminarActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnEliminarActionPerformed
 // Verifica que el campo ID no esté vacío
-if (txtid.getText().trim().isEmpty()) {
-
-    // Muestra un mensaje de advertencia
-    javax.swing.JOptionPane.showMessageDialog(this,
-        "Seleccione un tipo de transacción de la tabla o ingrese un ID.",
-        "Atención",
-        javax.swing.JOptionPane.WARNING_MESSAGE);
-
-    return;
-}
-
-// Solicita confirmación antes de eliminar el registro
-int confirm = javax.swing.JOptionPane.showConfirmDialog(this,
-    "¿Está seguro de que desea eliminar este tipo de transacción?",
-    "Confirmar eliminación",
-    javax.swing.JOptionPane.YES_NO_OPTION);
-
-// Si el usuario selecciona "No", se cancela la operación
-if (confirm != javax.swing.JOptionPane.YES_OPTION) return;
-
-try {
-
-    // Convierte el ID ingresado a número entero
-    int id = Integer.parseInt(txtid.getText().trim());
-
-    // Elimina el registro de la base de datos
-    dao.delete(id);
-
-    // Muestra un mensaje de éxito
-    javax.swing.JOptionPane.showMessageDialog(this,
-        "Tipo de transacción eliminado correctamente.",
-        "Éxito",
-        javax.swing.JOptionPane.INFORMATION_MESSAGE);
-
-    // Registra la eliminación en la bitácora
-    frmBitacoraBancaria.registrarBitacora(
-        "DELETE",
-        "CatTipoTransaccion",
-        Integer.parseInt(txtid.getText().trim()),
-        "Nombre: " + jTextField1.getText().trim(),
-        null,
-        "Tipo de transacción eliminado"
-    );
-
-    // Recarga la tabla con los datos actualizados
-    cargarTabla();
-
-    // Limpia los campos del formulario
-    limpiarCampos();
-
-} catch (NumberFormatException ex) {
-
-    // Muestra un mensaje si el ID no es válido
-    javax.swing.JOptionPane.showMessageDialog(this,
-        "El ID debe ser un número válido.",
-        "Error",
-        javax.swing.JOptionPane.ERROR_MESSAGE);
-
-} catch (Exception e) {
-
-    // Muestra un mensaje si ocurre un error
-    javax.swing.JOptionPane.showMessageDialog(this,
-        "Error al eliminar: " + e.getMessage(),
-        "Error",
-        javax.swing.JOptionPane.ERROR_MESSAGE);
-}
+        if (txtid.getText().trim().isEmpty()) {
+            javax.swing.JOptionPane.showMessageDialog(this,
+                "Seleccione un tipo de transacción de la tabla o ingrese un ID.",
+                "Atención",
+                javax.swing.JOptionPane.WARNING_MESSAGE);
+            return;
+        }
+ 
+        // Solicita confirmación antes de eliminar el registro
+        int confirm = javax.swing.JOptionPane.showConfirmDialog(this,
+            "¿Está seguro de que desea eliminar este tipo de transacción?",
+            "Confirmar eliminación",
+            javax.swing.JOptionPane.YES_NO_OPTION);
+ 
+        // Si el usuario selecciona "No", se cancela la operación
+        if (confirm != javax.swing.JOptionPane.YES_OPTION) return;
+ 
+        try {
+ 
+            // Convierte el ID ingresado a número entero
+            int id = Integer.parseInt(txtid.getText().trim());
+ 
+            // Elimina el registro de la base de datos
+            dao.delete(id);
+ 
+            // Muestra un mensaje de éxito
+            javax.swing.JOptionPane.showMessageDialog(this,
+                "Tipo de transacción eliminado correctamente.",
+                "Éxito",
+                javax.swing.JOptionPane.INFORMATION_MESSAGE);
+ 
+            // Registra la eliminación en la bitácora
+            frmBitacoraBancaria.registrarBitacora(
+                "DELETE",
+                "CatTipoTransaccion",
+                id,
+                "Nombre: " + jTextField1.getText().trim(),
+                null,
+                "Tipo de transacción eliminado"
+            );
+ 
+            // Recarga la tabla con los datos actualizados
+            cargarTabla();
+ 
+            // Limpia los campos del formulario
+            limpiarCampos();
+ 
+        } catch (NumberFormatException ex) {
+            javax.swing.JOptionPane.showMessageDialog(this,
+                "El ID debe ser un número válido.",
+                "Error",
+                javax.swing.JOptionPane.ERROR_MESSAGE);
+ 
+        } catch (Exception e) {
+            javax.swing.JOptionPane.showMessageDialog(this,
+                "Error al eliminar: " + e.getMessage(),
+                "Error",
+                javax.swing.JOptionPane.ERROR_MESSAGE);
+        }
     }//GEN-LAST:event_btnEliminarActionPerformed
 
     private void btnBuscarActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnBuscarActionPerformed
 // Verifica que el campo ID no esté vacío
-if (txtid.getText().trim().isEmpty()) {
-
-    // Muestra un mensaje de advertencia
-    javax.swing.JOptionPane.showMessageDialog(this,
-        "Ingrese un ID para buscar.",
-        "Atención",
-        javax.swing.JOptionPane.WARNING_MESSAGE);
-
-    return;
-}
-
-try {
-
-    // Convierte el ID ingresado a número entero
-    int id = Integer.parseInt(txtid.getText().trim());
-
-    // Busca el tipo de transacción en la base de datos
-    clsCatTipoTransaccion tt = dao.query(id);
-
-    // Verifica si se encontró el registro
-    if (tt != null) {
-
-        // Muestra el nombre del tipo de transacción
-        jTextField1.setText(tt.getTTnombretipo());
-
-        // Muestra la descripción del tipo de transacción
-        txtid.setText(tt.getTTdescripcion());
-
-        // Registra la consulta en la bitácora
-        frmBitacoraBancaria.registrarBitacora(
-            "SELECT",
-            "CatTipoTransaccion",
-            Integer.parseInt(txtid.getText().trim()),
-            null,
-            null,
-            "Consulta de tipo de transacción por ID"
-        );
-
-    } else {
-
-        // Muestra un mensaje si no se encontró el registro
-        javax.swing.JOptionPane.showMessageDialog(this,
-            "No se encontró un tipo de transacción con ID: " + id,
-            "Sin resultados",
-            javax.swing.JOptionPane.INFORMATION_MESSAGE);
-
-        // Limpia los campos del formulario
-        limpiarCampos();
-    }
-
-} catch (NumberFormatException ex) {
-
-    // Muestra un mensaje si el ID no es válido
-    javax.swing.JOptionPane.showMessageDialog(this,
-        "El ID debe ser un número válido.",
-        "Error",
-        javax.swing.JOptionPane.ERROR_MESSAGE);
-
-} catch (Exception e) {
-
-    // Muestra un mensaje si ocurre un error en la búsqueda
-    javax.swing.JOptionPane.showMessageDialog(this,
-        "Error al buscar: " + e.getMessage(),
-        "Error",
-        javax.swing.JOptionPane.ERROR_MESSAGE);
-}
+        if (txtid.getText().trim().isEmpty()) {
+            javax.swing.JOptionPane.showMessageDialog(this,
+                "Ingrese un ID para buscar.",
+                "Atención",
+                javax.swing.JOptionPane.WARNING_MESSAGE);
+            return;
+        }
+ 
+        try {
+ 
+            // Convierte el ID ingresado a número entero
+            int id = Integer.parseInt(txtid.getText().trim());
+ 
+            // Busca el tipo de transacción en la base de datos
+            clsCatTipoTransaccion tt = dao.query(id);
+ 
+            if (tt != null) {
+ 
+                //cada campo recibe su dato correcto
+                jTextField1.setText(tt.getTTnombretipo());   // Nombre
+                jTextField3.setText(tt.getTTdescripcion());  // Descripción
+                txtid.setText(String.valueOf(id));            // Restaura el ID
+ 
+                // Registra la consulta en la bitácora
+                frmBitacoraBancaria.registrarBitacora(
+                    "SELECT",
+                    "CatTipoTransaccion",
+                    id,
+                    null,
+                    null,
+                    "Consulta de tipo de transacción por ID"
+                );
+ 
+            } else {
+                javax.swing.JOptionPane.showMessageDialog(this,
+                    "No se encontró un tipo de transacción con ID: " + id,
+                    "Sin resultados",
+                    javax.swing.JOptionPane.INFORMATION_MESSAGE);
+                limpiarCampos();
+            }
+ 
+        } catch (NumberFormatException ex) {
+            javax.swing.JOptionPane.showMessageDialog(this,
+                "El ID debe ser un número válido.",
+                "Error",
+                javax.swing.JOptionPane.ERROR_MESSAGE);
+ 
+        } catch (Exception e) {
+            javax.swing.JOptionPane.showMessageDialog(this,
+                "Error al buscar: " + e.getMessage(),
+                "Error",
+                javax.swing.JOptionPane.ERROR_MESSAGE);
+        }
     }//GEN-LAST:event_btnBuscarActionPerformed
 
     private void btnReporteActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnReporteActionPerformed
@@ -472,119 +452,100 @@ try {
 
     private void btnAgregarActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnAgregarActionPerformed
 // Verifica que todos los campos estén completos
-if (!camposCompletos()) return;
-
-try {
-
-    // Obtiene los datos ingresados en el formulario
-    clsCatTipoTransaccion tt =
-        getTipoTransaccionDeFormulario();
-
-    // Inserta el nuevo tipo de transacción en la base de datos
-    dao.insert(tt);
-
-    // Muestra un mensaje de éxito
-    javax.swing.JOptionPane.showMessageDialog(this,
-        "Tipo de transacción registrado correctamente.",
-        "Éxito",
-        javax.swing.JOptionPane.INFORMATION_MESSAGE);
-
-    // Registra la inserción en la bitácora
-    frmBitacoraBancaria.registrarBitacora(
-        "INSERT",
-        "CatTipoTransaccion",
-        null,
-        null,
-        "Nombre: " + jTextField1.getText().trim() +
-        " | Descripción: " +
-        jTextField3.getText().trim(),
-        "Tipo de transacción registrado"
-    );
-
-    // Recarga la tabla con los nuevos datos
-    cargarTabla();
-
-    // Limpia los campos del formulario
-    limpiarCampos();
-
-} catch (Exception e) {
-
-    // Muestra un mensaje si ocurre un error
-    javax.swing.JOptionPane.showMessageDialog(this,
-        "Error al agregar: " + e.getMessage(),
-        "Error",
-        javax.swing.JOptionPane.ERROR_MESSAGE);
-}
+        if (!camposCompletos()) return;
+ 
+        try {
+ 
+            // Obtiene los datos ingresados en el formulario
+            clsCatTipoTransaccion tt = getTipoTransaccionDeFormulario();
+ 
+            // Inserta el nuevo tipo de transacción en la base de datos
+            dao.insert(tt);
+ 
+            javax.swing.JOptionPane.showMessageDialog(this,
+                "Tipo de transacción registrado correctamente.",
+                "Éxito",
+                javax.swing.JOptionPane.INFORMATION_MESSAGE);
+ 
+            // Registra la inserción en la bitácora
+            frmBitacoraBancaria.registrarBitacora(
+                "INSERT",
+                "CatTipoTransaccion",
+                null,
+                null,
+                "Nombre: " + jTextField1.getText().trim() +
+                " | Descripción: " + jTextField3.getText().trim(),
+                "Tipo de transacción registrado"
+            );
+ 
+            cargarTabla();
+            limpiarCampos();
+ 
+        } catch (Exception e) {
+            javax.swing.JOptionPane.showMessageDialog(this,
+                "Error al agregar: " + e.getMessage(),
+                "Error",
+                javax.swing.JOptionPane.ERROR_MESSAGE);
+        }
     }//GEN-LAST:event_btnAgregarActionPerformed
 
     private void btnActualizarActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnActualizarActionPerformed
-    // Verifica que se haya seleccionado un registro para actualizar
-if (txtid.getText().trim().isEmpty()) {
-
-    // Muestra un mensaje de advertencia
-    javax.swing.JOptionPane.showMessageDialog(this,
-        "Seleccione un tipo de transacción de la tabla para actualizar.",
-        "Atención", javax.swing.JOptionPane.WARNING_MESSAGE);
-
-    return;
-}
-
-// Verifica que todos los campos estén completos
-if (!camposCompletos()) return;
-
-try {
-
-    // Obtiene los datos ingresados en el formulario
-    clsCatTipoTransaccion tt =
-        getTipoTransaccionDeFormulario();
-
-    // Asigna el ID del registro que se actualizará
-    tt.setTTid(
-        Integer.parseInt(txtid.getText().trim()));
-
-    // Actualiza el registro en la base de datos
-    dao.update(tt);
-
-    // Muestra un mensaje de éxito
-    javax.swing.JOptionPane.showMessageDialog(this,
-        "Tipo de transacción actualizado correctamente.",
-        "Éxito",
-        javax.swing.JOptionPane.INFORMATION_MESSAGE);
-
-    // Registra la actualización en la bitácora
-    frmBitacoraBancaria.registrarBitacora(
-        "UPDATE",
-        "CatTipoTransaccion",
-        Integer.parseInt(txtid.getText().trim()),
-        null,
-        "Nombre: " + jTextField1.getText().trim() +
-        " | Descripción: " +
-        jTextField3.getText().trim(),
-        "Tipo de transacción actualizado"
-    );
-
-    // Recarga la tabla con los datos actualizados
-    cargarTabla();
-
-    // Limpia los campos del formulario
-    limpiarCampos();
-
-} catch (NumberFormatException ex) {
-
-    // Muestra un mensaje si el ID no es válido
-    javax.swing.JOptionPane.showMessageDialog(this,
-        "El ID debe ser un número válido.",
-        "Error",
-        javax.swing.JOptionPane.ERROR_MESSAGE);
-
-} catch (Exception e) {
-
-    // Muestra un mensaje si ocurre un error
-    javax.swing.JOptionPane.showMessageDialog(this,
-        "Error al actualizar: " + e.getMessage(),
-        "Error",
-        javax.swing.JOptionPane.ERROR_MESSAGE);
-}
+// Verifica que se haya seleccionado un registro para actualizar
+        if (txtid.getText().trim().isEmpty()) {
+            javax.swing.JOptionPane.showMessageDialog(this,
+                "Seleccione un tipo de transacción de la tabla para actualizar.",
+                "Atención",
+                javax.swing.JOptionPane.WARNING_MESSAGE);
+            return;
+        }
+ 
+        // Verifica que todos los campos estén completos
+        if (!camposCompletos()) return;
+ 
+        try {
+ 
+            int id = Integer.parseInt(txtid.getText().trim());
+ 
+            // Obtiene los datos ingresados en el formulario
+            clsCatTipoTransaccion tt = getTipoTransaccionDeFormulario();
+ 
+            // Asigna el ID del registro que se actualizará
+            tt.setTTid(id);
+ 
+            // Actualiza el registro en la base de datos
+            dao.update(tt);
+ 
+            javax.swing.JOptionPane.showMessageDialog(this,
+                "Tipo de transacción actualizado correctamente.",
+                "Éxito",
+                javax.swing.JOptionPane.INFORMATION_MESSAGE);
+ 
+            // Registra la actualización en la bitácora
+            frmBitacoraBancaria.registrarBitacora(
+                "UPDATE",
+                "CatTipoTransaccion",
+                id,
+                null,
+                "Nombre: " + jTextField1.getText().trim() +
+                " | Descripción: " + jTextField3.getText().trim(),
+                "Tipo de transacción actualizado"
+            );
+ 
+            cargarTabla();
+            limpiarCampos();
+ 
+        } catch (NumberFormatException ex) {
+            javax.swing.JOptionPane.showMessageDialog(this,
+                "El ID debe ser un número válido.",
+                "Error",
+                javax.swing.JOptionPane.ERROR_MESSAGE);
+ 
+        } catch (Exception e) {
+            javax.swing.JOptionPane.showMessageDialog(this,
+                "Error al actualizar: " + e.getMessage(),
+                "Error",
+                javax.swing.JOptionPane.ERROR_MESSAGE);
+        }
     }//GEN-LAST:event_btnActualizarActionPerformed
 // ── Llena la tabla con todos los tipos de transacción ────────────────────
 private void cargarTabla() {
@@ -609,9 +570,9 @@ private void configurarSeleccionTabla() {
     jTable1.getSelectionModel().addListSelectionListener(e -> {
         if (!e.getValueIsAdjusting() && jTable1.getSelectedRow() != -1) {
             int fila = jTable1.getSelectedRow();
-            txtid.setText(jTable1.getValueAt(fila, 0).toString()); // ID
+            txtid.setText(jTable1.getValueAt(fila, 0).toString());      // ID
             jTextField1.setText(jTable1.getValueAt(fila, 1).toString()); // Nombre
-            txtid.setText(jTable1.getValueAt(fila, 2).toString()); // Descripción
+            jTextField3.setText(jTable1.getValueAt(fila, 2).toString()); // ✅ Descripción
         }
     });
 }
@@ -620,29 +581,29 @@ private void configurarSeleccionTabla() {
 private void limpiarCampos() {
     txtid.setText("");
     jTextField1.setText("");
-    txtid.setText("");
+    jTextField3.setText(""); 
     jTable1.clearSelection();
 }
 
 // ── Valida que los campos no estén vacíos ───────────────────
 private boolean camposCompletos() {
-    if (jTextField1.getText().trim().isEmpty()) {
-        javax.swing.JOptionPane.showMessageDialog(this,
-            "Complete todos los campos: Nombre y Descripción.",
-            "Campos incompletos", javax.swing.JOptionPane.WARNING_MESSAGE);
-        return false;
-    }
-    return true;
+    if (jTextField1.getText().trim().isEmpty() || jTextField3.getText().trim().isEmpty()) {
+            javax.swing.JOptionPane.showMessageDialog(this,
+                "Complete todos los campos: Nombre y Descripción.",
+                "Campos incompletos",
+                javax.swing.JOptionPane.WARNING_MESSAGE);
+            return false;
+        }
+        return true;
 }
 
 // ── Crea el objeto clsCatTipoTransaccion desde los campos del formulario ─
 private clsCatTipoTransaccion getTipoTransaccionDeFormulario() {
-    clsCatTipoTransaccion tt = new clsCatTipoTransaccion(
-        0,                             // ID lo genera MySQL con AUTO_INCREMENT
-        jTextField1.getText().trim(),  // Nombre
-        txtid.getText().trim()   // Descripción
-    );
-    return tt;
+    return new clsCatTipoTransaccion(
+            0,                              // ID lo genera MySQL con AUTO_INCREMENT
+            jTextField1.getText().trim(),   // Nombre
+            jTextField3.getText().trim()    // Descripción
+        );
 }
 
     

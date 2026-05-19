@@ -1,0 +1,3012 @@
+commit 38edb91a677ff9ce7e9ae132f9deae4b70f6540e
+Author: anng-mndz <lmendezf1@miumg.edu.gt>
+Date:   Mon May 18 10:19:44 2026 -0600
+
+    Cambios ultimos en reportes de Angel
+
+commit cbfadffd3cd51bc6aaa0d82ed707daac08ab8b0e
+Merge: 2155b8b 6dc951c
+Author: Angel Mendez <lmendezf1@miumg.edu.gt>
+Date:   Mon May 18 10:05:39 2026 -0600
+
+    Merge branch 'edelaguila:main' into main
+
+commit 2155b8b4d7ad602e69991f46b7e509cecf6b3470
+Merge: ebc47c3 7f8213c
+Author: anng-mndz <lmendezf1@miumg.edu.gt>
+Date:   Mon May 18 10:05:12 2026 -0600
+
+    Merge: Version de Alejandra
+
+commit 6dc951c183077584c906e2da73e748523b9c3ed6
+Merge: 3803228 052749a
+Author: edelaguila <54811781+edelaguila@users.noreply.github.com>
+Date:   Mon May 18 09:39:35 2026 -0600
+
+    Merge pull request #122 from MEILYNGRC/main
+    
+    incorporacion planilla
+
+commit 052749a985031062a580a490a36acd963d671ccb
+Author: Meilyn Garcia <grcmeilyn@gmail.com>
+Date:   Mon May 18 09:27:07 2026 -0600
+
+    incorporacion planilla
+
+commit 38032288ee43600009c4274b250a83a2a1629b3e
+Merge: 797d5d7 2ba072f
+Author: edelaguila <54811781+edelaguila@users.noreply.github.com>
+Date:   Mon May 18 08:53:42 2026 -0600
+
+    Merge pull request #119 from angelroq/ImplementacionSalirMDI99592420
+    
+    Se implemento la opcion salir del mdi comisiones ventas
+
+commit 797d5d738f9144612b4b7b607ba33fd366c23938
+Merge: 9fa415b ebc47c3
+Author: edelaguila <54811781+edelaguila@users.noreply.github.com>
+Date:   Mon May 18 08:51:14 2026 -0600
+
+    Merge pull request #117 from anng-mndz/main
+    
+    Ultima entrega del proyecto final
+
+commit 9fa415b58d02301adefc59faa6222beb62e588c4
+Merge: 184341e 181a140
+Author: edelaguila <54811781+edelaguila@users.noreply.github.com>
+Date:   Mon May 18 08:50:42 2026 -0600
+
+    Merge pull request #116 from Ivan774gt/main
+    
+    Modulo de logistica completo
+
+commit 184341e0e91e65849fc4eb5baffea864b43a1bcb
+Merge: 142fb20 41297a0
+Author: edelaguila <54811781+edelaguila@users.noreply.github.com>
+Date:   Mon May 18 08:49:12 2026 -0600
+
+    Merge pull request #115 from MEILYNGRC/main
+    
+    Ayuda integrada
+
+commit 2ba072fa9433592bb69f2b755ec6d7f1ebccb341
+Author: [Herson <[Herson>
+Date:   Mon May 18 07:39:00 2026 -0600
+
+    Se implemento la opcion salir del mdi comisiones ventas
+
+commit 41297a0dcc081bd0b34bad364364b046dd6196d2
+Merge: ebda0b8 0cd87c8
+Author: Meilyn Garcia <grcmeilyn@gmail.com>
+Date:   Mon May 18 00:55:30 2026 -0600
+
+    Merge branch 'main' of https://github.com/MEILYNGRC/proyectop32k26b
+
+commit ebda0b87a104c070756498d30c18b262707e26af
+Merge: 142fb20 001875f
+Author: Meilyn Garcia <grcmeilyn@gmail.com>
+Date:   Mon May 18 00:51:45 2026 -0600
+
+    Merge branch 'marlonayuda460'
+
+commit ebc47c31aeab0699bfe9a716d58a3a8b4820432f
+Merge: feb432c 142fb20
+Author: Angel Mendez <lmendezf1@miumg.edu.gt>
+Date:   Mon May 18 00:12:44 2026 -0600
+
+    Merge branch 'main' into main
+
+commit feb432c8a286a6ffaa76ae50c23f0eb08d774781
+Merge: 36e1bf8 de2bffa
+Author: anng-mndz <lmendezf1@miumg.edu.gt>
+Date:   Mon May 18 00:11:06 2026 -0600
+
+    Uniendo ramas
+
+commit 36e1bf8d7a1499bd17fcc406526edef3a70fd976
+Merge: d8f36f5 f954a2c
+Author: anng-mndz <lmendezf1@miumg.edu.gt>
+Date:   Mon May 18 00:10:03 2026 -0600
+
+    Merge branch 'Angoly' of https://github.com/anng-mndz/proyectop32k26b
+
+commit d8f36f508874cba63cb7218cc10e81b3ed4ff28f
+Author: anng-mndz <lmendezf1@miumg.edu.gt>
+Date:   Mon May 18 00:09:24 2026 -0600
+
+    Cambios de reportes
+
+commit 181a1403b13633b7e74b18cb7b85d56a92c29225
+Merge: 1dcf637 db47893
+Author: Boris de Leon <50037610+Ivan774gt@users.noreply.github.com>
+Date:   Sun May 17 23:20:23 2026 -0600
+
+    Merge pull request #57 from Ivan774gt/BorisdeLeon-9959-24-6203
+    
+    Logistica completo
+
+commit db47893ad839fd113fdb3ca78b5150f3aee3ea68
+Author: Ivan774gt <deleonboris6@gmail.com>
+Date:   Sun May 17 23:16:52 2026 -0600
+
+    Logistica completo
+
+commit 1dcf637b4d46d665a515da5d6e1a024eb3a08650
+Merge: 3c190a7 ef45b6c
+Author: Boris de Leon <50037610+Ivan774gt@users.noreply.github.com>
+Date:   Sun May 17 23:01:42 2026 -0600
+
+    Merge pull request #56 from Ivan774gt/BorisdeLeon-9959-24-6203
+    
+    Se corrigen codigos de formularios productos, marca y linea
+
+commit ef45b6cefe6cddf83688ddef693c9a46db12f022
+Author: Ivan774gt <deleonboris6@gmail.com>
+Date:   Sun May 17 22:58:26 2026 -0600
+
+    Correccion de codigo formulario
+
+commit 0cd87c82944e5eb2a48339c38741b9fd3b7ba0cc
+Author: Meilyn Garcia <grcmeilyn@gmail.com>
+Date:   Sun May 17 22:28:17 2026 -0600
+
+    Ayuda integrada
+
+commit 142fb201ba58a9fbc2d4a2aefdb5857724762a0d
+Merge: 8530cb5 d668e44
+Author: edelaguila <54811781+edelaguila@users.noreply.github.com>
+Date:   Sun May 17 21:37:28 2026 -0600
+
+    Merge pull request #114 from angelroq/FinalizacionProcesoComisiones99592420
+    
+    finalizacion de proceso reportes
+
+commit 3c190a70cac7d60676fbcba9e2104ceb5499900f
+Merge: 46a4e27 48d520b
+Author: Boris de Leon <50037610+Ivan774gt@users.noreply.github.com>
+Date:   Sun May 17 21:37:15 2026 -0600
+
+    Merge pull request #55 from Ivan774gt/AnthonySuc9959-24-389
+    
+    Arreglo CRUD de frmTransportistas
+
+commit 8530cb5d95baf24a010e5ec62ad4d551f0ecc113
+Merge: febbd02 a3ad921
+Author: edelaguila <54811781+edelaguila@users.noreply.github.com>
+Date:   Sun May 17 21:37:15 2026 -0600
+
+    Merge pull request #113 from MEILYNGRC/main
+    
+    tabla transaccional
+
+commit febbd0264c8ab9ebdb56e400b96ad782fab8d14c
+Merge: 81ba0de b84e6f4
+Author: edelaguila <54811781+edelaguila@users.noreply.github.com>
+Date:   Sun May 17 21:37:01 2026 -0600
+
+    Merge pull request #110 from astridrl/main
+    
+    Funcionamiento Factura Acreedor - Astrid
+
+commit 81ba0dee723597d311e630297eab10c6b140bae6
+Merge: c0c103f 9640a32
+Author: edelaguila <54811781+edelaguila@users.noreply.github.com>
+Date:   Sun May 17 21:36:48 2026 -0600
+
+    Merge pull request #109 from angelroq/Actualizacion_FormularioReportes_9959-24-1733
+    
+    Actualizacion_FormularioReportes_9959-24-1733
+
+commit c0c103f970d2ed19ffc51e06c501336b1f1575e1
+Merge: 54c624f 1385869
+Author: edelaguila <54811781+edelaguila@users.noreply.github.com>
+Date:   Sun May 17 21:36:32 2026 -0600
+
+    Merge pull request #108 from JennBF/main
+    
+    MEJORAS. CLASE VENDEDORES, MEJORAS EN COMPRAS Y ASIGNACION PERFIL USUARIO
+
+commit 48d520b520e7028d0a23ad93101fac8d7793caab
+Author: Anthony Hetzael Suc Gomez <asucg@miumg.edu.gt>
+Date:   Sun May 17 21:15:17 2026 -0600
+
+    Arreglo CRUD de frmTransportistas
+
+commit 7f8213c88b6a54e7b06e609c8d84d3e7972d3aa0
+Author: [Karina Arriaza] <[karriazao@miumg.edu.gt]>
+Date:   Sun May 17 20:57:46 2026 -0600
+
+    Documentación final de frm
+
+commit d668e44e8236fa42e04e4eeedac9c6fdef83b935
+Author: [Herson <[Herson>
+Date:   Sun May 17 18:37:20 2026 -0600
+
+    finalizacion de proceso reportes
+
+commit a3ad921f46e9a589273c9aed50afc2e8a3992556
+Merge: 54c624f b909388
+Author: Meilyn Garcia <grcmeilyn@gmail.com>
+Date:   Sun May 17 17:19:11 2026 -0600
+
+    Merge branch 'crud17838'
+
+commit b909388ee9d552bc74d92ad7fad7a6b2ce7d3cb9
+Author: Meilyn Garcia <grcmeilyn@gmail.com>
+Date:   Sun May 17 17:17:22 2026 -0600
+
+    crud transasccional planilla encabezado
+
+commit de2bffa1d727a1ededdcec3498fd0610bb24e30e
+Author: [Karina Arriaza] <[karriazao@miumg.edu.gt]>
+Date:   Sun May 17 16:15:10 2026 -0600
+
+    Cambios en Reportes?
+
+commit 001875fc6e964d67acdf57bccc3a59a1621ef56c
+Author: marlon de leon <mdeleong17@miumg.edu.gt>
+Date:   Sun May 17 15:06:19 2026 -0600
+
+    mensaje de actualizacion ajustes
+
+commit 46a4e272b4d976a1a3bbe50272179d0a1baef7e8
+Merge: ee656c9 a38eb1d
+Author: Boris de Leon <50037610+Ivan774gt@users.noreply.github.com>
+Date:   Sun May 17 14:46:19 2026 -0600
+
+    Merge pull request #54 from Ivan774gt/AnthonySuc9959-24-389
+    
+    update DAO transportistas
+
+commit a38eb1db25755ef3f2de8f7fd18f4e957a4029bf
+Author: Anthony Hetzael Suc Gomez <asucg@miumg.edu.gt>
+Date:   Sun May 17 14:22:18 2026 -0600
+
+    update DAO transportistas
+
+commit ee656c9652deca17cccbe7456b977565186b63a7
+Merge: 3f73350 6964052
+Author: Boris de Leon <50037610+Ivan774gt@users.noreply.github.com>
+Date:   Sun May 17 14:07:45 2026 -0600
+
+    Merge pull request #53 from Ivan774gt/AnthonySuc9959-24-389
+    
+    Update DAOs
+
+commit 6964052867c9750788be5494eb3ff2a3aafed3bb
+Author: Anthony Hetzael Suc Gomez <asucg@miumg.edu.gt>
+Date:   Sun May 17 14:00:46 2026 -0600
+
+    Update DAO Transportistas
+
+commit 5f0dc29a939366b33c6ed45aec5b4487e9d0479d
+Author: Anthony Hetzael Suc Gomez <asucg@miumg.edu.gt>
+Date:   Sun May 17 13:50:27 2026 -0600
+
+    Update DAOs
+
+commit b84e6f4570e847ecf4027f1c475148f433577f20
+Merge: 5075a5d 54c624f
+Author: astridrl <astridruizz05@gmail.com>
+Date:   Sun May 17 13:24:20 2026 -0600
+
+    Merge branch 'edelaguila:main' into main
+
+commit 5075a5d7ceb0e362ffb2fd31ae0a99942b996365
+Author: [Astrid Ruíz] <[astridruizz05@gmail.com]>
+Date:   Sun May 17 13:08:52 2026 -0600
+
+    Subiedo registro factura Acree
+
+commit 5015847258b10185d92c3143f2c1f0f2a8162831
+Author: Ivan774gt <deleonboris6@gmail.com>
+Date:   Sun May 17 13:08:18 2026 -0600
+
+    Ajustes de formulario productos y correccion de codigos de bitacora
+
+commit 9640a3262b9009d85d488c596bc31f777adba4e3
+Author: [Xander <[xreyeso@miumg.edu.gt]>
+Date:   Sun May 17 12:45:47 2026 -0600
+
+    Actualizacion_FormularioReportes_9959-24-1733
+
+commit 1385869da06f66c60b61196243c41f471dbea56d
+Merge: 5330f24 8cff38b
+Author: [JennBF] <[jennifer.barrios001@gmail.com]>
+Date:   Sun May 17 11:31:41 2026 -0600
+
+    Merge remote-tracking branch 'origin/JennBFMEJORAS'
+
+commit 5330f2483287b21134df970b1e0a57095dc46602
+Merge: fa81cc6 54c624f
+Author: Jennifer Barrios <jennifer.barrios001@gmail.com>
+Date:   Sun May 17 10:46:03 2026 -0600
+
+    Merge branch 'edelaguila:main' into main
+
+commit 54c624f118b08d72b50ba6fd683dc4d2701864dd
+Merge: 43b4f40 ccf8c31
+Author: edelaguila <54811781+edelaguila@users.noreply.github.com>
+Date:   Sun May 17 09:23:24 2026 -0600
+
+    Merge pull request #107 from MEILYNGRC/main
+    
+    crud
+
+commit 43b4f4054604522fc4b4e323190fcdc70101e7f2
+Merge: 245afd9 a9fbcfc
+Author: edelaguila <54811781+edelaguila@users.noreply.github.com>
+Date:   Sun May 17 09:23:08 2026 -0600
+
+    Merge pull request #106 from angelroq/Mejoras
+    
+    Implementacion-mejoras
+
+commit 245afd977034ffb21520e3ff8a5c69a386a9ecfe
+Merge: cc521c2 ac38440
+Author: edelaguila <54811781+edelaguila@users.noreply.github.com>
+Date:   Sun May 17 09:22:57 2026 -0600
+
+    Merge pull request #105 from angelroq/CorreccionProcesosComisiones99592420
+    
+    Se corrigio codigo en el dao, en el boton cargar datos y se mejoro el…
+
+commit ccf8c3150c098fc9504cd019f936d78bc3827ee2
+Merge: 297a07b cc521c2
+Author: Meilyn Garcia <grcmeilyn@gmail.com>
+Date:   Sun May 17 00:22:54 2026 -0600
+
+    Merge branch 'main' of https://github.com/MEILYNGRC/proyectop32k26b
+
+commit 297a07bf5031e99e529fc49f1be833a34bd36d12
+Author: Meilyn Garcia <grcmeilyn@gmail.com>
+Date:   Sun May 17 00:19:13 2026 -0600
+
+    Actualizacion Crud Conceptos Planillas
+
+commit 8cff38bfc87bb0b003e8fe106d0497d4726dffa3
+Merge: 5bb0b7f 80c08f6
+Author: [JennBF] <[jennifer.barrios001@gmail.com]>
+Date:   Sat May 16 21:56:22 2026 -0600
+
+    cambios en frmventas
+
+commit 5bb0b7faab6d9574ce19cf274af2477da3d6b707
+Author: [JennBF] <[jennifer.barrios001@gmail.com]>
+Date:   Sat May 16 21:22:45 2026 -0600
+
+    Modificación de permisos de Asignacion Perfil Usuario
+
+commit 80c08f63fdd59c1576807bd1ea81bf3b7d73f4cc
+Author: Marice Mayen <¨mmayeni1@miumg.edu.gt¨>
+Date:   Sat May 16 20:32:43 2026 -0600
+
+    frm vendedores
+
+commit 3f73350e9be68f7cf55ffd4d22cdec195e436ed9
+Merge: 3658a51 b8c22ec
+Author: Boris de Leon <50037610+Ivan774gt@users.noreply.github.com>
+Date:   Sat May 16 19:08:15 2026 -0600
+
+    Merge pull request #51 from Ivan774gt/MarcoHernandezumg9959-24-6201
+    
+    Implementaciones Formularios
+
+commit f954a2cadabcb65e5570a9b17bda6064bee88975
+Author: ¨[Angoly <¨[aaraujom@miumg.edu.gt]¨>
+Date:   Sat May 16 16:33:00 2026 -0600
+
+    Nuevos cambios en frm Bitácora Bancaria, Cliente y Banco
+
+commit fa81cc68f88b26e03d6e74b9f4c7d058c0ecf95f
+Author: Isa <isaiascedillo1313@gmail.com>
+Date:   Sat May 16 16:10:40 2026 -0600
+
+    Modificar formulario de compras
+
+commit 58837c4c6a8d34f231b2c0d283ab7dacf13d2613
+Author: [JennBF] <[jennifer.barrios001@gmail.com]>
+Date:   Sat May 16 02:13:24 2026 -0600
+
+    Eliminación de menu de productos.
+
+commit 19b4a58a655af45eeaad9e1367f9047fb72890e5
+Author: [JennBF] <[jennifer.barrios001@gmail.com]>
+Date:   Sat May 16 00:36:10 2026 -0600
+
+    uniendo cambios de compras y resolviendo conflictos de merge con ventas
+
+commit a9fbcfc6631f6a1a80044cad996ef0295ab46162
+Author: [Angel <[aroquelm1@miumg.edu.gt]>
+Date:   Sat May 16 00:00:01 2026 -0600
+
+    Implementacion-mejoras
+
+commit c9014fc45e25c9db6ec2d69bb9b1ac96ce5528a1
+Merge: cc521c2 e8e83cc
+Author: [JennBF] <[jennifer.barrios001@gmail.com]>
+Date:   Fri May 15 21:22:43 2026 -0600
+
+    Merge remote-tracking branch 'origin/CambioForm' into unircomprasJennbf
+
+commit cc521c21d35712ebb6c3a5afe83ef1aa3d4ba72b
+Merge: 034c77e c8b68fd
+Author: edelaguila <54811781+edelaguila@users.noreply.github.com>
+Date:   Fri May 15 20:49:39 2026 -0600
+
+    Merge pull request #104 from astridrl/main
+    
+    cobrosfuncionesAñadidas-Mishel
+
+commit ac3844023995f23515e5d88c7156f78c6086457f
+Author: [Herson <[Herson>
+Date:   Fri May 15 20:30:59 2026 -0600
+
+    Se corrigio codigo en el dao, en el boton cargar datos y se mejoro el formulario de procesos comisiones
+
+commit c8b68fd923014027ed138cd45e963679bc4e881d
+Merge: 0764b17 034c77e
+Author: astridrl <astridruizz05@gmail.com>
+Date:   Fri May 15 20:24:35 2026 -0600
+
+    Merge branch 'main' into main
+
+commit b8c22ecef35e0499f2155a8ae98311daa37af392
+Author: Marco Hernandez <mhernandezt23@miumg.edu.gt>
+Date:   Fri May 15 20:17:18 2026 -0600
+
+    Implementaciones generales
+
+commit 034c77ed958286e47c0cbe24abde13cfa9790dde
+Merge: fa476e5 cb3ba89
+Author: edelaguila <54811781+edelaguila@users.noreply.github.com>
+Date:   Fri May 15 20:15:33 2026 -0600
+
+    Merge pull request #103 from JennBF/main
+    
+    Cambios de Ventas del iva
+
+commit e8e83ccc960072b44086fe04b4451dcc55920f39
+Author: Isa <isaiascedillo1313@gmail.com>
+Date:   Fri May 15 19:14:38 2026 -0600
+
+    Combobox y eliminacion de producto en compras
+
+commit 0764b17a2b47e2a3ce47c7541f91f10945c5cf5c
+Author: [Britany Hernandez] <[britanyhernandezmd@gmail.com]>
+Date:   Fri May 15 17:55:49 2026 -0600
+
+    cobrosfuncionesAñadidas-Mishel
+
+commit cb3ba8954d00cd8438447584bea8a86dc6b30ed8
+Author: [JennBF] <[jennifer.barrios001@gmail.com]>
+Date:   Fri May 15 12:17:14 2026 -0600
+
+    uniendo cambios de celeste
+
+commit 669f61a827d4dba2da303873c227b32234bdb422
+Author: Marice Mayen <¨mmayeni1@miumg.edu.gt¨>
+Date:   Fri May 15 12:06:59 2026 -0600
+
+    ventas modificaciones
+
+commit fa476e5633756d437bcff9f261a1ac8463197cfc
+Merge: 3658a51 72c7473
+Author: edelaguila <54811781+edelaguila@users.noreply.github.com>
+Date:   Fri May 15 11:51:05 2026 -0600
+
+    Merge pull request #102 from MEILYNGRC/main
+    
+    editado mdiplanillas
+
+commit 3658a51584613c8b88b265c5a2a8dc90fbb6d8e8
+Merge: afbb671 fddd130
+Author: edelaguila <54811781+edelaguila@users.noreply.github.com>
+Date:   Fri May 15 11:50:34 2026 -0600
+
+    Merge pull request #101 from anng-mndz/main
+    
+    Cambios de diseño en reportes Clientes y Bancos
+
+commit 72c74735ff5b7acb3a89d935da5853461ddea210
+Merge: 39a8659 afbb671
+Author: marlondeleon17 <100364159+marlondeleon17@users.noreply.github.com>
+Date:   Fri May 15 11:50:21 2026 -0600
+
+    Merge branch 'edelaguila:main' into main
+
+commit afbb671c859f7931745727b9b07c5e23d5807ff9
+Merge: dcb677c ea26dbe
+Author: edelaguila <54811781+edelaguila@users.noreply.github.com>
+Date:   Fri May 15 11:49:56 2026 -0600
+
+    Merge pull request #100 from Ivan774gt/main
+    
+    Modulo de logistica con bitacora implementada
+
+commit dcb677ce0f155439174a7d4bc70e5db6ee0e4e24
+Merge: c5a9365 c0352f0
+Author: edelaguila <54811781+edelaguila@users.noreply.github.com>
+Date:   Fri May 15 11:49:35 2026 -0600
+
+    Merge pull request #99 from JennBF/main
+    
+    AVANCES DE GRUPO 2
+
+commit c5a9365b4e9fa079bee8d438caf582e052169418
+Merge: 4bcc35f 2b1007a
+Author: edelaguila <54811781+edelaguila@users.noreply.github.com>
+Date:   Fri May 15 11:49:13 2026 -0600
+
+    Merge pull request #98 from astridrl/main
+    
+    Reportes y Ayudas - Grupo 4
+
+commit 4bcc35f11beb5c6ab96d44bd1cdce27bcce8e05c
+Merge: ad160a9 35db04f
+Author: edelaguila <54811781+edelaguila@users.noreply.github.com>
+Date:   Fri May 15 11:48:50 2026 -0600
+
+    Merge pull request #97 from angelroq/conexion-catalogos-9959-24-684
+    
+    conexion-catalogos-9959-24-684
+
+commit ad160a985666ccedc44969f89da2029835a2441a
+Merge: d8996f2 9a345e3
+Author: edelaguila <54811781+edelaguila@users.noreply.github.com>
+Date:   Fri May 15 11:48:31 2026 -0600
+
+    Merge pull request #96 from angelroq/ReportesComisiones99592420
+    
+    Reporte de comisiones de ventas
+
+commit 39a8659c07396d2ee44936a7929aab350b77806e
+Author: Meilyn Garcia <grcmeilyn@gmail.com>
+Date:   Fri May 15 11:48:20 2026 -0600
+
+    editado mdiplanillas
+
+commit d8996f2abf03d151f49f8440855661d9df09baf8
+Merge: a888738 070baf4
+Author: edelaguila <54811781+edelaguila@users.noreply.github.com>
+Date:   Fri May 15 11:48:03 2026 -0600
+
+    Merge pull request #95 from angelroq/Actualizacion_Ayudas_9959-24-1733
+    
+    Actualizacion ayudas 9959 24 1733
+
+commit a888738a081b9092486f31b9a4787a3a0805abbf
+Merge: 9cc32a0 9f47137
+Author: edelaguila <54811781+edelaguila@users.noreply.github.com>
+Date:   Fri May 15 11:47:31 2026 -0600
+
+    Merge pull request #94 from MEILYNGRC/main
+    
+    Crud
+
+commit 9cc32a0960c6335e1a7cecc9fe9f02533162e43a
+Merge: 2e9c4e6 e8ca178
+Author: edelaguila <54811781+edelaguila@users.noreply.github.com>
+Date:   Fri May 15 11:47:07 2026 -0600
+
+    Merge pull request #93 from anng-mndz/main
+    
+    Cambios para la funcionalidad de bitácora
+
+commit 35db04f1b2ba10ffbb06e35cecf3beea280166f3
+Author: [Dulce18rt] <[dreyesp11@miumg.edu.gt]>
+Date:   Fri May 15 11:18:04 2026 -0600
+
+    correcion-login
+
+commit 2b1007a3ebf634333526d356525566b550be0831
+Merge: 8482306 a9fd2f5
+Author: [Astrid Ruíz] <[astridruizz05@gmail.com]>
+Date:   Fri May 15 10:42:10 2026 -0600
+
+    Merge remote-tracking branch 'origin/ScriptLogi_Venta'
+
+commit fddd130846abbb2f97fa010e1ca3fb31ad725e3f
+Author: ¨[Angoly <¨[aaraujom@miumg.edu.gt]¨>
+Date:   Fri May 15 10:21:00 2026 -0600
+
+    Cambios de diseño en reportes Clientes y Bancos
+
+commit a9fd2f582b693b1713e4d25745f3392c643696b1
+Author: Kevin Rodrigo López Espinoza <klopeze14@miumg.edu.gt>
+Date:   Fri May 15 08:47:21 2026 -0600
+
+    Actualización Logistica y vendedores
+
+commit ea26dbe6b373428ebf7ddc4daac597fefab83d84
+Author: Ivan774gt <deleonboris6@gmail.com>
+Date:   Fri May 15 07:31:21 2026 -0600
+
+    borrado nbactions
+
+commit 84823063b0cc06679f91962bf035b004fccbf7a0
+Merge: d598aa8 72dd24e
+Author: Kevin Rodrigo López Espinoza <klopeze14@miumg.edu.gt>
+Date:   Fri May 15 03:27:31 2026 -0600
+
+    TransaccionesCrudReporte
+
+commit d598aa8efedcde8edb1445f9b1f1a275ee392b6d
+Author: Kevin Rodrigo López Espinoza <klopeze14@miumg.edu.gt>
+Date:   Fri May 15 03:19:55 2026 -0600
+
+    Conciliación bancaria y reportes
+
+commit 72dd24e88e424807e37ea6bb96f304320c9be955
+Merge: ba56675 73bbf8b
+Author: [Astrid Ruíz] <[astridruizz05@gmail.com]>
+Date:   Fri May 15 00:21:37 2026 -0600
+
+    Merge branch 'arreglandoDAO'
+
+commit 73bbf8b54152984907aef5f8eb5eb69b31be2368
+Author: Dulce10 <dulce.10arev@gmail.com>
+Date:   Fri May 15 00:02:13 2026 -0600
+
+    subiendo arreglos DAO cxp
+
+commit ba56675ddb3b081f5f2f915a57ec539730d391c4
+Merge: af98ea3 2e9c4e6
+Author: astridrl <astridruizz05@gmail.com>
+Date:   Thu May 14 23:43:42 2026 -0600
+
+    Merge branch 'main' into main
+
+commit c0352f0f95655f4de2e29d1b064aee7fe37d8ab6
+Author: Isa <isaiascedillo1313@gmail.com>
+Date:   Thu May 14 23:30:42 2026 -0600
+
+    Rama Reportes (sin testeo debido a error en xampp
+
+commit 7c54dac13ff06f3537014ea4dfdc7a95e17ebcf0
+Author: [JennBF] <[jennifer.barrios001@gmail.com]>
+Date:   Thu May 14 23:23:50 2026 -0600
+
+    resolviendo conflictos del merge
+
+commit 517d99c6ce7b19a10f810551fa7b29c4d2f35106
+Author: [Dulce18rt] <[dreyesp11@miumg.edu.gt]>
+Date:   Thu May 14 23:16:30 2026 -0600
+
+    conexion-catalogos-9959-24-684
+
+commit af98ea3eccc7d6f1205abd2b6cb9798a43843d19
+Author: [Astrid Ruíz] <[astridruizz05@gmail.com]>
+Date:   Thu May 14 23:14:55 2026 -0600
+
+    Subiendo reporte y ayuda de acreedor
+
+commit 5e1ba9e2c079001aa4a15a5cda05543d1fbdf28c
+Merge: f78024a 9f7297d
+Author: [JennBF] <[jennifer.barrios001@gmail.com]>
+Date:   Thu May 14 23:13:28 2026 -0600
+
+    uniendo ventas al modulo con compras y proveedores
+
+commit f78024adc0a71299872c05160500d8cb6b4a3558
+Author: [JennBF] <[jennifer.barrios001@gmail.com]>
+Date:   Thu May 14 23:08:48 2026 -0600
+
+    agregando ayudas a proveedores y haciendo que se visualice el programa
+
+commit 9f7297d900acd5a87b1884bf1e7baa4cbdf135dd
+Author: Marice Mayen <¨mmayeni1@miumg.edu.gt¨>
+Date:   Thu May 14 23:02:35 2026 -0600
+
+    modificacion ventas final de vista
+
+commit 9a345e3bd4ba16c0bd2ee952cfa900090f44df4e
+Author: [Herson <[Herson>
+Date:   Thu May 14 22:59:15 2026 -0600
+
+    Reporte de comisiones de ventas
+
+commit 9f47137d1d3c6dc9b0e7f29813472601d6847d38
+Merge: b77c8f0 d4b1dae
+Author: Meilyn Garcia <grcmeilyn@gmail.com>
+Date:   Thu May 14 22:43:29 2026 -0600
+
+    Merge branch 'marlon460'
+
+commit f7228f12d9fce67fb887c1c16e19ca89d9dd5496
+Merge: e77d5ad 40f6720
+Author: Marice Mayen <mmayeni1@miumg.edu.gt>
+Date:   Thu May 14 22:33:16 2026 -0600
+
+    Merge branch 'fix-conflict' into CM9959-23-3775
+
+commit 40f67200dd84556c20400aa5c055465592b9336c
+Merge: 220625c 51c5071
+Author: Marice Mayen <mmayeni1@miumg.edu.gt>
+Date:   Thu May 14 22:30:45 2026 -0600
+
+    Se resolvieron conflictos de frmVentas
+
+commit d4b1daeea1bdecc93d1f5f6c9e3a437113bb398f
+Author: marlon de leon <mdeleong17@miumg.edu.gt>
+Date:   Thu May 14 22:20:24 2026 -0600
+
+    envio de empleados de planilla
+
+commit b77c8f05e1c224c201330c4299c3dc1ef7c0a685
+Author: Meilyn Garcia <grcmeilyn@gmail.com>
+Date:   Thu May 14 22:12:13 2026 -0600
+
+    ayuda para planilla Departamento
+
+commit 8556aa549a84cbed1f41143e45392f1954d7d78d
+Author: Meilyn Garcia <grcmeilyn@gmail.com>
+Date:   Thu May 14 22:05:56 2026 -0600
+
+    ayudas planilla Departamento
+
+commit 220625c07381e2d7d21f610b665b1c0729be8de7
+Author: Marice Mayen <mmayeni1@miumg.edu.gt>
+Date:   Thu May 14 22:02:59 2026 -0600
+
+    Se soluciono el problema de la ventana frmVentas en el MdiComercio
+
+commit 070baf438c6f7921b451e51d92d54f9c3714ad62
+Merge: d605eb3 2e9c4e6
+Author: [Xander <[xreyeso@miumg.edu.gt]>
+Date:   Thu May 14 21:15:32 2026 -0600
+
+    Merge branch 'main' of https://github.com/angelroq/proyectop32k26b into Actualizacion_Ayudas_9959-24-1733
+
+commit d605eb3f1a610da0af14f2335cce95128e66bcc4
+Author: [Xander <[xreyeso@miumg.edu.gt]>
+Date:   Thu May 14 20:53:44 2026 -0600
+
+    Actualizacion_Ayudas_9959-24-1733
+
+commit e8ca178afbac618e666c2c2a2aec12ca147bd37c
+Author: ¨[Angoly <¨[aaraujom@miumg.edu.gt]¨>
+Date:   Thu May 14 20:46:09 2026 -0600
+
+    Implementaciones a bitácora bancaria y pequeños cambios a reportes
+
+commit e77d5ad1c35ed22914cef8c5504943994fe03220
+Author: Marice Mayen <¨mmayeni1@miumg.edu.gt¨>
+Date:   Thu May 14 20:41:07 2026 -0600
+
+    ventasaaa
+
+commit 6e12209a24bd6587d24dedf61a2b39bc6b54c8c7
+Author: [JennBF] <[jennifer.barrios001@gmail.com]>
+Date:   Thu May 14 20:29:05 2026 -0600
+
+    Añadiendo al mdi comercio proveedores
+
+commit f2975e07bdb47c7fee10f236986b75ce22355e32
+Merge: 35228ba 4ca12a1
+Author: Marco Hernandez <mhernandezt23@miumg.edu.gt>
+Date:   Thu May 14 20:28:17 2026 -0600
+
+    Merge branch 'main' of https://github.com/Ivan774gt/proyectop32k26b into MarcoHernandezumg9959-24-6201
+
+commit 4ca12a16f12253af394ee8238664331338abdd2c
+Merge: dfa7444 c6aadcd
+Author: Boris de Leon <50037610+Ivan774gt@users.noreply.github.com>
+Date:   Thu May 14 20:20:22 2026 -0600
+
+    Merge pull request #50 from Ivan774gt/AnthonySuc9959-24-389
+    
+    Nuevos reportes y updates en DAOs
+
+commit c6aadcd348abe371ae7299eee6d86a5aff2fe8fe
+Author: Anthony Hetzael Suc Gomez <asucg@miumg.edu.gt>
+Date:   Thu May 14 20:14:08 2026 -0600
+
+    Nuevos reportes y updates en DAOs
+
+commit d9f64994290eb4ed4677d711164b9309fa793956
+Author: [JennBF] <[jennifer.barrios001@gmail.com]>
+Date:   Thu May 14 20:11:07 2026 -0600
+
+    Mdi comercio merge
+
+commit 55b55ae738e3a2470dc110fcb3f6afd949736134
+Merge: 9d50613 ddbcd82
+Author: [JennBF] <[jennifer.barrios001@gmail.com]>
+Date:   Thu May 14 20:07:25 2026 -0600
+
+    mdicomercio
+
+commit 9d5061379a963c0b0975c48b6f044739f08f707a
+Author: [JennBF] <[jennifer.barrios001@gmail.com]>
+Date:   Thu May 14 19:52:48 2026 -0600
+
+    Merge de Mdi. Para unir los cambios de roli sin que afecten los de celeste
+
+commit ddbcd82be4db4b574f672cb69669ca520ba4f68e
+Author: Marice Mayen <¨mmayeni1@miumg.edu.gt¨>
+Date:   Thu May 14 19:52:40 2026 -0600
+
+    arreglo de ventas
+
+commit 5d943095f1425f316e4a0f394642ba6bae367542
+Merge: f167d2f 51c5071
+Author: [JennBF] <[jennifer.barrios001@gmail.com]>
+Date:   Thu May 14 19:46:51 2026 -0600
+
+    Pruebas de merge para ver si mdi comercio sirve
+
+commit 51c5071e917c9fb49bca819e880fb22344b78f0f
+Author: Marice Mayen <¨mmayeni1@miumg.edu.gt¨>
+Date:   Thu May 14 19:31:34 2026 -0600
+
+    clases vendedores y tambien ventas modificaciones
+
+commit f167d2ffa107c7baa5d30beb16359166aa9fb662
+Merge: 38ab236 991d1fe
+Author: [JennBF] <[jennifer.barrios001@gmail.com]>
+Date:   Thu May 14 18:57:46 2026 -0600
+
+    Merge remote-tracking branch 'origin/ABRcompras'
+
+commit 991d1febcb98397f904613f618deedd75af6daca
+Author: Isa <isaiascedillo1313@gmail.com>
+Date:   Thu May 14 18:49:20 2026 -0600
+
+    actualizacion a JDK 21
+
+commit 38ab236c3aaa7e2f46e2e7fa2e2e39b9a317730a
+Merge: 2dedd7a e4a23a9
+Author: [JennBF] <[jennifer.barrios001@gmail.com]>
+Date:   Thu May 14 18:31:32 2026 -0600
+
+    uniendo el trabajo de roli, sobre compras
+
+commit e4a23a9b1c2bb965a49cdee50b0a8279c43d5f3c
+Author: Isa <isaiascedillo1313@gmail.com>
+Date:   Thu May 14 18:25:38 2026 -0600
+
+    Bitacora y ayudas. (Pendiente el reporte)
+
+commit 084980ba6c3119f9d4651ec32aa86509998b0c47
+Merge: c276e56 2e9c4e6
+Author: anng-mndz <lmendezf1@miumg.edu.gt>
+Date:   Thu May 14 18:20:32 2026 -0600
+
+    Merge de rama de Camila
+
+commit 2dedd7a00cddef10e3d3675e13290d81d29b244b
+Author: [JennBF] <[jennifer.barrios001@gmail.com]>
+Date:   Thu May 14 18:13:18 2026 -0600
+
+    Modificando Clase controlador de Proveedores por error de nombre
+
+commit 35228baf7a39249c98d196d139cbf81b523bb7c8
+Merge: 98dd254 dfa7444
+Author: Marco Hernandez <mhernandezt23@miumg.edu.gt>
+Date:   Thu May 14 17:46:12 2026 -0600
+
+    Merge branch 'main' of https://github.com/Ivan774gt/proyectop32k26b into MarcoHernandezumg9959-24-6201
+
+commit dfa7444145d3743cbaf350ffa295f29f9ee7a52f
+Merge: 665c43d 80e3a41
+Author: Boris de Leon <50037610+Ivan774gt@users.noreply.github.com>
+Date:   Thu May 14 17:11:30 2026 -0600
+
+    Merge pull request #49 from Ivan774gt/FerdynandMonroy_99592414049
+    
+    Se agrego el archivo Logistica.chm para las ayudas y también en los b…
+
+commit 81535b1492f93ea740a788dfe7bdfef86ff2a360
+Author: Marice Mayen <mmayeni1@miumg.edu.gt>
+Date:   Thu May 14 17:11:18 2026 -0600
+
+    Se modifico el MDIComercio
+
+commit 80e3a41bb1340964382897b780e2c3bb0863c60a
+Author: Ferdynand.Monroy <fmonroys@miumg.edu.gt>
+Date:   Thu May 14 15:36:00 2026 -0600
+
+    Se agrego el archivo Logistica.chm para las ayudas y también en los botones de ayuda en los formularios se muestra el .chm
+
+commit 16aae3ca5604dde6c3f569d6a47a9e62fd7ee6d5
+Merge: ed75b6f 2e9c4e6
+Author: Jennifer Barrios <jennifer.barrios001@gmail.com>
+Date:   Thu May 14 15:09:49 2026 -0600
+
+    Merge branch 'edelaguila:main' into main
+
+commit ed75b6f2f300cf5aca46db55f7f15b52c8756388
+Author: Marice Mayen <¨mmayeni1@miumg.edu.gt¨>
+Date:   Thu May 14 14:21:23 2026 -0600
+
+    menu vista al login
+
+commit a2d36afeec6e58fe8f280bf6bd5d34510246fdd6
+Merge: 2e9c4e6 e6be3c8
+Author: Meilyn Garcia <grcmeilyn@gmail.com>
+Date:   Thu May 14 13:08:00 2026 -0600
+
+    Merge branch 'Andre3019'
+
+commit 2e9c4e6a0630565fd9b8b4ef2c3043a3cfab7253
+Merge: c3b006a de9a641
+Author: edelaguila <54811781+edelaguila@users.noreply.github.com>
+Date:   Thu May 14 04:58:28 2026 -0600
+
+    Merge pull request #91 from JennBF/main
+    
+    Resolución De Conflictos de Merge Compras y Ventas
+
+commit c276e562e46210b2efd288b205008fdf37e6fd96
+Author: ¨[Angoly <¨[aaraujom@miumg.edu.gt]¨>
+Date:   Wed May 13 23:17:33 2026 -0600
+
+    Nuevos cambios para la funcionalidad de bitácora
+
+commit de9a6410d17f2f9b258024c550f268435d7c46b7
+Merge: 36253e4 c3b006a
+Author: [JennBF] <[jennifer.barrios001@gmail.com]>
+Date:   Wed May 13 23:15:21 2026 -0600
+
+    Resolución de conflictos de Merge grupo 2
+
+commit 36253e4d19fe346fc6df45a937054d7b4fcb188d
+Merge: 05080bb 80013a3
+Author: [JennBF] <[jennifer.barrios001@gmail.com]>
+Date:   Wed May 13 23:01:43 2026 -0600
+
+    Uniendo rama de resolución de conflictos
+
+commit 80013a34cb33e0bb9240a673a64cae4b1aa2d77e
+Merge: 5b06cbb fe5d5e8
+Author: Marice Mayen <¨mmayeni1@miumg.edu.gt¨>
+Date:   Wed May 13 22:48:27 2026 -0600
+
+    Merge remote-tracking branch 'refs/remotes/origin/fix-conflict' into fix-conflict
+
+commit 5b06cbb2f95c3024db4d919687ba8573d3faf2bb
+Author: Marice Mayen <¨mmayeni1@miumg.edu.gt¨>
+Date:   Wed May 13 22:45:06 2026 -0600
+
+    se agrego reportes ventas
+
+commit 60df6cc7caa2e40d4c6c953814ccff7cafcd2459
+Author: Marice Mayen <¨mmayeni1@miumg.edu.gt¨>
+Date:   Wed May 13 21:55:11 2026 -0600
+
+    ventas cambios
+
+commit 05080bba7f633a92fa47762b890f42bffbe1d8e3
+Author: [JennBF] <[jennifer.barrios001@gmail.com]>
+Date:   Wed May 13 21:49:50 2026 -0600
+
+    source package reportes para compras y ventas
+
+commit 033364ffd3dc1682a0ac421316eef07f860af256
+Author: Marice Mayen <¨mmayeni1@miumg.edu.gt¨>
+Date:   Wed May 13 20:09:32 2026 -0600
+
+    actualizacion de ventas y arreglos de conflictos
+
+commit c3b006af45e71cccec4fd9d7d751dcdb1d033e4a
+Merge: a489bf0 58a0c74
+Author: edelaguila <54811781+edelaguila@users.noreply.github.com>
+Date:   Wed May 13 19:29:30 2026 -0600
+
+    Merge pull request #90 from anng-mndz/main
+    
+    Arreglos por Karina (Formularios y Reportes)
+
+commit 665c43d11851fbec4f4a9d922a6795e27cb3b0b8
+Merge: f279e1e 93d210d
+Author: Boris de Leon <50037610+Ivan774gt@users.noreply.github.com>
+Date:   Wed May 13 19:25:49 2026 -0600
+
+    Merge pull request #48 from Ivan774gt/FerdynandMonroy_99592414049
+    
+    modificacion de clases marca y productos, asi como mi reporte inidivi…
+
+commit 93d210d41831ff7c6a0ca56c9c8fc0afc47fad62
+Author: Ferdynand.Monroy <fmonroys@miumg.edu.gt>
+Date:   Wed May 13 19:23:52 2026 -0600
+
+    modificacion de clases marca y productos, asi como mi reporte inidividual
+
+commit f279e1eadf13a8678a51aaf93487e0dbabede500
+Merge: 334ed62 5f1e723
+Author: Boris de Leon <50037610+Ivan774gt@users.noreply.github.com>
+Date:   Wed May 13 19:19:41 2026 -0600
+
+    Merge pull request #47 from Ivan774gt/BorisdeLeon-9959-24-6203
+    
+    modificacion de mdi logistica
+
+commit 5f1e7238fcbb77ac687d89816ce72f07a9565ac6
+Author: Ivan774gt <deleonboris6@gmail.com>
+Date:   Wed May 13 19:17:36 2026 -0600
+
+    modificacion de mdi logistica
+
+commit 334ed62dcd6df4a94226d0d1dda517a24f303cef
+Merge: 7ed24d0 6ca7f64
+Author: Boris de Leon <50037610+Ivan774gt@users.noreply.github.com>
+Date:   Wed May 13 19:12:40 2026 -0600
+
+    Merge pull request #46 from Ivan774gt/BorisdeLeon-9959-24-6203
+    
+    Se añadio formularios de productos, marca y linea
+
+commit 6ca7f64febd27aa643a6d86f3fbf0e11bcb63416
+Author: Ivan774gt <deleonboris6@gmail.com>
+Date:   Wed May 13 19:08:57 2026 -0600
+
+    Se añadio formularios de productos, marca y linea
+
+commit 58a0c7430824af429a2e4db060bf62e2eb68ccdb
+Author: anng-mndz <lmendezf1@miumg.edu.gt>
+Date:   Wed May 13 18:57:08 2026 -0600
+
+    Angel corrigio errores en boton de ayuda de bitacora
+
+commit 6e75458d960ecd792b4f56ffe7868097be11dd74
+Author: anng-mndz <lmendezf1@miumg.edu.gt>
+Date:   Wed May 13 18:43:36 2026 -0600
+
+    Angel corrígio errores de merging en Formularios de Bancos
+
+commit fe5d5e8e478d624107f4335e18e1952aefedbd59
+Author: Marice Mayen <mmayeni1@miumg.edu.gt>
+Date:   Wed May 13 18:28:36 2026 -0600
+
+    Se agrego el archivo .gitignore para evitar conflictos con el target
+
+commit 4e8cb7c72894c200bb1ff489bf42a13d29c2c342
+Merge: 686333f a489bf0
+Author: Angel Mendez <lmendezf1@miumg.edu.gt>
+Date:   Wed May 13 18:08:48 2026 -0600
+
+    Merge branch 'edelaguila:main' into main
+
+commit 686333f498a843f89b267b13afd5d847164cfe18
+Merge: e513528 e9c538d
+Author: anng-mndz <lmendezf1@miumg.edu.gt>
+Date:   Wed May 13 18:06:21 2026 -0600
+
+    Subiendo cambios de Karina
+
+commit 1b09754118f03c6bb323dad84067831bb8da3a75
+Author: Marice Mayen <mmayeni1@miumg.edu.gt>
+Date:   Wed May 13 18:00:55 2026 -0600
+
+    Se actualizo el pom.xml por conflictos
+
+commit faf4cd1d981b64076752d1ec25758df2c4ae555c
+Merge: 026f630 a489bf0
+Author: Marice Mayen <mmayeni1@miumg.edu.gt>
+Date:   Wed May 13 17:59:17 2026 -0600
+
+    Merge remote-tracking branch 'upstream/main' into fix-conflict
+
+commit 026f630476ab3ddce446d6f4f249c86d8be980de
+Author: Marice Mayen <mmayeni1@miumg.edu.gt>
+Date:   Wed May 13 17:57:27 2026 -0600
+
+    Se borro la carpeta target
+
+commit 840eb64d2a10ddfd6ac027171c140342f31d2c32
+Author: Marice Mayen <mmayeni1@miumg.edu.gt>
+Date:   Wed May 13 17:47:26 2026 -0600
+
+    Solucion error git en frmCompras
+
+commit 98dd254df7c678a767c036a3933b2264434cea9b
+Author: Marco Hernandez <mhernandezt23@miumg.edu.gt>
+Date:   Wed May 13 17:35:00 2026 -0600
+
+    Mantenimiento Bodega
+
+commit 7ed24d03a63a13f2b1df20a1d301993075f2f98d
+Merge: 5de4dba 6c26c45
+Author: Boris de Leon <50037610+Ivan774gt@users.noreply.github.com>
+Date:   Wed May 13 17:14:26 2026 -0600
+
+    Merge pull request #45 from Ivan774gt/MarcoHernandezumg9959-24-6201
+    
+    Implemntaciones en Formularios y creacion Bodega
+
+commit e9c538deaf9d8b393e0514ddecc7cd504e3e4a68
+Author: [Karina Arriaza] <[karriazao@miumg.edu.gt]>
+Date:   Wed May 13 17:05:48 2026 -0600
+
+    Ayudas implementadas en cada frm de Bancos
+
+commit e6be3c88a1b2d1aaf2d83e99a008185e30224d84
+Author: AndreCastellanos <mcastellanosm12@miumg.edu.gt>
+Date:   Wed May 13 17:03:18 2026 -0600
+
+    Actualizacion de CRUD Puesto
+
+commit 6c26c4599aa90d845c2bad2e3fc3c7c6254d9c49
+Author: Marco Hernandez <mhernandezt23@miumg.edu.gt>
+Date:   Wed May 13 17:01:54 2026 -0600
+
+    Implemntaciones en Formularios y creacion Bodega
+
+commit 67c762561cfe34f86506cccae0d29f41c41411e0
+Author: [JennBF] <[jennifer.barrios001@gmail.com]>
+Date:   Wed May 13 16:36:46 2026 -0600
+
+    cambios de compras y ventas. Intentando resolver problemas de package
+
+commit a489bf0dab8b3451adf9f62df2c8e9df58f3b5f7
+Merge: 02294e8 e513528
+Author: edelaguila <54811781+edelaguila@users.noreply.github.com>
+Date:   Wed May 13 11:54:58 2026 -0600
+
+    Merge pull request #88 from anng-mndz/main
+    
+    Bitacora camila
+
+commit e513528319fe2407ac7567329ee50bc36cabae6c
+Merge: 5181ad5 09f7341
+Author: anng-mndz <lmendezf1@miumg.edu.gt>
+Date:   Wed May 13 11:49:40 2026 -0600
+
+    Bitacora camila
+
+commit 09f73419de3105bc61c972474c1e4c703c466879
+Author: ¨[Angoly <¨[aaraujom@miumg.edu.gt]¨>
+Date:   Wed May 13 11:41:52 2026 -0600
+
+    nuevos cambios en bitácora
+
+commit 02294e88e79e1ce7e9de43e1bfddbfe9d000ff08
+Merge: a7a45cf 5de4dba
+Author: edelaguila <54811781+edelaguila@users.noreply.github.com>
+Date:   Wed May 13 11:27:57 2026 -0600
+
+    Merge pull request #87 from Ivan774gt/main
+    
+    Se agrega todo lo que ya se tenia de logistica a la nueva copia
+
+commit 5de4dbaf71c08706160ab591d195cb609b210805
+Author: Ivan774gt <deleonboris6@gmail.com>
+Date:   Wed May 13 11:25:02 2026 -0600
+
+    Se agrega todo lo que ya se tenia de logistica a la nueva copia
+
+commit bf64c82158a87b155dc2f6880eaddfa321b5a308
+Author: [Karina Arriaza] <[karriazao@miumg.edu.gt]>
+Date:   Wed May 13 11:08:31 2026 -0600
+
+    Arreglo de clase y formulario de Conciliacion Bancaria
+
+commit a7a45cf55a22078f7a4cff4dd1afedb127a8300e
+Merge: 5181ad5 6a6effb
+Author: edelaguila <54811781+edelaguila@users.noreply.github.com>
+Date:   Wed May 13 11:07:43 2026 -0600
+
+    Merge pull request #86 from MEILYNGRC/crud17838
+    
+    complemento de crud
+
+commit 5181ad529031cb66e6dd021825c14800f1194aa1
+Merge: e69da31 138624a
+Author: edelaguila <54811781+edelaguila@users.noreply.github.com>
+Date:   Wed May 13 10:45:46 2026 -0600
+
+    Merge pull request #85 from astridrl/main
+    
+    CRUD CATALOGOS - GRUPO 4
+
+commit 6a6effbec07dd875c85d1b6df802eb44817e9aa9
+Author: Meilyn Garcia <grcmeilyn@gmail.com>
+Date:   Wed May 13 10:38:56 2026 -0600
+
+    complemento de crud
+
+commit 138624aac4cc94ad09c1faca2809e1224ab5b0ff
+Author: [Astrid Ruíz] <[astridruizz05@gmail.com]>
+Date:   Wed May 13 10:26:51 2026 -0600
+
+    Resolviendo conflictos de merge
+
+commit 8186873d38091b06008c3334e91c8a284622018a
+Merge: 7ece721 074508a
+Author: [Astrid Ruíz] <[astridruizz05@gmail.com]>
+Date:   Wed May 13 10:24:55 2026 -0600
+
+    Merge remote-tracking branch 'origin/scriptLogisticayFacturas'
+
+commit e69da3103fce705d66f60e84fe77314fb6704982
+Merge: 57ab08e 7235fa6
+Author: edelaguila <54811781+edelaguila@users.noreply.github.com>
+Date:   Wed May 13 09:42:31 2026 -0600
+
+    Merge pull request #83 from MEILYNGRC/crud17838
+    
+    crud planilla conceptos y encabezado
+
+commit 7235fa600d155ed46b3c700aeef5a04107840085
+Author: Meilyn Garcia <grcmeilyn@gmail.com>
+Date:   Wed May 13 02:37:36 2026 -0600
+
+    crud para planillas
+
+commit 074508a24f5a06b799746523636c67ecdc2f818c
+Author: Kevin Rodrigo López Espinoza <klopeze14@miumg.edu.gt>
+Date:   Wed May 13 02:29:20 2026 -0600
+
+    Actualizacion para Logistica y Facturas
+
+commit 165b259c2d7631da1be88f1091e7fb909420d6c6
+Author: Meilyn Garcia <grcmeilyn@gmail.com>
+Date:   Wed May 13 01:09:42 2026 -0600
+
+    crud planilla conceptos y encabezado
+
+commit 57ab08e5c1f0ee0209797715e97422da2df746f1
+Merge: 83b904d c28afb3
+Author: edelaguila <54811781+edelaguila@users.noreply.github.com>
+Date:   Tue May 12 22:37:30 2026 -0600
+
+    Merge pull request #82 from angelroq/Reportes_9959-24-1733
+    
+    ReportesDAO
+
+commit 83b904df2e8f41fccc8a5648c301e32cef553493
+Merge: 5c58c83 33b9b30
+Author: edelaguila <54811781+edelaguila@users.noreply.github.com>
+Date:   Tue May 12 22:36:32 2026 -0600
+
+    Merge pull request #79 from angelroq/ActualizacionesProcesos99592420
+    
+    actualizacion de procesos (clase, dao, formulario)
+
+commit 5c58c83a081a076bfd1c31640ff8c98a6025d117
+Merge: 164dba0 0e89b13
+Author: edelaguila <54811781+edelaguila@users.noreply.github.com>
+Date:   Tue May 12 22:34:07 2026 -0600
+
+    Merge pull request #72 from anng-mndz/main
+    
+    Formularios bancarios por Angel
+
+commit 453c3f25f78413c00f4baf45ab0c0b488cbca432
+Author: [Karina Arriaza] <[karriazao@miumg.edu.gt]>
+Date:   Tue May 12 22:31:53 2026 -0600
+
+    Reportes de las clases Maestras y Transaccionales
+
+commit 0e89b13aa27c24f008b7c202621697116629c450
+Author: anng-mndz <lmendezf1@miumg.edu.gt>
+Date:   Tue May 12 18:58:10 2026 -0600
+
+    Agregue reportes a mis formularios por Angel Méndez
+
+commit 2fb4a38bdce8afc3cfd5831142a87e7d6e17ef23
+Merge: 473789b d844a24
+Author: [JennBF] <[jennifer.barrios001@gmail.com]>
+Date:   Tue May 12 00:13:20 2026 -0600
+
+    Merge remote-tracking branch 'origin/MC9959-23-3775'
+
+commit d844a2434552e3482722af13389bf95bb98f83de
+Author: Marice Mayen <¨mmayeni1@miumg.edu.gt¨>
+Date:   Tue May 12 00:01:07 2026 -0600
+
+    ventas
+
+commit 473789bb9878e98c4d5aee4c05c70a180610ba62
+Merge: a7769d7 c11121f
+Author: [JennBF] <[jennifer.barrios001@gmail.com]>
+Date:   Mon May 11 23:57:43 2026 -0600
+
+    Cambios Celeste, subiendo rama de ventas y vendedores
+
+commit 7ece72153f53895a415165c2b8f63a454249d1f1
+Author: [Britany Hernandez] <[britanyhernandezmd@gmail.com]>
+Date:   Mon May 11 23:52:57 2026 -0600
+
+    Mantenimiento Cuentas corrientes 9959244178
+
+commit c11121fdd97e89172696640bf4181510ca30e324
+Author: Marice Mayen <¨mmayeni1@miumg.edu.gt¨>
+Date:   Mon May 11 23:44:56 2026 -0600
+
+    ventas
+
+commit a7769d704c3b9a433ab487a338e59e4f5362b329
+Merge: 742cacd 164dba0
+Author: Jennifer Barrios <jennifer.barrios001@gmail.com>
+Date:   Mon May 11 23:34:14 2026 -0600
+
+    Merge branch 'edelaguila:main' into main
+
+commit 742cacdab2ed76368b1c550e0563391c0da2fb5f
+Author: [JennBF] <[jennifer.barrios001@gmail.com]>
+Date:   Mon May 11 23:33:01 2026 -0600
+
+    Uniendo ramas de roli, celeste y jennifer
+
+commit d1f6f4d6853cbe3ee0047f464130cd3d5e9c509c
+Author: Dulce10 <dulce.10arev@gmail.com>
+Date:   Mon May 11 23:27:17 2026 -0600
+
+    subiendo clase,dao y fromulario de cxp
+
+commit f1b44835755f6383c489a53fc59150869e62f16d
+Author: Marice Mayen <¨mmayeni1@miumg.edu.gt¨>
+Date:   Mon May 11 23:17:47 2026 -0600
+
+    frmventas
+
+commit a774ffaa3d903d4c3b27ec1dd8ce7f418c4f20d6
+Merge: 1ec4d2c 0dd38d6
+Author: Kevin Rodrigo López Espinoza <klopeze14@miumg.edu.gt>
+Date:   Mon May 11 22:47:18 2026 -0600
+
+    CRUD y DAO de Movimiento Transacciones Kevin López
+
+commit 871988cd7bd8d6327441e56c7da905386912abb6
+Merge: 599e844 84b480f
+Author: anng-mndz <lmendezf1@miumg.edu.gt>
+Date:   Mon May 11 22:44:22 2026 -0600
+
+    Merge branch 'Ale' of https://github.com/anng-mndz/proyectop32k26b
+
+commit bad760e40e2add31875eb09897d61a7032a71ff6
+Author: Isa <isaiascedillo1313@gmail.com>
+Date:   Mon May 11 22:39:16 2026 -0600
+
+    Creacion de Modelo Vista Controlador para el catalogo compras, falta ayudas y reporte
+
+commit 1ec4d2c695f0de6a44a5366ce39f72e388e97254
+Author: Kevin Rodrigo López Espinoza <klopeze14@miumg.edu.gt>
+Date:   Mon May 11 22:37:21 2026 -0600
+
+    CRUD y DAO de Transacciones Kevin López
+
+commit 0dd38d60ccbcf38e1763444a607bcaa6281c4628
+Merge: d17877f 164dba0
+Author: astridrl <astridruizz05@gmail.com>
+Date:   Mon May 11 22:26:46 2026 -0600
+
+    Merge branch 'main' into main
+
+commit d17877f8c0cd8af32088989636ccd5cae3b64290
+Author: [Astrid Ruíz] <[astridruizz05@gmail.com]>
+Date:   Mon May 11 22:23:19 2026 -0600
+
+    Subiendo CRUD de acreedores
+
+commit 5c1265573d8f265bd196d8043aa93567ea41d2d8
+Merge: 84b480f 599e844
+Author: [Karina Arriaza] <[karriazao@miumg.edu.gt]>
+Date:   Mon May 11 22:21:37 2026 -0600
+
+    Merge branch 'main' of https://github.com/anng-mndz/proyectop32k26b into Ale
+
+commit 84b480f766b989dcbb0bfe574ec62e35f4d69f5f
+Author: [Karina Arriaza] <[karriazao@miumg.edu.gt]>
+Date:   Mon May 11 21:50:38 2026 -0600
+
+    Formularios de clases maestras CatTT Y CatEC
+
+commit 33b9b300521a46255b191b52dec1d242727776ee
+Author: [Herson <[Herson>
+Date:   Mon May 11 20:59:33 2026 -0600
+
+    actualizacion de procesos (clase, dao, formulario)
+
+commit 599e8440ff80e7cc013579a127c6a5b7e596630a
+Author: anng-mndz <lmendezf1@miumg.edu.gt>
+Date:   Mon May 11 20:57:29 2026 -0600
+
+    Cambios finales para formularios por Angel Méndez
+
+commit 6093687c9e84b7bb2f31fed0ea5c508c1b426009
+Merge: b5315ef 8c13510
+Author: anng-mndz <lmendezf1@miumg.edu.gt>
+Date:   Mon May 11 20:38:21 2026 -0600
+
+    Merge branch 'Angoly' of https://github.com/anng-mndz/proyectop32k26b
+
+commit b5315ef5027213c55e7ff0f28e5396901370e590
+Author: anng-mndz <lmendezf1@miumg.edu.gt>
+Date:   Mon May 11 20:37:33 2026 -0600
+
+    Arreglos de logicos en movimiento bancario
+
+commit 8c135104fb990f37afa1ca46bab3f9e363595a0a
+Author: ¨[Angoly <¨[aaraujom@miumg.edu.gt]¨>
+Date:   Mon May 11 20:10:04 2026 -0600
+
+    Implementación de Reportes
+
+commit b8972c6376467e26319908d5bcb612250609cf4b
+Author: anng-mndz <lmendezf1@miumg.edu.gt>
+Date:   Mon May 11 19:48:53 2026 -0600
+
+    Formularios bancarios por Angel
+
+commit c28afb36d1da130a42a1c5a81549760efed7a8b5
+Author: [Xander <[xreyeso@miumg.edu.gt]>
+Date:   Mon May 11 19:36:22 2026 -0600
+
+    ReportesDAO
+
+commit 164dba048974964970dcb8908a5924f6013463eb
+Merge: 910ccb6 3d032cc
+Author: edelaguila <54811781+edelaguila@users.noreply.github.com>
+Date:   Mon May 11 19:10:05 2026 -0600
+
+    Merge pull request #71 from anng-mndz/main
+    
+    Formularios de banco
+
+commit b07c0151ffd62632c60ecddebbb56a48bd0abdd2
+Author: [Karina Arriaza] <[karriazao@miumg.edu.gt]>
+Date:   Mon May 11 16:10:52 2026 -0600
+
+    DAO de clase Transaccional y documentación
+
+commit 3d032ccf642c08ccccb040da4c0acd4ae9eded9e
+Author: anng-mndz <lmendezf1@miumg.edu.gt>
+Date:   Mon May 11 12:08:36 2026 -0600
+
+    Formularios bancos
+
+commit 9dfddace714a637c11737a1a0039df599c7c21f8
+Author: ¨[Angoly <¨[aaraujom@miumg.edu.gt]¨>
+Date:   Mon May 11 12:06:34 2026 -0600
+
+    Nuevo Reporte
+
+commit 0f6ed699e87077d49a19eecb961319a5f5de3011
+Merge: ff85c4a 292cfea
+Author: anng-mndz <lmendezf1@miumg.edu.gt>
+Date:   Mon May 11 11:57:36 2026 -0600
+
+    Formularios
+
+commit 292cfea142a879e85fb95e56ea29fd2599e888e5
+Author: anng-mndz <lmendezf1@miumg.edu.gt>
+Date:   Mon May 11 11:56:59 2026 -0600
+
+    Funcionalidad de Formulario Mantenimiento Tipo Cuenta
+
+commit 910ccb6e37704815b6d8ebd4a636c20e7a819e35
+Merge: f5038ab f6f07ec
+Author: edelaguila <54811781+edelaguila@users.noreply.github.com>
+Date:   Mon May 11 11:47:08 2026 -0600
+
+    Merge pull request #70 from angelroq/ImplemententacionSeguridad-y-MdiComisiones
+    
+    seguridad-y-mdiComisiones
+
+commit f6f07ec4caddea6a791fbaebccddfdebb278589c
+Author: [Angel <[aroquelm1@miumg.edu.gt]>
+Date:   Mon May 11 11:39:52 2026 -0600
+
+    seguridad-y-mdiComisiones
+
+commit 0f36d2110f1a8d8c6524ca28559ad744d07f30b0
+Merge: ac00c70 673b27c
+Author: [JennBF] <[jennifer.barrios001@gmail.com]>
+Date:   Mon May 11 11:26:43 2026 -0600
+
+    Merge remote-tracking branch 'origin/RamaMVC_Compras_RoliCedillo_9959_24_1672'
+
+commit 673b27ccf5b9e9140c06a7c089fd11218e4d0e6d
+Author: Isa <isaiascedillo1313@gmail.com>
+Date:   Mon May 11 11:18:58 2026 -0600
+
+    Creacion de MVC para el modulo compras de catalogos
+
+commit 6e69cd6d31e8dbd7f2fe55324cbb1dbbd54ba5fe
+Author: ¨[Angoly <¨[aaraujom@miumg.edu.gt]¨>
+Date:   Mon May 11 11:17:10 2026 -0600
+
+    frm Bitácora Bancara y arreglos en el mid
+
+commit ff85c4a76effc2ad9a3b0cd166946dc838527310
+Merge: f5038ab 7242a04
+Author: anng-mndz <lmendezf1@miumg.edu.gt>
+Date:   Mon May 11 11:06:11 2026 -0600
+
+    Merging
+
+commit ac00c70892e12336be3e39001fe96133f6da1f51
+Author: [JennBF] <[jennifer.barrios001@gmail.com]>
+Date:   Mon May 11 11:01:13 2026 -0600
+
+    Jennifer Modificación de Formulario de Asignacion Perfil Usuario
+
+commit 7242a0469052eefea2c127b235a4610f8247535e
+Author: ¨[Angoly <¨[aaraujom@miumg.edu.gt]¨>
+Date:   Mon May 11 11:00:57 2026 -0600
+
+    Cambios en frm bit bancaria
+
+commit f5038abeb5557e5945e9433c0e109b726bf403d0
+Merge: 5356ce4 68c456f
+Author: edelaguila <54811781+edelaguila@users.noreply.github.com>
+Date:   Mon May 11 10:55:19 2026 -0600
+
+    Merge pull request #69 from anng-mndz/main
+    
+    Camila creo clases, DAO y formularios
+
+commit 68c456fcb31b88377ea2a294d4484cdce0ccd2bf
+Merge: b562f8a 5356ce4
+Author: Angel Mendez <lmendezf1@miumg.edu.gt>
+Date:   Mon May 11 10:53:58 2026 -0600
+
+    Merge branch 'main' into main
+
+commit 5356ce424b86e43505055b5d14a35ab87abcfcca
+Merge: 1aaa5f7 393aaba
+Author: edelaguila <54811781+edelaguila@users.noreply.github.com>
+Date:   Mon May 11 10:42:29 2026 -0600
+
+    Merge pull request #68 from astridrl/main
+    
+    Modificación script CC - Kevin
+
+commit 1aaa5f7e1cefba628aaa8fec4b295edaf2efeb6a
+Merge: ae37a81 5345202
+Author: edelaguila <54811781+edelaguila@users.noreply.github.com>
+Date:   Mon May 11 10:42:00 2026 -0600
+
+    Merge pull request #67 from MEILYNGRC/main
+    
+    CRUD mantenimiento departamentos planillas
+
+commit b562f8a96520a21a59c63fea26a4061f43eea16e
+Author: anng-mndz <lmendezf1@miumg.edu.gt>
+Date:   Mon May 11 10:37:51 2026 -0600
+
+    Agregue formularios de Bancos estaticos
+
+commit a9648f78b2bc68a10e28714420e7feb9aa4d94b6
+Author: ¨[Angoly <¨[aaraujom@miumg.edu.gt]¨>
+Date:   Mon May 11 10:35:43 2026 -0600
+
+    Implementación de frm Bitácora Bancaria
+
+commit 393aaba6a406ff4f29d53f0144472e63657ee002
+Merge: ae37a81 939ca3f
+Author: [Astrid Ruíz] <[astridruizz05@gmail.com]>
+Date:   Mon May 11 08:05:30 2026 -0600
+
+    Merge remote-tracking branch 'origin/scriptActualizacionFact'
+
+commit 939ca3f0a77812e5afc50793e5f6672c7fe4f995
+Author: Kevin Rodrigo López Espinoza <klopeze14@miumg.edu.gt>
+Date:   Mon May 11 02:17:58 2026 -0600
+
+    Actualizacion DB Facturas y CC
+
+commit 5345202aefb0cd3d5d9dc91dcf11887293c135c4
+Merge: ae37a81 cd360c1
+Author: Meilyn Garcia <grcmeilyn@gmail.com>
+Date:   Mon May 11 01:50:29 2026 -0600
+
+    Merge branch 'meilyn'
+
+commit cd360c1b33012c10f106c56bf780c7fcdbaefe2e
+Author: Meilyn Garcia <grcmeilyn@gmail.com>
+Date:   Mon May 11 01:48:42 2026 -0600
+
+    CRUD mentenimiento departamentos planilla
+
+commit ae37a812c138007127d5be0c436cecd75bb3a051
+Merge: ab7e330 a2b59af
+Author: edelaguila <54811781+edelaguila@users.noreply.github.com>
+Date:   Sun May 10 22:17:26 2026 -0600
+
+    Merge pull request #66 from MEILYNGRC/main
+    
+    btn ayuda
+
+commit a2b59af5a54e4559822c61437afcbd98082bffe7
+Author: Meilyn Garcia <grcmeilyn@gmail.com>
+Date:   Sun May 10 22:11:01 2026 -0600
+
+    btn ayuda
+
+commit 18a0d7b1b586b2ccc0ca4895670b233bedf97535
+Author: ¨[Angoly <¨[aaraujom@miumg.edu.gt]¨>
+Date:   Sun May 10 22:01:50 2026 -0600
+
+    Cambios en los frm Banco y Cliente
+
+commit e4f4fe9d9d76fd2b2661ca51a39aa040577b552f
+Author: ¨[Angoly <¨[aaraujom@miumg.edu.gt]¨>
+Date:   Sun May 10 21:38:12 2026 -0600
+
+    Formulario Banco y Cliente en vista
+
+commit e86ddbe209d1d18d23f9111af8b63229917c5043
+Author: ¨[Angoly <¨[aaraujom@miumg.edu.gt]¨>
+Date:   Sun May 10 20:02:10 2026 -0600
+
+    Creación de nuevas Clases Maestras Bancos
+
+commit ab7e3305ad70f93af2c056458626a9851064fc03
+Merge: e6f7278 f450f18
+Author: edelaguila <54811781+edelaguila@users.noreply.github.com>
+Date:   Sun May 10 10:25:42 2026 -0600
+
+    Merge pull request #65 from anng-mndz/Angel
+    
+    Clases y DAO de Bancos por Angel Méndez
+
+commit e6f727805e6aa367e942bb3abdd4489782ddfd9d
+Merge: 4bdb09a 7eafda5
+Author: edelaguila <54811781+edelaguila@users.noreply.github.com>
+Date:   Sun May 10 10:25:29 2026 -0600
+
+    Merge pull request #64 from anng-mndz/Ale
+    
+    Ayuda completa de Bancos y documentación de mis clases por Ale
+
+commit 6b8cee814ccb562e891f62c7411f4653b43b29bf
+Merge: f450f18 7eafda5
+Author: anng-mndz <lmendezf1@miumg.edu.gt>
+Date:   Sun May 10 00:43:15 2026 -0600
+
+    Merge branch 'Ale' of https://github.com/anng-mndz/proyectop32k26b
+
+commit f450f1894c546be3362961c007f615be948e67ca
+Author: anng-mndz <lmendezf1@miumg.edu.gt>
+Date:   Sun May 10 00:40:41 2026 -0600
+
+    Clases y DAO de Bancos por Angel Méndez
+
+commit 7eafda5e2ff31528fdbafff20b0cd5c16d23c62f
+Merge: e2f0340 4bdb09a
+Author: Angel Mendez <lmendezf1@miumg.edu.gt>
+Date:   Sat May 9 19:38:22 2026 -0600
+
+    Merge branch 'main' into Ale
+
+commit e2f034084851a776171fa6ddeef208b4bf62683c
+Author: [Karina Arriaza] <[karriazao@miumg.edu.gt]>
+Date:   Sat May 9 18:57:45 2026 -0600
+
+    Ayuda completa de Bancos y documentación de mis clases
+
+commit 4bdb09af7c8e01240b9c7df62caea5978890dc0e
+Merge: 3a2d8ef 6f68911
+Author: edelaguila <54811781+edelaguila@users.noreply.github.com>
+Date:   Thu May 7 05:03:29 2026 -0600
+
+    Merge pull request #63 from MEILYNGRC/main
+    
+    actualizacion ubicacion
+
+commit 6f689110eb0045ab9d7dad9d99cfd4f00c7c4675
+Author: Meilyn Garcia <grcmeilyn@gmail.com>
+Date:   Wed May 6 12:04:00 2026 -0600
+
+    actualizacion ubicacion
+
+commit 9d37c7f76468c7d28be6e3991206aa375df1157a
+Merge: 3a0faa8 3a2d8ef
+Author: Jennifer Barrios <jennifer.barrios001@gmail.com>
+Date:   Wed May 6 11:58:24 2026 -0600
+
+    Merge branch 'edelaguila:main' into main
+
+commit 3a2d8efa2a3a9acbad12c33802a785c6a14ae397
+Merge: 72db573 b0fcc33
+Author: edelaguila <54811781+edelaguila@users.noreply.github.com>
+Date:   Wed May 6 11:54:06 2026 -0600
+
+    Merge pull request #62 from angelroq/actuAplicacionPerfil
+    
+    actuAplicacionPerfil
+
+commit b0fcc33b98d03d039a892e7a878f37ba0207d3ef
+Author: [Angel <[aroquelm1@miumg.edu.gt]>
+Date:   Wed May 6 11:52:40 2026 -0600
+
+    actuAplicacionPerfil
+
+commit 3a0faa8c1e55d35b24eb0fbcad9eaaa85a972217
+Merge: 02922ee 72db573
+Author: [JennBF] <[jennifer.barrios001@gmail.com]>
+Date:   Wed May 6 11:39:01 2026 -0600
+
+    Merge branch 'main' of https://github.com/JennBF/proyectop32k26b
+
+commit 02922ee0487387552c0d53349693b0cb52251654
+Author: [JennBF] <[jennifer.barrios001@gmail.com]>
+Date:   Wed May 6 11:38:45 2026 -0600
+
+    merge de target
+
+commit 72db573cb10c250c465eaf8e11ed859d75588e6f
+Merge: a2bf82a 3b0d856
+Author: edelaguila <54811781+edelaguila@users.noreply.github.com>
+Date:   Wed May 6 11:32:38 2026 -0600
+
+    Merge pull request #61 from astridrl/main
+    
+    ayudas michi y pom
+
+commit 3b0d856791438a1b012bbf47263ff0945bd65cf3
+Merge: f0b022f a2bf82a
+Author: astridrl <astridruizz05@gmail.com>
+Date:   Wed May 6 11:32:04 2026 -0600
+
+    Merge branch 'main' into main
+
+commit a2bf82acb3c7234e7aa05ea3adc7806506387537
+Merge: c72ff42 61f1e6a
+Author: edelaguila <54811781+edelaguila@users.noreply.github.com>
+Date:   Wed May 6 11:25:28 2026 -0600
+
+    Merge pull request #58 from JennBF/main
+    
+    Asignacion perfil usuario cambios en el formulario, permisos, boton de ayuda
+
+commit 9f82af46100bee3b93dce4c56fac48bfbc72aba0
+Merge: 61f1e6a 6f286bd
+Author: [JennBF] <[jennifer.barrios001@gmail.com]>
+Date:   Wed May 6 11:07:11 2026 -0600
+
+    Merge remote-tracking branch 'origin/RamaseguridadUpdate_24_1672'
+
+commit f0b022fed2552db8c780248007c21d28eb9a07ce
+Merge: c72ff42 2aa1f99
+Author: [Astrid Ruíz] <[astridruizz05@gmail.com]>
+Date:   Wed May 6 11:05:38 2026 -0600
+
+    Merge branch 'BitacoraAyudas' of https://github.com/astridrl/proyectop32k26b into BitacoraAyudas
+
+commit 61f1e6ab500f54c14fc100213231cc9b88aba63b
+Merge: 7db3f60 dc12d9f
+Author: [JennBF] <[jennifer.barrios001@gmail.com]>
+Date:   Wed May 6 11:04:47 2026 -0600
+
+    merge nuevos cambios del repositorio oficial
+
+commit 7db3f603de6986c411ef756786f4a9d8faec9352
+Author: [JennBF] <[jennifer.barrios001@gmail.com]>
+Date:   Wed May 6 11:03:25 2026 -0600
+
+    commits de cambios en el formulario
+
+commit 6f286bd6526c178e12aecddcefa441edd2908e96
+Author: Isa <isaiascedillo1313@gmail.com>
+Date:   Wed May 6 11:00:16 2026 -0600
+
+    prueba de github
+
+commit dc12d9f2b45254d5996be23c643570ac427194c1
+Merge: 6f6d7de c72ff42
+Author: Jennifer Barrios <jennifer.barrios001@gmail.com>
+Date:   Wed May 6 09:03:23 2026 -0600
+
+    Merge branch 'edelaguila:main' into main
+
+commit c72ff42033ddf352b8cdd97205578e4f8b34f555
+Merge: 36352eb e223e14
+Author: edelaguila <54811781+edelaguila@users.noreply.github.com>
+Date:   Tue May 5 05:24:55 2026 -0600
+
+    Merge pull request #57 from MEILYNGRC/main
+    
+    ayuda/seguridad
+
+commit 36352eb2517789ce7ff644a5548f0ea0e4d7edcc
+Merge: ecd6a30 dfd5d12
+Author: edelaguila <54811781+edelaguila@users.noreply.github.com>
+Date:   Tue May 5 05:23:47 2026 -0600
+
+    Merge pull request #56 from anng-mndz/Angel
+    
+    feat: Permisos generales y particulares - Módulo de Seguridad + Ayuda Bancos
+
+commit ecd6a305a93ceed304699a2d2f92ba094761e383
+Merge: ad2ec35 67cccfb
+Author: edelaguila <54811781+edelaguila@users.noreply.github.com>
+Date:   Tue May 5 05:23:18 2026 -0600
+
+    Merge pull request #53 from astridrl/main
+    
+    Subiendo mdi general de CC
+
+commit 6f6d7de1e162d2e02b390b2816357a70171cea93
+Author: [JennBF] <[jennifer.barrios001@gmail.com]>
+Date:   Mon May 4 23:18:05 2026 -0600
+
+    Maven tratando de resolver problemas
+
+commit bf0a0c94805aef0babac1abc204bc2c41abc794a
+Author: [JennBF] <[jennifer.barrios001@gmail.com]>
+Date:   Mon May 4 23:07:24 2026 -0600
+
+    cambios celeste, boton de ayudas
+
+commit dfd5d12ae5f981a9ca54cbd495dc11d545383833
+Author: anng-mndz <lmendezf1@miumg.edu.gt>
+Date:   Mon May 4 22:37:20 2026 -0600
+
+    feat: permisos generales y particulares agregados por Angel Méndez
+
+commit 2aa1f99c3ad16c88063d4540ad3bd2d381828675
+Author: [Britany Hernandez] <[britanyhernandezmd@gmail.com]>
+Date:   Mon May 4 21:45:01 2026 -0600
+
+    Bitacora Ayudas 9959244178
+
+commit e4de8ce92b7693eede540f16f31c9cbd8666cbee
+Author: Isa <isaiascedillo1313@gmail.com>
+Date:   Mon May 4 21:44:08 2026 -0600
+
+    Update y restauracion
+
+commit e223e14e60fa22f4bc8cb5f52409c5c292ee211b
+Author: Meilyn Garcia <grcmeilyn@gmail.com>
+Date:   Mon May 4 20:51:45 2026 -0600
+
+    boton ayuda
+
+commit 746489863b9c8b7b9e4a1c85f196f330bffa047b
+Author: [Britany Hernandez] <[britanyhernandezmd@gmail.com]>
+Date:   Mon May 4 20:35:13 2026 -0600
+
+    Ayudas en bitacora--britany
+
+commit 1919391aad2fd065744d846a3bddf888a5b7ee78
+Merge: e15b940 4018561
+Author: [JennBF] <[jennifer.barrios001@gmail.com]>
+Date:   Mon May 4 18:06:41 2026 -0600
+
+    resolviendo merge de maven
+
+commit e15b940fc43eddb770e6ac6e5c3e6a027e714c0d
+Author: Marice Mayen <¨mmayeni1@miumg.edu.gt¨>
+Date:   Mon May 4 17:51:32 2026 -0600
+
+    boton de ayuda
+
+commit ef3787a75fa4bd08b233e8047bef4cb0f22ac6b9
+Merge: ad2ec35 2b1c376
+Author: Meilyn Garcia <grcmeilyn@gmail.com>
+Date:   Mon May 4 17:43:55 2026 -0600
+
+    Merge branch 'Andre3019' of https://github.com/MEILYNGRC/proyectop32k26b into meilyn17838
+
+commit 67cccfb74ca44feb4b16828446f6f13e5739e796
+Merge: a3045a5 ad2ec35
+Author: astridrl <astridruizz05@gmail.com>
+Date:   Mon May 4 12:07:38 2026 -0600
+
+    Merge branch 'main' into main
+
+commit 40185619e01be521758dacbfe6ef0e4898058fb2
+Author: Isa <isaiascedillo1313@gmail.com>
+Date:   Mon May 4 11:17:29 2026 -0600
+
+    Permisos adaptados a AsignacionPerfilUsuario
+
+commit f492813fdb5a841f28b7deba67b7801df0fd59af
+Author: [Karina Arriaza] <[karriazao@miumg.edu.gt]>
+Date:   Mon May 4 10:17:21 2026 -0600
+
+    Ayuda Bancos
+
+commit ad2ec35b68257cceaaf4c5651513fd9bc5593f76
+Merge: 553e270 a9d6dd6
+Author: edelaguila <54811781+edelaguila@users.noreply.github.com>
+Date:   Mon May 4 05:02:19 2026 -0600
+
+    Merge pull request #52 from anng-mndz/main
+    
+    Cambios en el Mdi para Bancos
+
+commit 553e270eb08d73d8f40ed39621479855ec22c865
+Merge: d0b61bb 8f09062
+Author: edelaguila <54811781+edelaguila@users.noreply.github.com>
+Date:   Mon May 4 05:02:01 2026 -0600
+
+    Merge pull request #51 from JennBF/main
+    
+     comercio
+
+commit a3045a563ebc595d07aeaec753ba63efe06914bb
+Author: [Astrid Ruíz] <[astridruizz05@gmail.com]>
+Date:   Fri May 1 22:15:09 2026 -0600
+
+    Subiendo mdi general de CC
+
+commit 2b1c3762a9e7bcc1ba9b8d26f580caab74d664d8
+Author: andre <mcastellanosm12@miumg.edu.gt>
+Date:   Wed Apr 29 12:14:37 2026 -0600
+
+    creacion de ayuda.chm
+
+commit a9d6dd68dac15c6d020b3e29d7271c4b2f0f64f9
+Merge: 33a1ae5 d0b61bb
+Author: Angel Mendez <lmendezf1@miumg.edu.gt>
+Date:   Wed Apr 29 12:12:49 2026 -0600
+
+    Merge branch 'edelaguila:main' into main
+
+commit 33a1ae54b46dc287ac1725e8b01cbb262a2a85f3
+Author: ¨[Angoly <¨[aaraujom@miumg.edu.gt]¨>
+Date:   Wed Apr 29 12:06:10 2026 -0600
+
+    Cambios en el Mdi para Bancos
+
+commit d0b61bbd3f1c3fb113892d125ff80e90d7c78c68
+Merge: 485f144 3a61256
+Author: edelaguila <54811781+edelaguila@users.noreply.github.com>
+Date:   Wed Apr 29 11:44:14 2026 -0600
+
+    Merge pull request #50 from anng-mndz/main
+    
+    Inclusión de Bancos por Camila
+
+commit 3a61256aa0df71740a658a84a93d8dc32b4c601f
+Author: ¨[Angoly <¨[aaraujom@miumg.edu.gt]¨>
+Date:   Wed Apr 29 11:36:38 2026 -0600
+
+    Inclusión de Bancos
+
+commit 8f09062bec048ea24fdaf344225e59838270a2a5
+Merge: e0e9ace 485f144
+Author: Jennifer Barrios <jennifer.barrios001@gmail.com>
+Date:   Wed Apr 29 11:31:01 2026 -0600
+
+    Merge branch 'edelaguila:main' into main
+
+commit 485f144b6b49871b1a8f9159e0846a3f1e5aabc6
+Merge: ab5f0d7 7b1a87a
+Author: edelaguila <54811781+edelaguila@users.noreply.github.com>
+Date:   Wed Apr 29 11:27:59 2026 -0600
+
+    Merge pull request #49 from astridrl/main
+    
+    Scripts Kevin
+
+commit e0e9ace1ef6dd910e1788d6fc8009df8a31add64
+Merge: ab5f0d7 dcaa7d0
+Author: [JennBF] <[jennifer.barrios001@gmail.com]>
+Date:   Wed Apr 29 10:50:07 2026 -0600
+
+    actualizando repositorio para estar a mano
+
+commit 7b1a87a7707646aab704436c3080848795820252
+Author: Kevin Rodrigo López Espinoza <klopeze14@miumg.edu.gt>
+Date:   Tue Apr 28 22:36:08 2026 -0600
+
+    Script Unificado Modulos
+
+commit 1431750f38bb34067fc70024e0ecad3aec5f2e6d
+Merge: 6931462 ab5f0d7
+Author: Kevin Rodrigo López Espinoza <klopeze14@miumg.edu.gt>
+Date:   Tue Apr 28 22:34:08 2026 -0600
+
+    Merge branch 'main' of https://github.com/astridrl/proyectop32k26b into ScriptsKevinLopez9959243309
+
+commit 6931462f26dd1ad85eff282995476f0c76886b8a
+Merge: bebb3a6 05ea314
+Author: Kevin Rodrigo López Espinoza <klopeze14@miumg.edu.gt>
+Date:   Tue Apr 28 21:55:00 2026 -0600
+
+    Merge branch 'main' of https://github.com/astridrl/proyectop32k26b into ScriptsKevinLopez9959243309
+
+commit ab5f0d7c5629d269d90c456d23bcf1f24e0c829d
+Merge: 3f1b41c 05ea314
+Author: edelaguila <54811781+edelaguila@users.noreply.github.com>
+Date:   Tue Apr 28 20:31:37 2026 -0600
+
+    Merge pull request #48 from astridrl/main
+    
+    Subiendo los metodos generales y especificos para los permisos del mdi
+
+commit 3f1b41c89836adc3d68eededcc3a3281b4933787
+Merge: 11ad556 bd3d77f
+Author: edelaguila <54811781+edelaguila@users.noreply.github.com>
+Date:   Tue Apr 28 20:31:11 2026 -0600
+
+    Merge pull request #47 from angelroq/ImplementacionMVC-ComisionesVentas
+    
+    ImplementacionMVC-ComisionesVentas
+
+commit 05ea314d3eb5f2badd8aa762fdd06b1efd0d6bbd
+Author: [Astrid Ruíz] <[astridruizz05@gmail.com]>
+Date:   Mon Apr 27 13:40:35 2026 -0600
+
+    Subiendo los metodos generales y especificos para los permisos del mdi
+
+commit bd3d77fc78d439757f40a9f8f494b237bdf1e9fe
+Author: [Angel <[aroquelm1@miumg.edu.gt]>
+Date:   Mon Apr 27 11:54:42 2026 -0600
+
+    ImplementacionMVC-ComisionesVentas
+
+commit 11ad556b73fe5e980f0a4e164b7d0b5ec6fdd5e5
+Merge: 9f474e3 427b04a
+Author: edelaguila <54811781+edelaguila@users.noreply.github.com>
+Date:   Mon Apr 27 10:41:09 2026 -0600
+
+    Merge pull request #46 from Ivan774gt/main
+    
+    Actualizacion y eliminacion de archivo inputFiles para evitar errores
+
+commit 9f474e38155f5ffadf4f1b75f76e4e67f55ac1df
+Merge: ae08674 bdef000
+Author: edelaguila <54811781+edelaguila@users.noreply.github.com>
+Date:   Mon Apr 27 10:40:38 2026 -0600
+
+    Merge pull request #43 from MEILYNGRC/mantenimientomarlon19
+    
+    carpetaplanilla
+
+commit bebb3a6bf041b6d5dc927059f7dee56eb061393d
+Author: Kevin Rodrigo López Espinoza <klopeze14@miumg.edu.gt>
+Date:   Mon Apr 27 00:42:13 2026 -0600
+
+    Script Cuentas Corrientes Kevin Lopez
+
+commit 427b04addbbad62d7c4fb9a68e3cf5aeea80a466
+Merge: 9bfad3e 79eea9c
+Author: Boris de Leon <50037610+Ivan774gt@users.noreply.github.com>
+Date:   Thu Apr 23 18:23:11 2026 -0600
+
+    Merge pull request #17 from Ivan774gt/Ivan774gt-patch-2
+    
+    Delete proyectop32k26b/target/maven-status/maven-compiler-plugin/test…
+
+commit 79eea9c8886161cc16b0cdc61f5864dcebd8e3b7
+Author: Boris de Leon <50037610+Ivan774gt@users.noreply.github.com>
+Date:   Thu Apr 23 18:22:54 2026 -0600
+
+    Delete proyectop32k26b/target/maven-status/maven-compiler-plugin/testCompile/default-testCompile/inputFiles.lst
+
+commit 9bfad3e8a5a28f3d5bbea7f3212e27b30f4365c5
+Merge: 51606ae 8566c80
+Author: Boris de Leon <50037610+Ivan774gt@users.noreply.github.com>
+Date:   Thu Apr 23 18:21:59 2026 -0600
+
+    Merge pull request #16 from Ivan774gt/patch-1
+    
+    Patch 1
+
+commit 8566c80ac0c359731841cdfc245c64531c39b776
+Author: Boris de Leon <50037610+Ivan774gt@users.noreply.github.com>
+Date:   Thu Apr 23 18:21:08 2026 -0600
+
+    Delete proyectop32k26b/target/maven-status/maven-compiler-plugin/compile/default-compile/inputFiles.lst
+
+commit 51606ae59093f7b260cc88990a3f052d247c539e
+Merge: 8290497 40d1d92
+Author: Boris de Leon <50037610+Ivan774gt@users.noreply.github.com>
+Date:   Thu Apr 23 18:18:34 2026 -0600
+
+    Merge pull request #15 from Ivan774gt/Ivan774gt-patch-1
+    
+    Delete proyectop32k26b/target/maven-status/maven-compiler-plugin/comp…
+
+commit 40d1d929114c64182c4ac8cc7bdde0e6a77c7ab3
+Author: Boris de Leon <50037610+Ivan774gt@users.noreply.github.com>
+Date:   Thu Apr 23 18:17:02 2026 -0600
+
+    Delete proyectop32k26b/target/maven-status/maven-compiler-plugin/compile/default-compile/inputFiles.lst
+    
+    Se elimina archivo inputFiles que da error al hacer pull request
+
+commit bdef000b458126aea81750cfc38dec4338539d23
+Author: marlon de leon <mdeleong17@miumg.edu.gt>
+Date:   Wed Apr 22 18:48:00 2026 -0600
+
+    carpetaplanilla
+
+commit ae08674b2095eba6e9a617fb3da1ebf606f26aa0
+Merge: ee1dd03 0683dfd
+Author: edelaguila <54811781+edelaguila@users.noreply.github.com>
+Date:   Wed Apr 22 11:53:49 2026 -0600
+
+    Merge pull request #42 from astridrl/main
+    
+    MVC CC
+
+commit 0683dfda0bff94bc8e297d1a126705a8e2e642a8
+Merge: ee1dd03 ba5bdda
+Author: [Astrid Ruíz] <[astridruizz05@gmail.com]>
+Date:   Wed Apr 22 11:33:30 2026 -0600
+
+    Merge remote-tracking branch 'origin/MVC.CC'
+
+commit ee1dd03634f3f6012904f148b926035f9d4afccf
+Merge: 1989072 bbe5d87
+Author: edelaguila <54811781+edelaguila@users.noreply.github.com>
+Date:   Wed Apr 22 11:25:53 2026 -0600
+
+    Merge pull request #37 from anng-mndz/main
+    
+    [Grupo 3] Asignación de Aplicaciones a Usuarios - Funcionalidad Completa
+
+commit 198907226c9b9c7247449730039dc33c8fbc4ee1
+Merge: 47124d4 4c0e3fd
+Author: edelaguila <54811781+edelaguila@users.noreply.github.com>
+Date:   Wed Apr 22 11:25:33 2026 -0600
+
+    Merge pull request #36 from angelroq/Afinacion_AsignacionAplicacion
+    
+    Afinacion_AsignacionAplicacion
+
+commit ba5bdda7c19ca59c12291629c1aa8bae2c32c44c
+Author: [Britany Hernandez] <[britanyhernandezmd@gmail.com]>
+Date:   Wed Apr 22 11:15:51 2026 -0600
+
+    Estructura MVC britany
+
+commit dcaa7d02be0f03fc0577bbfbf5c89f952fa43764
+Author: [JennBF] <[jennifer.barrios001@gmail.com]>
+Date:   Fri Apr 17 11:59:48 2026 -0600
+
+    formulario funcionable
+
+commit 829049786161dfd7478addcdb816158e79c82d33
+Merge: e14494c e36bc0b
+Author: MarcoHernandez181 <mhernandezt23@miumg.edu.gt>
+Date:   Fri Apr 10 23:28:29 2026 -0600
+
+    Merge pull request #14 from Ivan774gt/MarcoHernandez-9959-24-6201
+    
+    Actualización en mantenimiento de usuarios, 2
+
+commit e36bc0b6d7c4fd4e796d798175caac03c4fae6cf
+Merge: b1cc772 548bbf5
+Author: Marco Hernandez <mhernandezt23@miumg.edu.gt>
+Date:   Fri Apr 10 23:23:36 2026 -0600
+
+    script
+
+commit e14494cd7e4f0b516ba393f4ab96691f499e1b70
+Merge: f2ea37f 5dcb4b9
+Author: Boris de Leon <50037610+Ivan774gt@users.noreply.github.com>
+Date:   Fri Apr 10 23:17:03 2026 -0600
+
+    Merge pull request #13 from Ivan774gt/AnthonySuc9959-24-389
+    
+    cambio en bitacora AplicacionesDAO
+
+commit b1cc772da2a231e701816ec7b7e2f54871ad2d09
+Author: Marco Hernandez <mhernandezt23@miumg.edu.gt>
+Date:   Fri Apr 10 23:12:09 2026 -0600
+
+    script logistica
+
+commit 548bbf52d1d95c5f8db91796b3441f3cfaf28fa8
+Merge: dc817ed f2ea37f
+Author: Boris de Leon <50037610+Ivan774gt@users.noreply.github.com>
+Date:   Fri Apr 10 23:04:35 2026 -0600
+
+    Merge branch 'main' into MarcoHernandez-9959-24-6201
+
+commit dc817ed54d24c913e7ae6cfbf8b84bdc2f31fa56
+Author: Marco Hernandez <mhernandezt23@miumg.edu.gt>
+Date:   Fri Apr 10 22:53:42 2026 -0600
+
+    Actualización en mantenimiento de usuarios
+
+commit 5dcb4b99a3a9a423bd796c9f793d364ef034387f
+Author: Anthony Hetzael Suc Gomez <asucg@miumg.edu.gt>
+Date:   Fri Apr 10 19:03:13 2026 -0600
+
+    cambio en bitacora AplicacionesDAO
+
+commit bbe5d87a8df08db596297cdfd8d62bc968b32c6f
+Author: anng-mndz <lmendezf1@miumg.edu.gt>
+Date:   Wed Apr 8 21:48:00 2026 -0600
+
+    Ultimas implementaciones a AAU
+
+commit 4c0e3fde7b176b50dccbce7c312d771f82548b0f
+Author: [Angel <[aroquelm1@miumg.edu.gt]>
+Date:   Wed Apr 8 12:01:17 2026 -0600
+
+    Afinacion_AsignacionAplicacion
+
+commit f2ea37f4bdf49e85ccc31d6d447ebb514bf20673
+Merge: 8959430 5a1ed60
+Author: Boris de Leon <50037610+Ivan774gt@users.noreply.github.com>
+Date:   Wed Apr 8 11:59:47 2026 -0600
+
+    Merge pull request #12 from Ivan774gt/Ferdynand_Monroy_99592414049
+    
+    Cambio para que se visualice el frmMantenimientoAplicaciones
+
+commit 5a1ed608267cad8af31249834f2d7a1bc215b977
+Author: Ferdynand.Monroy <fmonroys@miumg.edu.gt>
+Date:   Wed Apr 8 11:57:16 2026 -0600
+
+    Cambio para que se visualice el frmMantenimientoAplicaciones
+
+commit 47124d481522b8ac028e47882df6e29cd9e76257
+Merge: d1d94ce 42291ad
+Author: edelaguila <54811781+edelaguila@users.noreply.github.com>
+Date:   Wed Apr 8 11:48:06 2026 -0600
+
+    Merge pull request #34 from anng-mndz/main
+    
+    Karina ha enviado el script correspondiente a la base de datos de AAU
+
+commit 42291adebb3978f3453dc254ebf0be3a401f29bf
+Author: [Karina Arriaza] <[karriazao@miumg.edu.gt]>
+Date:   Wed Apr 8 11:40:05 2026 -0600
+
+    Script AAU
+
+commit d1d94ce93d5f52c06b2e14107e64976d03c9996f
+Merge: 8959430 58c6c9e
+Author: edelaguila <54811781+edelaguila@users.noreply.github.com>
+Date:   Wed Apr 8 11:36:05 2026 -0600
+
+    Merge pull request #33 from astridrl/main
+    
+    boton cambio contraseña y scrip
+
+commit 58c6c9e4f37f0e67160d70be33aa42455d8b7848
+Author: Dulce10 <dulce.10arev@gmail.com>
+Date:   Wed Apr 8 11:22:35 2026 -0600
+
+    boton cambio contraseña y scrip
+
+commit 8959430c5aa13b46893052eba14d98835126ce2f
+Merge: 64f4e98 7c0343e
+Author: edelaguila <54811781+edelaguila@users.noreply.github.com>
+Date:   Wed Apr 8 05:24:29 2026 -0600
+
+    Merge pull request #32 from edelaguila/edelaguila-patch-1
+    
+    Update .gitignore
+
+commit 7c0343ee15a944b6da907d38372c538682b661ec
+Author: edelaguila <54811781+edelaguila@users.noreply.github.com>
+Date:   Wed Apr 8 05:24:08 2026 -0600
+
+    Update .gitignore
+
+commit 64f4e98a265287890a82a4bf086c7bce4944c7c6
+Author: Esduardo Del Aguila <daguilae@yahoo.com>
+Date:   Tue Apr 7 22:15:41 2026 -0600
+
+    Afinando el sistema de seguridad
+
+commit 0bba49dc24ba3acceff2e87eb157ca62fe131ad7
+Merge: 04c54f6 c409fbc
+Author: edelaguila <54811781+edelaguila@users.noreply.github.com>
+Date:   Tue Apr 7 20:00:00 2026 -0600
+
+    Merge pull request #31 from MEILYNGRC/marlon
+    
+    actualizacazion vista
+
+commit c409fbc8f0fa822e13d3cd4030f1d85baf8fa3c8
+Merge: ae6fbe6 04c54f6
+Author: edelaguila <54811781+edelaguila@users.noreply.github.com>
+Date:   Tue Apr 7 19:59:51 2026 -0600
+
+    Merge branch 'main' into marlon
+
+commit 04c54f61ad47b31c07a26bdbd27e6be81739664e
+Merge: b3b5e6a 9ad9e59
+Author: edelaguila <54811781+edelaguila@users.noreply.github.com>
+Date:   Tue Apr 7 19:54:45 2026 -0600
+
+    Merge pull request #30 from MEILYNGRC/meilyn17838
+    
+    Script_planillas
+
+commit b3b5e6a85bf770a224f9b5754de29119064b4b43
+Merge: 8c28841 7a0ca54
+Author: edelaguila <54811781+edelaguila@users.noreply.github.com>
+Date:   Tue Apr 7 19:29:24 2026 -0600
+
+    Merge pull request #29 from astridrl/main
+    
+    solución al gitignore de Kevin
+
+commit ae6fbe61c71c78db73f87fba498784a0e08a69b7
+Author: marlon de leon <mdeleong17@miumg.edu.gt>
+Date:   Tue Apr 7 17:06:28 2026 -0600
+
+    actualizacazion perfiles0
+
+commit 9ad9e592a2f9866e4a66617930f8537939442318
+Merge: 5ac1eba 8c28841
+Author: Meilyn García <133615693+MEILYNGRC@users.noreply.github.com>
+Date:   Mon Apr 6 15:46:48 2026 -0600
+
+    Merge branch 'edelaguila:main' into meilyn17838
+
+commit 5ac1eba48696089bca55359e8ac611133089a6dc
+Author: Meilyn Garcia <grcmeilyn@gmail.com>
+Date:   Mon Apr 6 15:27:19 2026 -0600
+
+    Script_planillas
+
+commit 7a0ca54c0a4aae3d547465ddcb17bdf6a96f0080
+Merge: 046de24 8c28841
+Author: astridrl <astridruizz05@gmail.com>
+Date:   Mon Apr 6 13:22:03 2026 -0600
+
+    Merge branch 'edelaguila:main' into main
+
+commit 046de247dfa438a24670c041fb1822d2d692414c
+Merge: bbd0361 8ece1ea
+Author: [Astrid Ruíz] <[astridruizz05@gmail.com]>
+Date:   Mon Apr 6 13:18:45 2026 -0600
+
+    Merge remote-tracking branch 'origin/Mavengitignore'
+
+commit 8c288417486df3b8dd5a3582c2baa1b0a5ddb406
+Merge: bbd0361 54c2561
+Author: edelaguila <54811781+edelaguila@users.noreply.github.com>
+Date:   Mon Apr 6 12:17:50 2026 -0600
+
+    Merge pull request #28 from JennBF/main
+    
+    Script de Asignacion Perfil Usuario LMD
+
+commit 54c256176696519212bfcf8ba2ea1a522318c06e
+Merge: 958bf85 bbd0361
+Author: [JennBF] <[jennifer.barrios001@gmail.com]>
+Date:   Mon Apr 6 12:14:05 2026 -0600
+
+    Merge branch 'main' of https://github.com/JennBF/proyectop32k26b
+
+commit 958bf852651e4e5d6a1d2e24837e8f1674293e31
+Merge: 645b938 9a45a97
+Author: [JennBF] <[jennifer.barrios001@gmail.com]>
+Date:   Mon Apr 6 12:11:39 2026 -0600
+
+    Merge branch 'main' of https://github.com/JennBF/proyectop32k26b
+
+commit 645b9388b3c4e01b0986566e12ad6b5443bd0e86
+Author: [JennBF] <[jennifer.barrios001@gmail.com]>
+Date:   Mon Apr 6 12:11:14 2026 -0600
+
+    Script lmd VTA ventas
+
+commit bbd036148133457fe5379f6fb96aaaf9474bb976
+Merge: 4f6abb2 25bfd03
+Author: edelaguila <54811781+edelaguila@users.noreply.github.com>
+Date:   Mon Apr 6 12:08:50 2026 -0600
+
+    Merge pull request #27 from angelroq/implentacion-archivo-script
+    
+    implentacion-archivo-script
+
+commit 8ece1ea8426fe525f96989f76d624d8dd5060bef
+Author: Kevin Rodrigo López Espinoza <klopeze14@miumg.edu.gt>
+Date:   Mon Apr 6 12:08:23 2026 -0600
+
+    Maven en gitignore
+
+commit 25bfd03977096ec1529a590f9d62f2dec5bc793e
+Author: [Dulce18rt] <[dreyesp11@miumg.edu.gt]>
+Date:   Mon Apr 6 12:04:35 2026 -0600
+
+    implentacion-archivo-script
+
+commit 4f6abb20b8033cbce64f81b7e69a1806240a8ebe
+Merge: 70cf384 3622220
+Author: edelaguila <54811781+edelaguila@users.noreply.github.com>
+Date:   Mon Apr 6 12:00:11 2026 -0600
+
+    Merge pull request #26 from Ivan774gt/main
+    
+    Script de apps y usuario
+
+commit 36222207ce2d078636b33d25ce637839caa700d7
+Merge: 9c81fac 70cf384
+Author: Boris de Leon <50037610+Ivan774gt@users.noreply.github.com>
+Date:   Mon Apr 6 11:57:32 2026 -0600
+
+    Merge branch 'edelaguila:main' into main
+
+commit 70cf3844c5f0c9b25c273805f6b9a94bbff0a46c
+Merge: eaf3b58 2c3b8e4
+Author: edelaguila <54811781+edelaguila@users.noreply.github.com>
+Date:   Mon Apr 6 11:50:53 2026 -0600
+
+    Merge pull request #24 from angelroq/Documentacion-DAO
+    
+    Documentacion-DAO
+
+commit 9c81fac6d461beac6c19ef91a3123d501b9f27f8
+Merge: 1c68815 4e0bb23
+Author: Boris de Leon <50037610+Ivan774gt@users.noreply.github.com>
+Date:   Mon Apr 6 11:50:41 2026 -0600
+
+    Merge pull request #11 from Ivan774gt/MarcoHernandez-9959-24-6201
+    
+    Script Logistica App
+
+commit eaf3b58e20932454bb1203b7b3a3698dca3e3ae7
+Merge: 9a45a97 e4ec70a
+Author: edelaguila <54811781+edelaguila@users.noreply.github.com>
+Date:   Mon Apr 6 11:49:55 2026 -0600
+
+    Merge pull request #21 from astridrl/main
+    
+    Subiendo script de cuentas corrientes
+
+commit 4e0bb238298e068aad9868cee115306196d420c2
+Author: Marco Hernandez <mhernandezt23@miumg.edu.gt>
+Date:   Mon Apr 6 11:47:56 2026 -0600
+
+    Script Logistica App
+
+commit e4ec70abbec2b12873bf8bd48c663187e7adfed2
+Merge: 39bf5ee 9a45a97
+Author: astridrl <astridruizz05@gmail.com>
+Date:   Mon Apr 6 11:45:03 2026 -0600
+
+    Merge branch 'main' into main
+
+commit 2c3b8e434946a5b78b971384998adb234b39ad47
+Author: [Xander <[xreyeso@miumg.edu.gt]>
+Date:   Mon Apr 6 11:35:03 2026 -0600
+
+    Documentacion-DAO
+
+commit 9a45a970501d6ef7ea8cead8762fe78fc72c4996
+Merge: a477fae 1c68815
+Author: edelaguila <54811781+edelaguila@users.noreply.github.com>
+Date:   Mon Apr 6 11:25:19 2026 -0600
+
+    Merge pull request #23 from Ivan774gt/main
+    
+    Mejora formulario aplicaciones
+
+commit a477faef389faabc9d3e4c90dadadab510a08aa9
+Merge: f96acad 8ea71c1
+Author: edelaguila <54811781+edelaguila@users.noreply.github.com>
+Date:   Mon Apr 6 11:24:57 2026 -0600
+
+    Merge pull request #22 from JennBF/main
+    
+    Reenvío Asignación Perfil Usuario
+
+commit 1c68815319050b705c075a7550ea1aa804658f07
+Merge: 6261e85 6702920
+Author: Boris de Leon <50037610+Ivan774gt@users.noreply.github.com>
+Date:   Mon Apr 6 11:19:23 2026 -0600
+
+    Merge pull request #10 from Ivan774gt/Ferdynand_Monroy_99592414049
+    
+    Mejora del frmAplicaciones
+
+commit 39bf5ee9132058ee2fe40203606c1df0d6f37e47
+Author: [Astrid Ruíz] <[astridruizz05@gmail.com]>
+Date:   Mon Apr 6 11:16:07 2026 -0600
+
+    Subiendo script de cuentas corrientes
+
+commit 8ea71c14292633ae5d3ce96936bca48ff90fe23d
+Merge: f96acad 21e81ee
+Author: [JennBF] <[jennifer.barrios001@gmail.com]>
+Date:   Mon Apr 6 11:15:56 2026 -0600
+
+    resolviendo conflictos de merge y sync del grupo 2
+
+commit f96acad5d46403f0a595e2b79e319ab712128195
+Merge: 6261e85 c77c8c2
+Author: edelaguila <54811781+edelaguila@users.noreply.github.com>
+Date:   Mon Apr 6 11:11:46 2026 -0600
+
+    Merge pull request #19 from angelroq/CorreccionDeErroresAsignacionPerfil
+    
+    CorreccionDeErroresAsignacionPerfil
+
+commit 6702920ed6c8a224108f960361ccaa875c2a208f
+Author: Ferdynand.Monroy <fmonroys@miumg.edu.gt>
+Date:   Mon Apr 6 11:11:21 2026 -0600
+
+    Mejora del frmAplicaciones
+
+commit c77c8c20c4af463a5fa4829d97440a1697918cea
+Author: [Angel <[aroquelm1@miumg.edu.gt]>
+Date:   Mon Apr 6 11:08:26 2026 -0600
+
+    CorreccionDeErroresAsignacionPerfil
+
+commit 6261e852013f51510afbee0d23e08c9d4fd236ea
+Merge: abf74c6 34ce784
+Author: edelaguila <54811781+edelaguila@users.noreply.github.com>
+Date:   Mon Apr 6 06:48:28 2026 -0600
+
+    Merge pull request #17 from Ivan774gt/main
+    
+    Finalización de módulos de usuarios y aplicaciones
+
+commit abf74c6818e81a83f1cf8ec6af3183b757028e92
+Merge: 9365cec a6e52e3
+Author: edelaguila <54811781+edelaguila@users.noreply.github.com>
+Date:   Mon Apr 6 06:47:50 2026 -0600
+
+    Merge pull request #15 from angelroq/ImplementacionFrmAsignacionAplicacionPerfil_9959-24-1622
+    
+    ImplementacionFrmAsignacionAplicacionPerfil_9959-24-1622
+
+commit 9365cec946ab0253e6fe06fa636859c78df83bd8
+Merge: 159359e 545a74d
+Author: edelaguila <54811781+edelaguila@users.noreply.github.com>
+Date:   Mon Apr 6 06:47:23 2026 -0600
+
+    Merge pull request #13 from angelroq/AsignacionAplicacionPerfilDAO_9959-24-1733
+    
+    AsignacionAplicacionPerfilDAO_9959-24-1733
+
+commit 159359e798b01dcc353f573d741596eaff43b21d
+Merge: 4c019af ecfe959
+Author: edelaguila <54811781+edelaguila@users.noreply.github.com>
+Date:   Mon Apr 6 06:46:33 2026 -0600
+
+    Merge pull request #12 from angelroq/ActualizacionClase-9959-24-20
+    
+    Actualizacion de clase AsignacionAplicacionPerfil
+
+commit 4c019af08d9ecd76d1fe898eed65b8d81b546955
+Merge: 55928b9 5632980
+Author: edelaguila <54811781+edelaguila@users.noreply.github.com>
+Date:   Mon Apr 6 06:45:41 2026 -0600
+
+    Merge pull request #11 from MEILYNGRC/rama_orden
+    
+    formulario_cambios_marlon
+
+commit 5632980929e216da908008d381afdeeebe04be44
+Merge: c8e3969 55928b9
+Author: edelaguila <54811781+edelaguila@users.noreply.github.com>
+Date:   Mon Apr 6 06:45:26 2026 -0600
+
+    Merge branch 'main' into rama_orden
+
+commit 55928b9169954dee7a514457447be67d6012e386
+Merge: d54520d 2797117
+Author: edelaguila <54811781+edelaguila@users.noreply.github.com>
+Date:   Mon Apr 6 06:43:26 2026 -0600
+
+    Merge pull request #10 from MEILYNGRC/MarioAndre3019
+    
+    perfilDao_andre actualizacion
+
+commit d54520d6e7dc4b7006958871b22dac11b12153a3
+Merge: 47911aa 656513d
+Author: edelaguila <54811781+edelaguila@users.noreply.github.com>
+Date:   Mon Apr 6 06:38:30 2026 -0600
+
+    Merge pull request #9 from astridrl/main
+    
+    Formulario reestablecer contraseña
+
+commit 21e81ee22142232b75d2cbfbb5769eedb7c94688
+Author: [JennBF] <[jennifer.barrios001@gmail.com]>
+Date:   Sun Mar 29 19:35:41 2026 -0600
+
+    Formulario de Asignacion Perfil Usuario por: Jennifer
+
+commit 6d8bc94399c5f836b26c05b46946845cea743bc8
+Merge: 1c56e6c 2f23130
+Author: [JennBF] <[jennifer.barrios001@gmail.com]>
+Date:   Sun Mar 29 18:06:05 2026 -0600
+
+    Uniendo La Rama de Roli (Coordinadora JennBF)
+
+commit 1c56e6c58697ad2eb2e0f19186f5099f0e517649
+Author: Marice Mayen <¨mmayeni1@miumg.edu.gt¨>
+Date:   Sun Mar 29 17:51:13 2026 -0600
+
+    asignacionperfilusuarioDAO maria celeste mayen ibarra 9959-23-3775
+
+commit 34ce78459a638ca996e066d56fbfe6615745c668
+Merge: 33eb894 2a6bde8
+Author: Boris de Leon <50037610+Ivan774gt@users.noreply.github.com>
+Date:   Sun Mar 29 17:44:49 2026 -0600
+
+    Merge pull request #9 from Ivan774gt/AnthonySuc9959-24-389
+    
+    Actualizacion de AplicacionesDAO en metodo INSERT
+
+commit 2a6bde86624502754b781b7dbd785735a5f25148
+Author: Anthony Hetzael Suc Gomez <asucg@miumg.edu.gt>
+Date:   Sun Mar 29 17:38:26 2026 -0600
+
+    Actualizacion de AplicacionesDAO en metodo INSERT
+
+commit 33eb89409724da04fb54ea22b4636bb0e8169557
+Merge: 2878a16 66050ba
+Author: Boris de Leon <50037610+Ivan774gt@users.noreply.github.com>
+Date:   Sun Mar 29 17:20:24 2026 -0600
+
+    Merge pull request #8 from Ivan774gt/Ferdynand_Monroy_99592414049
+    
+    Ferdynand monroy 99592414049
+
+commit a6e52e37b482f6d596aa7310b8e23562a62dd7d9
+Author: [Angel <[aroquelm1@miumg.edu.gt]>
+Date:   Sun Mar 29 16:47:58 2026 -0600
+
+    ImplementacionFrmAsignacionAplicacionPerfil_9959-24-1622
+
+commit 66050ba62429f792869cf8deb57dfeb6bba4b495
+Author: Ferdynand.Monroy <fmonroys@miumg.edu.gt>
+Date:   Sun Mar 29 16:08:36 2026 -0600
+
+    frmAplicaciones actualizado con bitacora implementada
+
+commit 2878a16fe70abcfc5bb4ed3cd238d993f2d2e4ce
+Merge: 6acb1b9 7da8ecc
+Author: MarcoHernandez181 <mhernandezt23@miumg.edu.gt>
+Date:   Sun Mar 29 16:05:33 2026 -0600
+
+    Merge pull request #7 from Ivan774gt/MarcoHernandez-9959-24-6201
+    
+    Revision UsuarioDao
+
+commit 7da8ecc2d357a8a13065ac9013af048a15784fcc
+Author: Marco Hernandez <mhernandezt23@miumg.edu.gt>
+Date:   Sun Mar 29 15:56:31 2026 -0600
+
+    Revision UsuarioDao
+
+commit 3b2798bb75501548993b08c7fc811d418b447f03
+Author: Ferdynand.Monroy <fmonroys@miumg.edu.gt>
+Date:   Sun Mar 29 15:49:35 2026 -0600
+
+    cambios en frmAplicaciones en rama Ferdynand Monroy marzo 2026
+
+commit 6acb1b9ce7e08c3248cb0264b622271ff8cfb0da
+Merge: cbf7e52 ad8a362
+Author: Anthony Hetzael Suc Gomez <asucg@miumg.edu.gt>
+Date:   Sun Mar 29 15:42:02 2026 -0600
+
+    Merge pull request #6 from Ivan774gt/AnthonySuc9959-24-389
+    
+    implementacion de Bitacora en AplicacionesDAO
+
+commit ad8a362fc1e8bb52f5692a4acaecd71783f9338c
+Author: Anthony Hetzael Suc Gomez <asucg@miumg.edu.gt>
+Date:   Sun Mar 29 15:35:25 2026 -0600
+
+    implementacion de Bitacora en AplicacionesDAO
+
+commit cbf7e520eeacc415d0b061e7d65c836d327141b2
+Merge: f6575a2 9c12286
+Author: Anthony Hetzael Suc Gomez <asucg@miumg.edu.gt>
+Date:   Sun Mar 29 15:28:19 2026 -0600
+
+    Merge pull request #5 from Ivan774gt/AnthonySuc9959-24-389
+    
+    actualizacion en AplicacionesDAO e implementacion de Aplicaciones
+
+commit 9c12286b3d718ecfd8f65c76938db71efeee4cfe
+Author: Anthony Hetzael Suc Gomez <asucg@miumg.edu.gt>
+Date:   Sun Mar 29 15:26:15 2026 -0600
+
+    actualizacion en AplicacionesDAO he implementacion de Aplicaciones
+
+commit ecfe959b8fa1917efa425e6a64068f1ba7a22534
+Author: [Herson <[Herson>
+Date:   Sun Mar 29 15:02:36 2026 -0600
+
+    Actualizacion de clase
+
+commit 545a74d7c93c8b5953b5c09804c0518caf7289ea
+Author: [Xander <[xreyeso@miumg.edu.gt]>
+Date:   Sun Mar 29 14:56:52 2026 -0600
+
+    AsignacionAplicacionPerfilDAO_9959-24-1733
+
+commit 2a306d4dd400ac384f9101ef572fe309460f9db1
+Author: Marice Mayen <¨mmayeni1@miumg.edu.gt¨>
+Date:   Sun Mar 29 09:48:20 2026 -0600
+
+    asignacionperfilusuarioDAO maria celeste mayen ibarra 9959 23 3775
+
+commit eb5f632f9f85952eb28b277cca25c682fb9b54fe
+Author: Ferdynand.Monroy <fmonroys@miumg.edu.gt>
+Date:   Sun Mar 29 01:32:02 2026 -0600
+
+    Formulario de aplicaciones realizado, junto a conexión de bitacora
+
+commit 2f23130d9e2265c592529eba0bd42b5625b6e2b3
+Author: Isa <isaiascedillo1313@gmail.com>
+Date:   Sat Mar 28 19:54:37 2026 -0600
+
+    Creacion de Controlador
+
+commit 35c45cb3d3526b2f8dbe85983853a0c9cc73377f
+Merge: 208098b f6575a2
+Author: Ferdynand.Monroy <fmonroys@miumg.edu.gt>
+Date:   Sat Mar 28 17:05:41 2026 -0600
+
+    Merge branch 'main' of https://github.com/Ivan774gt/proyectop32k26b into Ferdynand_Monroy_99592414049
+
+commit f6575a2d4b3d5211734478bd69847ba882716c7b
+Merge: fcf7511 47911aa
+Author: Boris de Leon <50037610+Ivan774gt@users.noreply.github.com>
+Date:   Sat Mar 28 16:56:56 2026 -0600
+
+    Merge branch 'edelaguila:main' into main
+
+commit b8aa46106d77e44efb8d8dc84a65501a1ccd545e
+Author: [Xander <[xreyeso@miumg.edu.gt]>
+Date:   Sat Mar 28 09:52:20 2026 -0600
+
+    AsignacionAplicacionPerfilDAO_9959-24-1733
+
+commit 7563b28c5cfaf77630d4f1ea686e721a84e4ea34
+Author: [Herson <[Herson>
+Date:   Sat Mar 28 09:10:53 2026 -0600
+
+    Actualizacion de clase AsignacionAplicacionPerfil
+
+commit c8e3969c98ee14cce2c66e9b2af8ec172c9f50eb
+Author: Meilyn Garcia <grcmeilyn@gmail.com>
+Date:   Fri Mar 27 17:00:51 2026 -0600
+
+    cambios_marlon
+
+commit 656513d4dc6458a4c3e9ce486f6030071893957a
+Author: Kevin Rodrigo López Espinoza <klopeze14@miumg.edu.gt>
+Date:   Fri Mar 27 22:32:42 2026 -0600
+
+    Boton ver Contraseña agregado
+
+commit 27971174196ab8a94e81e410e02eb61fe856bd2f
+Author: andre <mcastellanosm12@miumg.edu.gt>
+Date:   Thu Mar 26 23:17:29 2026 -0600
+
+    andre actualizacion
+
+commit ebfb1a514a11416527f000165a7384ce83e36bf2
+Merge: 47911aa ab539d6
+Author: [Astrid Ruíz] <[astridruizz05@gmail.com]>
+Date:   Thu Mar 26 20:22:53 2026 -0600
+
+    Merge rama Rcontrasena4564 - resuelto conflicto en inputFiles.lst
+
+commit ab539d67d2f11f8726957e8c22166c9ba005460d
+Author: Dulce10 <dulce.10arev@gmail.com>
+Date:   Thu Mar 26 19:54:39 2026 -0600
+
+    agregando formulario y método para restablecer contraseña
+
+commit 47911aad9f56b7c3518d2698972e6fd9a73a27d0
+Merge: 4c599d9 84bd449
+Author: edelaguila <54811781+edelaguila@users.noreply.github.com>
+Date:   Wed Mar 25 12:20:35 2026 -0600
+
+    Merge pull request #8 from anng-mndz/Angel
+    
+    Cambios de nombres de Variables en el DAO y Formulario
+
+commit 84bd4492e03505e32d3f0a9a0fd975e3b4ccd9fe
+Author: anng-mndz <lmendezf1@miumg.edu.gt>
+Date:   Wed Mar 25 12:10:35 2026 -0600
+
+    Cambios de nombres de Variables
+
+commit fcf75111e321ffa5c49b10c47aa40137fd9576bd
+Merge: 253684d 4c599d9
+Author: Boris de Leon <50037610+Ivan774gt@users.noreply.github.com>
+Date:   Wed Mar 25 12:05:04 2026 -0600
+
+    Merge branch 'edelaguila:main' into main
+
+commit 4c599d945d4ca746e7d7cca76e0a9735fdf52038
+Merge: 65f9d1e 64ae153
+Author: edelaguila <54811781+edelaguila@users.noreply.github.com>
+Date:   Wed Mar 25 12:04:37 2026 -0600
+
+    Merge pull request #7 from Ivan774gt/Proyecto-bitacora-pendiente
+    
+    Proyecto bitacora pendiente
+
+commit 64ae153034db4f6079c08d194ef6f4a3ed0eeef3
+Merge: 959722c 65f9d1e
+Author: edelaguila <54811781+edelaguila@users.noreply.github.com>
+Date:   Wed Mar 25 12:04:21 2026 -0600
+
+    Merge branch 'main' into Proyecto-bitacora-pendiente
+
+commit 253684d7d9efa1dab50bdf4eaaa2a29baee21ca0
+Merge: cf26d3d 959722c
+Author: Boris de Leon <50037610+Ivan774gt@users.noreply.github.com>
+Date:   Wed Mar 25 12:01:21 2026 -0600
+
+    Merge pull request #3 from Ivan774gt/Proyecto-bitacora-pendiente
+    
+    subida de proyecto pendiente de bitacora
+
+commit 65f9d1eb242c41c691c58a352bf6672f41adc67e
+Merge: 13da60e b61f48c
+Author: edelaguila <54811781+edelaguila@users.noreply.github.com>
+Date:   Wed Mar 25 12:00:07 2026 -0600
+
+    Merge pull request #6 from MEILYNGRC/Mario3019
+    
+    DAO_Mario3019
+
+commit 13da60e686760e0640a7caea29e8efd2aca713fd
+Merge: 87532a6 9ea847f
+Author: edelaguila <54811781+edelaguila@users.noreply.github.com>
+Date:   Wed Mar 25 11:59:50 2026 -0600
+
+    Merge pull request #5 from MEILYNGRC/meilyn
+    
+    clase perfil
+
+commit 959722c4a36f1dea8e60bd5f805a411cc4ac813a
+Author: Ivan774gt <deleonboris6@gmail.com>
+Date:   Wed Mar 25 11:59:26 2026 -0600
+
+    subida de proyecto pendiente de bitacora
+
+commit 87532a60e30044ec8e6d863b154b027b0667d055
+Merge: 21a15fe 1852fd0
+Author: edelaguila <54811781+edelaguila@users.noreply.github.com>
+Date:   Wed Mar 25 11:59:05 2026 -0600
+
+    Merge pull request #4 from anng-mndz/main
+    
+    Se agrego el formulario de la clase AsignacionAplicacionUsuario por Angel Méndez
+
+commit 21a15fe4a6fed6fb1b0ce562bf6357252147b09d
+Merge: 73bd6dd a3307cd
+Author: edelaguila <54811781+edelaguila@users.noreply.github.com>
+Date:   Wed Mar 25 11:58:40 2026 -0600
+
+    Merge pull request #3 from anng-mndz/Camila
+    
+    Integración del DAO Aplicación Asignación Usuario
+
+commit a3307cd3daae2ef77f14d697e5fc5bff3a892f99
+Merge: 5f6b822 73bd6dd
+Author: edelaguila <54811781+edelaguila@users.noreply.github.com>
+Date:   Wed Mar 25 11:58:25 2026 -0600
+
+    Merge branch 'main' into Camila
+
+commit 9ea847fb310caec9a1d1311be098e3835ef67558
+Author: Meilyn Garcia <grcmeilyn@gmail.com>
+Date:   Wed Mar 25 11:56:58 2026 -0600
+
+    perfil clase
+
+commit 73bd6ddff3d3c17f3e8fb7bb8c0644fccec402ba
+Merge: c0df4fc aff9ea1
+Author: edelaguila <54811781+edelaguila@users.noreply.github.com>
+Date:   Wed Mar 25 11:55:57 2026 -0600
+
+    Merge pull request #2 from anng-mndz/karina
+    
+    Integración del controlador AsignacionAplicacionUsuario con funcionalidad de Bitácora.
+
+commit 1e09a87f3f99b21b7f8714ae21c5bf38a895f877
+Author: Meilyn Garcia <grcmeilyn@gmail.com>
+Date:   Wed Mar 25 11:47:28 2026 -0600
+
+    perfil
+
+commit 90019b90b55fad36dadda1f4a34bb6490e5c7d97
+Author: Meilyn Garcia <grcmeilyn@gmail.com>
+Date:   Wed Mar 25 11:24:07 2026 -0600
+
+    perfil_17838
+
+commit b61f48ce3639bae7821809ca484fe576b0f17d82
+Merge: ff2db7f c0df4fc
+Author: Meilyn García <133615693+MEILYNGRC@users.noreply.github.com>
+Date:   Wed Mar 25 11:13:28 2026 -0600
+
+    Merge branch 'edelaguila:main' into Mario3019
+
+commit ff2db7f7a686d25cee7beee43aa92246d90037ec
+Author: andre <mcastellanosm12@miumg.edu.gt>
+Date:   Wed Mar 25 11:08:50 2026 -0600
+
+    andre perfil Dao creado
+
+commit cf26d3d7c7b22b48522f0a1165db94b5b39ff803
+Merge: 12572d8 c0df4fc
+Author: Boris de Leon <50037610+Ivan774gt@users.noreply.github.com>
+Date:   Wed Mar 25 11:05:52 2026 -0600
+
+    Merge branch 'edelaguila:main' into main
+
+commit 12572d8009248ea9144eb1530dc0f25bafdc0795
+Merge: 5fc094f a6359af
+Author: Boris de Leon <50037610+Ivan774gt@users.noreply.github.com>
+Date:   Wed Mar 25 10:48:58 2026 -0600
+
+    Merge pull request #2 from Ivan774gt/revert-1-AnthonySuc9959-24-389
+    
+    Revert "update/se añadio (clsAplicaciones) y (AplicacionesDAO)"
+
+commit a6359af23099f00779aab9abbe3ffa1940060886
+Author: Boris de Leon <50037610+Ivan774gt@users.noreply.github.com>
+Date:   Wed Mar 25 10:47:07 2026 -0600
+
+    Revert "update/se añadio (clsAplicaciones) y (AplicacionesDAO)"
+
+commit 1852fd098479dfac9ab45762479a67ff17fc2433
+Author: anng-mndz <lmendezf1@miumg.edu.gt>
+Date:   Wed Mar 25 10:44:15 2026 -0600
+
+    Se agrego formulario de Asignacion
+
+commit 5f6b8228121b26e8279552b7f7d394186b22822e
+Author: ¨[Angoly <¨[aaraujom@miumg.edu.gt]¨>
+Date:   Tue Mar 24 20:34:46 2026 -0600
+
+    DAO Aplicación Asignación Usuario
+
+commit c0df4fcbd10c2e2da07f9c72864738f555178007
+Merge: a4c8f7d 750cf5e
+Author: edelaguila <54811781+edelaguila@users.noreply.github.com>
+Date:   Tue Mar 24 18:26:03 2026 -0600
+
+    Merge pull request #1 from astridrl/main
+    
+    Subiendo form de bitacora, y para que se mire la ventana de bitacora
+
+commit aff9ea10b2706fd531c4d743a58c1035b7f40f8c
+Author: [Karina Arriaza] <[karriazao@miumg.edu.gt]>
+Date:   Tue Mar 24 17:51:39 2026 -0600
+
+    Controlador AsignacionAplicacionUsuario
+
+commit 208098b7578f530667e074208a23985e78e886dc
+Author: Ferdynand.Monroy <fmonroys@miumg.edu.gt>
+Date:   Mon Mar 23 21:06:55 2026 -0600
+
+    implementación de formulario aplicaciones no.1
+
+commit 750cf5e32e76ac417f9dd5f8e5452e3b7de91c76
+Author: [Astrid Ruíz] <[astridruizz05@gmail.com]>
+Date:   Mon Mar 23 20:02:17 2026 -0600
+
+    Subiendo form de bitacora, fecha DAO, y para que se mire la ventana del form
+
+commit 5fc094f7b57611a929f45b18b69bcf033573f9b2
+Merge: a4c8f7d 8476873
+Author: Boris de Leon <50037610+Ivan774gt@users.noreply.github.com>
+Date:   Mon Mar 23 11:49:12 2026 -0600
+
+    Merge pull request #1 from Ivan774gt/AnthonySuc9959-24-389
+    
+    update/se añadio (clsAplicaciones) y (AplicacionesDAO)
+
+commit 84768733ac050b157026c922aafb5e662abfb1d9
+Author: Anthony Hetzael Suc Gomez <asucg@miumg.edu.gt>
+Date:   Mon Mar 23 11:43:40 2026 -0600
+
+    update/se añadio (clsAplicaciones) y (AplicacionesDAO)
+
+commit a4c8f7dbc2de66f465064ff14067b90baab75dd5
+Author: Esduardo Del Aguila <daguilae@yahoo.com>
+Date:   Sun Mar 22 20:57:21 2026 -0600
+
+    inicia el proyecto Programacion III
+
+commit d2ffce18f4896c9a6ece853044cf0f02cc99aee1
+Author: edelaguila <54811781+edelaguila@users.noreply.github.com>
+Date:   Sun Mar 22 20:40:14 2026 -0600
+
+    Initial commit
