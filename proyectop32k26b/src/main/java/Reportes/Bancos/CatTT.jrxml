@@ -1,5 +1,8 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <jasperReport xmlns="http://jasperreports.sourceforge.net/jasperreports" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:schemaLocation="http://jasperreports.sourceforge.net/jasperreports http://jasperreports.sourceforge.net/xsd/jasperreport.xsd" name="null" language="groovy" pageWidth="595" pageHeight="842" columnWidth="555" leftMargin="20" rightMargin="20" topMargin="20" bottomMargin="20" uuid="2906174e-03d0-43b8-877f-312756e6fddd">
+	<property name="ireport.zoom" value="1.0"/>
+	<property name="ireport.x" value="0"/>
+	<property name="ireport.y" value="0"/>
 	<queryString language="SQL">
 		<![CDATA[SELECT * FROM `cattipotransaccion`]]>
 	</queryString>
@@ -22,10 +25,36 @@
 		<band height="35" splitType="Stretch"/>
 	</pageHeader>
 	<columnHeader>
-		<band height="61" splitType="Stretch"/>
+		<band height="61" splitType="Stretch">
+			<staticText>
+				<reportElement x="26" y="2" width="100" height="20" uuid="af764b5f-8e7c-48ba-8afb-3782bf1db5cb"/>
+				<text><![CDATA[TTid]]></text>
+			</staticText>
+			<staticText>
+				<reportElement x="239" y="2" width="100" height="20" uuid="70eeb81c-b704-49b3-b3e4-0e9093e0e917"/>
+				<text><![CDATA[TTnombretipo]]></text>
+			</staticText>
+			<staticText>
+				<reportElement x="414" y="0" width="100" height="20" uuid="a607688f-58ef-4108-9c02-d99de8aa4d78"/>
+				<text><![CDATA[TTdescripcion]]></text>
+			</staticText>
+		</band>
 	</columnHeader>
 	<detail>
-		<band height="125" splitType="Stretch"/>
+		<band height="125" splitType="Stretch">
+			<textField>
+				<reportElement x="26" y="28" width="100" height="20" uuid="8de798ca-1854-46dc-8a29-ce6b9bbe8532"/>
+				<textFieldExpression><![CDATA[$F{TTid}]]></textFieldExpression>
+			</textField>
+			<textField>
+				<reportElement x="239" y="28" width="100" height="20" uuid="ad6f9231-35d8-4808-b658-9cb089ae4a96"/>
+				<textFieldExpression><![CDATA[$F{TTnombretipo}]]></textFieldExpression>
+			</textField>
+			<textField>
+				<reportElement x="414" y="28" width="100" height="20" uuid="6c6ca263-019d-4a19-bd37-1a7195b43351"/>
+				<textFieldExpression><![CDATA[$F{TTdescripcion}]]></textFieldExpression>
+			</textField>
+		</band>
 	</detail>
 	<columnFooter>
 		<band height="45" splitType="Stretch"/>

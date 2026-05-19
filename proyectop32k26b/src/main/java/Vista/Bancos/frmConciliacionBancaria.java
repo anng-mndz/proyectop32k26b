@@ -44,9 +44,9 @@ public class frmConciliacionBancaria extends javax.swing.JInternalFrame {
         jLabel4 = new javax.swing.JLabel();
         jTextField2 = new javax.swing.JTextField();
         jLabel5 = new javax.swing.JLabel();
-        jTextField3 = new javax.swing.JTextField();
+        jTextField5 = new javax.swing.JTextField();
         jTextField4 = new javax.swing.JTextField();
-        jTextField1 = new javax.swing.JTextField();
+        jTextField3 = new javax.swing.JTextField();
         jLabel6 = new javax.swing.JLabel();
         jLabel7 = new javax.swing.JLabel();
         cmbEstado = new javax.swing.JComboBox<>();
@@ -123,11 +123,11 @@ public class frmConciliacionBancaria extends javax.swing.JInternalFrame {
         jLabel5.setFont(new java.awt.Font("MS Gothic", 2, 12)); // NOI18N
         jLabel5.setText("Saldo Banco:");
 
-        jTextField3.setFont(new java.awt.Font("MS Gothic", 2, 12)); // NOI18N
+        jTextField5.setFont(new java.awt.Font("MS Gothic", 2, 12)); // NOI18N
 
         jTextField4.setFont(new java.awt.Font("MS Gothic", 2, 12)); // NOI18N
 
-        jTextField1.setFont(new java.awt.Font("MS Gothic", 2, 12)); // NOI18N
+        jTextField3.setFont(new java.awt.Font("MS Gothic", 2, 12)); // NOI18N
 
         jLabel6.setFont(new java.awt.Font("MS Gothic", 2, 12)); // NOI18N
         jLabel6.setText("Saldo Sistema:");
@@ -192,7 +192,7 @@ public class frmConciliacionBancaria extends javax.swing.JInternalFrame {
                             .addGroup(javax.swing.GroupLayout.Alignment.LEADING, layout.createSequentialGroup()
                                 .addComponent(jLabel6)
                                 .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
-                                .addComponent(jTextField1, javax.swing.GroupLayout.PREFERRED_SIZE, 246, javax.swing.GroupLayout.PREFERRED_SIZE))
+                                .addComponent(jTextField3, javax.swing.GroupLayout.PREFERRED_SIZE, 246, javax.swing.GroupLayout.PREFERRED_SIZE))
                             .addGroup(javax.swing.GroupLayout.Alignment.LEADING, layout.createSequentialGroup()
                                 .addComponent(jLabel5)
                                 .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
@@ -225,7 +225,7 @@ public class frmConciliacionBancaria extends javax.swing.JInternalFrame {
                                     .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, layout.createSequentialGroup()
                                         .addComponent(jLabel7)
                                         .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
-                                        .addComponent(jTextField3, javax.swing.GroupLayout.PREFERRED_SIZE, 246, javax.swing.GroupLayout.PREFERRED_SIZE)))
+                                        .addComponent(jTextField5, javax.swing.GroupLayout.PREFERRED_SIZE, 246, javax.swing.GroupLayout.PREFERRED_SIZE)))
                                 .addContainerGap())))
                     .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, layout.createSequentialGroup()
                         .addGap(0, 8, Short.MAX_VALUE)
@@ -264,7 +264,7 @@ public class frmConciliacionBancaria extends javax.swing.JInternalFrame {
                                     .addComponent(jLabel3)
                                     .addComponent(txtFecha, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)))
                             .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-                                .addComponent(jTextField3, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
+                                .addComponent(jTextField5, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
                                 .addComponent(jLabel7)))
                         .addGap(18, 18, 18)
                         .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
@@ -272,7 +272,7 @@ public class frmConciliacionBancaria extends javax.swing.JInternalFrame {
                             .addComponent(jLabel4))
                         .addGap(18, 18, 18)
                         .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-                            .addComponent(jTextField1, javax.swing.GroupLayout.Alignment.TRAILING, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
+                            .addComponent(jTextField3, javax.swing.GroupLayout.Alignment.TRAILING, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
                             .addComponent(jLabel6))
                         .addGap(10, 10, 10)
                         .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
@@ -287,7 +287,7 @@ public class frmConciliacionBancaria extends javax.swing.JInternalFrame {
     }// </editor-fold>//GEN-END:initComponents
 
     private void btnAgregarActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnAgregarActionPerformed
-        // Verifica que todos los campos estén completos antes de continuar
+// Verifica que todos los campos estén completos antes de continuar
 if (!camposCompletos()) return;
 
 try {
@@ -310,9 +310,9 @@ try {
         null,
         "Fecha: " + txtFecha.getText().trim() +
         " | Cuenta: " + jTextField2.getText().trim() +
-        " | Saldo Sistema: " + jTextField1.getText().trim() +
+        " | Saldo Sistema: " + jTextField3.getText().trim() +
         " | Saldo Banco: " + jTextField4.getText().trim() +
-        " | Diferencia: " + jTextField3.getText().trim() +
+        " | Diferencia: " + jTextField5.getText().trim() +
         " | Estado: " + cmbEstado.getSelectedItem().toString(),
         "Conciliación bancaria registrada"
     );
@@ -435,9 +435,9 @@ try {
         null,
         "Fecha: " + txtFecha.getText().trim() +
         " | Cuenta: " + jTextField2.getText().trim() +
-        " | Saldo Sistema: " + jTextField1.getText().trim() +
+        " | Saldo Sistema: " + jTextField3.getText().trim() +
         " | Saldo Banco: " + jTextField4.getText().trim() +
-        " | Diferencia: " + jTextField3.getText().trim() +
+        " | Diferencia: " + jTextField5.getText().trim() +
         " | Estado: " + cmbEstado.getSelectedItem().toString(),
         "Conciliación bancaria actualizada"
     );
@@ -514,7 +514,7 @@ try {
         // Muestra los datos encontrados en los campos del formulario
         txtFecha.setText(String.valueOf(cb.getConbsaldosistema()));
         jTextField2.setText(String.valueOf(cb.getConbsaldobanco()));
-        jTextField3.setText(String.valueOf(cb.getConbdiferencia()));
+        jTextField5.setText(String.valueOf(cb.getConbdiferencia()));
         jTextField4.setText(String.valueOf(cb.getCBANid()));
 
         // Selecciona el estado correspondiente en el JComboBox
@@ -741,14 +741,14 @@ private clsConciliacionBancaria getConciliacionBancariaDeFormulario() {
     }
 
     clsConciliacionBancaria cb = new clsConciliacionBancaria(
-        0,                                                      // ID lo genera MySQL con AUTO_INCREMENT
-        fecha,                                                  // Fecha desde JTextField
-        Double.parseDouble(jTextField1.getText().trim()),       // Saldo Sistema
-        Double.parseDouble(jTextField2.getText().trim()),       // Saldo Banco
-        Double.parseDouble(jTextField3.getText().trim()),       // Diferencia
-        Integer.parseInt(jTextField4.getText().trim()),         // ID Cuenta Bancaria
-        cmbEstado.getSelectedIndex()                            // ID Estado desde JComboBox
-    );
+    0,
+    fecha,
+    Double.parseDouble(jTextField3.getText().trim()),  // Saldo Sistema
+    Double.parseDouble(jTextField4.getText().trim()),  // Saldo Banco
+    Double.parseDouble(jTextField5.getText().trim()),  // Diferencia
+    Integer.parseInt(jTextField2.getText().trim()),    // ← ID Cuenta (número)
+    cmbEstado.getSelectedIndex() + 1
+);
     return cb;
 } 
 
@@ -805,10 +805,10 @@ private clsConciliacionBancaria getConciliacionBancariaDeFormulario() {
     private javax.swing.JLabel jLabel8;
     private javax.swing.JScrollPane jScrollPane1;
     private javax.swing.JTable jTable1;
-    private javax.swing.JTextField jTextField1;
     private javax.swing.JTextField jTextField2;
     private javax.swing.JTextField jTextField3;
     private javax.swing.JTextField jTextField4;
+    private javax.swing.JTextField jTextField5;
     private javax.swing.JTextField txtFecha;
     private javax.swing.JTextField txtid;
     // End of variables declaration//GEN-END:variables
