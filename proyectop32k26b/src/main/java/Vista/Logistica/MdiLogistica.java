@@ -422,7 +422,7 @@ Vista.Logistica.frmAyuda ventana = new Vista.Logistica.frmAyuda();
 
     private void frmMantenimientoProductosActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_frmMantenimientoProductosActionPerformed
         // TODO add your handling code here:
-        System.out.println("Abriendo Informacion de Productos");
+    System.out.println("Abriendo Informacion de Productos");
     frmMantenimientoProductos ventana = new frmMantenimientoProductos();
     
     ventana.setSize(900, 600);

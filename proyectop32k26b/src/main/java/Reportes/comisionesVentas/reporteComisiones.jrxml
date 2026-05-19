@@ -3,7 +3,7 @@
 	<property name="ireport.zoom" value="1.0"/>
 	<property name="ireport.x" value="0"/>
 	<property name="ireport.y" value="0"/>
-	<queryString language="SQL">
+	<queryString>
 		<![CDATA[SELECT * FROM `comisionesvendedores`]]>
 	</queryString>
 	<field name="Comid" class="java.lang.Integer">
@@ -12,13 +12,19 @@
 	<field name="Venid" class="java.lang.Integer">
 		<fieldDescription><![CDATA[]]></fieldDescription>
 	</field>
+	<field name="lincomision" class="java.math.BigDecimal">
+		<fieldDescription><![CDATA[]]></fieldDescription>
+	</field>
+	<field name="prodcomision" class="java.math.BigDecimal">
+		<fieldDescription><![CDATA[]]></fieldDescription>
+	</field>
+	<field name="marcomision" class="java.math.BigDecimal">
+		<fieldDescription><![CDATA[]]></fieldDescription>
+	</field>
 	<field name="Commontoventas" class="java.math.BigDecimal">
 		<fieldDescription><![CDATA[]]></fieldDescription>
 	</field>
 	<field name="Commeta" class="java.math.BigDecimal">
-		<fieldDescription><![CDATA[]]></fieldDescription>
-	</field>
-	<field name="Commarca" class="java.lang.String">
 		<fieldDescription><![CDATA[]]></fieldDescription>
 	</field>
 	<field name="Comventasadicionales" class="java.math.BigDecimal">
@@ -40,73 +46,89 @@
 		<band height="35" splitType="Stretch"/>
 	</pageHeader>
 	<columnHeader>
-		<band height="61" splitType="Stretch">
+		<band height="69" splitType="Stretch">
 			<staticText>
-				<reportElement x="32" y="2" width="100" height="20" uuid="851eb289-e3c2-43c6-87a2-2dc38c5a8913"/>
-				<text><![CDATA[Comision ID]]></text>
+				<reportElement x="65" y="2" width="100" height="20" uuid="9a81d727-ab8d-4075-becd-6b1d397cedc9"/>
+				<text><![CDATA[Comid]]></text>
 			</staticText>
 			<staticText>
-				<reportElement x="137" y="2" width="100" height="20" uuid="6bfb135b-449c-4e70-89cc-255665ff98d4"/>
-				<text><![CDATA[Ventas ID]]></text>
+				<reportElement x="194" y="2" width="100" height="20" uuid="b0f0cdcb-9ab0-4cca-b40b-bc27d401513b"/>
+				<text><![CDATA[Venid]]></text>
 			</staticText>
 			<staticText>
-				<reportElement x="275" y="2" width="100" height="20" uuid="bf7f97b3-e15e-4f6c-aa08-621aa627da2f"/>
-				<text><![CDATA[Comision monto ventas]]></text>
+				<reportElement x="330" y="2" width="100" height="20" uuid="435f2a34-6ca0-42ee-8337-e2635e94351f"/>
+				<text><![CDATA[lincomision]]></text>
 			</staticText>
 			<staticText>
-				<reportElement x="419" y="2" width="100" height="20" uuid="b66df60f-10ed-4130-b066-13b595a94085"/>
-				<text><![CDATA[Comision meta]]></text>
+				<reportElement x="455" y="2" width="100" height="20" uuid="216c3531-689b-4d0d-9df2-8381e41d5c2c"/>
+				<text><![CDATA[prodcomision]]></text>
 			</staticText>
 			<staticText>
-				<reportElement x="32" y="41" width="100" height="20" uuid="26cafcc6-9dc5-47f4-9a75-c61b38f8baae"/>
-				<text><![CDATA[Comision marca]]></text>
+				<reportElement x="65" y="22" width="100" height="20" uuid="64f6a23c-2ece-422b-85a0-50fcc6569c4b"/>
+				<text><![CDATA[marcomision]]></text>
 			</staticText>
 			<staticText>
-				<reportElement x="138" y="41" width="137" height="20" uuid="64e5ea2c-019c-4dea-8c43-a623e4087614"/>
-				<text><![CDATA[Comision ventas adicionales]]></text>
+				<reportElement x="194" y="22" width="100" height="20" uuid="a3607f3b-e514-43c2-afc9-76d15cbfa493"/>
+				<text><![CDATA[Commontoventas]]></text>
 			</staticText>
 			<staticText>
-				<reportElement x="303" y="41" width="100" height="20" uuid="6c349364-da19-4324-b687-5eaf9289d04d"/>
-				<text><![CDATA[Comision]]></text>
+				<reportElement x="330" y="22" width="100" height="20" uuid="0851d5d7-44eb-4e03-a0aa-40657993a875"/>
+				<text><![CDATA[Commeta]]></text>
 			</staticText>
 			<staticText>
-				<reportElement x="419" y="41" width="100" height="20" uuid="4e4321a9-6d56-4cf4-8a02-424232631c14"/>
-				<text><![CDATA[Cuentas por pagar]]></text>
+				<reportElement x="455" y="22" width="100" height="20" uuid="bc9a5ea8-2e63-4cad-9345-f5a24a919681"/>
+				<text><![CDATA[Comventasadicionales]]></text>
+			</staticText>
+			<staticText>
+				<reportElement x="65" y="41" width="100" height="20" uuid="1171e87a-04d3-4dc7-a427-8a7087503881"/>
+				<text><![CDATA[Comcomision]]></text>
+			</staticText>
+			<staticText>
+				<reportElement x="194" y="42" width="100" height="20" uuid="3b24dada-d1bf-4728-b4e2-145fc86f6331"/>
+				<text><![CDATA[Cppcodigo]]></text>
 			</staticText>
 		</band>
 	</columnHeader>
 	<detail>
 		<band height="125" splitType="Stretch">
 			<textField>
-				<reportElement x="32" y="39" width="100" height="20" uuid="52193619-0bf8-4ad1-988c-20cf9a627a73"/>
+				<reportElement x="65" y="18" width="100" height="20" uuid="3717d63b-9565-4a44-ba90-18b207eb05ec"/>
 				<textFieldExpression><![CDATA[$F{Comid}]]></textFieldExpression>
 			</textField>
 			<textField>
-				<reportElement x="149" y="45" width="100" height="20" uuid="46e1ef06-4085-4b17-89f1-91ef46f59809"/>
+				<reportElement x="194" y="18" width="100" height="20" uuid="62205901-647f-4d92-9667-98953cceeadb"/>
 				<textFieldExpression><![CDATA[$F{Venid}]]></textFieldExpression>
 			</textField>
 			<textField>
-				<reportElement x="275" y="53" width="100" height="20" uuid="cf3eaa12-dd85-40f7-8442-04e8e2502146"/>
+				<reportElement x="330" y="18" width="100" height="20" uuid="70abbdfd-32c8-410e-99cd-1f2b8c737684"/>
+				<textFieldExpression><![CDATA[$F{lincomision}]]></textFieldExpression>
+			</textField>
+			<textField>
+				<reportElement x="465" y="18" width="100" height="20" uuid="74ee81cb-a1c4-4ba2-848a-de7b55c08502"/>
+				<textFieldExpression><![CDATA[$F{prodcomision}]]></textFieldExpression>
+			</textField>
+			<textField>
+				<reportElement x="65" y="73" width="100" height="20" uuid="9a1983f1-3b54-46a8-b47d-465672707fc8"/>
+				<textFieldExpression><![CDATA[$F{marcomision}]]></textFieldExpression>
+			</textField>
+			<textField>
+				<reportElement x="194" y="73" width="100" height="20" uuid="1f0bd41e-58bf-490c-bc00-315d5b078520"/>
 				<textFieldExpression><![CDATA[$F{Commontoventas}]]></textFieldExpression>
 			</textField>
 			<textField>
-				<reportElement x="419" y="58" width="100" height="20" uuid="ec4b90f6-6945-44f1-b332-41afd7af25b2"/>
+				<reportElement x="330" y="73" width="100" height="20" uuid="88acce19-46c1-43df-aa61-749afeef51c3"/>
 				<textFieldExpression><![CDATA[$F{Commeta}]]></textFieldExpression>
 			</textField>
 			<textField>
-				<reportElement x="37" y="88" width="100" height="20" uuid="1e6716b6-bb24-493b-84ed-ad3f1a59ea58"/>
-				<textFieldExpression><![CDATA[$F{Commarca}]]></textFieldExpression>
-			</textField>
-			<textField>
-				<reportElement x="154" y="98" width="100" height="20" uuid="2fec58cd-eb08-423b-82ad-f4cb4a94ce22"/>
+				<reportElement x="465" y="73" width="100" height="20" uuid="6a4abe1a-cece-415c-a1fb-6ccbf53ebc97"/>
 				<textFieldExpression><![CDATA[$F{Comventasadicionales}]]></textFieldExpression>
 			</textField>
 			<textField>
-				<reportElement x="286" y="105" width="100" height="20" uuid="de459a20-7057-4e8a-bc18-1fe01aab89f3"/>
+				<reportElement x="65" y="105" width="100" height="20" uuid="a5e2e21b-bacc-4ac2-9e73-51035a709ce9"/>
 				<textFieldExpression><![CDATA[$F{Comcomision}]]></textFieldExpression>
 			</textField>
 			<textField>
-				<reportElement x="422" y="105" width="100" height="20" uuid="ec1c62a4-dd2d-43b3-8723-9f07d3e1a059"/>
+				<reportElement x="194" y="105" width="100" height="20" uuid="2adee474-bca8-4622-820f-937f36d3fee5"/>
 				<textFieldExpression><![CDATA[$F{Cppcodigo}]]></textFieldExpression>
 			</textField>
 		</band>

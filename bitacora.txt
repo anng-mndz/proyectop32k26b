@@ -1,3 +1,4 @@
+<<<<<<< HEAD
 commit 38edb91a677ff9ce7e9ae132f9deae4b70f6540e
 Author: anng-mndz <lmendezf1@miumg.edu.gt>
 Date:   Mon May 18 10:19:44 2026 -0600
@@ -376,6 +377,25 @@ Author: [JennBF] <[jennifer.barrios001@gmail.com]>
 Date:   Sat May 16 21:22:45 2026 -0600
 
     Modificación de permisos de Asignacion Perfil Usuario
+=======
+commit 8bb52bdca0338090a5f16c7b8e8189f2f2cdd87f
+Author: Marice Mayen <¨mmayeni1@miumg.edu.gt¨>
+Date:   Sun May 17 16:09:03 2026 -0600
+
+    vendedores y reporte
+
+commit a2ce8c987850df935b200a88da75767b1781d84c
+Author: Marice Mayen <¨mmayeni1@miumg.edu.gt¨>
+Date:   Sat May 16 23:27:47 2026 -0600
+
+    modificacion de boton a combo box
+
+commit 58f2e8c25734dc3dfda341e7a98e9b44a6f84775
+Author: Marice Mayen <¨mmayeni1@miumg.edu.gt¨>
+Date:   Sat May 16 22:31:59 2026 -0600
+
+    arreglos de vista
+>>>>>>> 6fe6565592a20110027faedea42620cde371accb
 
 commit 80c08f63fdd59c1576807bd1ea81bf3b7d73f4cc
 Author: Marice Mayen <¨mmayeni1@miumg.edu.gt¨>
@@ -383,6 +403,7 @@ Date:   Sat May 16 20:32:43 2026 -0600
 
     frm vendedores
 
+<<<<<<< HEAD
 commit 3f73350e9be68f7cf55ffd4d22cdec195e436ed9
 Merge: 3658a51 b8c22ec
 Author: Boris de Leon <50037610+Ivan774gt@users.noreply.github.com>
@@ -484,6 +505,8 @@ Date:   Fri May 15 12:17:14 2026 -0600
 
     uniendo cambios de celeste
 
+=======
+>>>>>>> 6fe6565592a20110027faedea42620cde371accb
 commit 669f61a827d4dba2da303873c227b32234bdb422
 Author: Marice Mayen <¨mmayeni1@miumg.edu.gt¨>
 Date:   Fri May 15 12:06:59 2026 -0600
@@ -782,6 +805,7 @@ Date:   Thu May 14 20:29:05 2026 -0600
 
     Añadiendo al mdi comercio proveedores
 
+<<<<<<< HEAD
 commit f2975e07bdb47c7fee10f236986b75ce22355e32
 Merge: 35228ba 4ca12a1
 Author: Marco Hernandez <mhernandezt23@miumg.edu.gt>
@@ -789,6 +813,8 @@ Date:   Thu May 14 20:28:17 2026 -0600
 
     Merge branch 'main' of https://github.com/Ivan774gt/proyectop32k26b into MarcoHernandezumg9959-24-6201
 
+=======
+>>>>>>> 6fe6565592a20110027faedea42620cde371accb
 commit 4ca12a16f12253af394ee8238664331338abdd2c
 Merge: dfa7444 c6aadcd
 Author: Boris de Leon <50037610+Ivan774gt@users.noreply.github.com>
@@ -881,6 +907,7 @@ Date:   Thu May 14 18:13:18 2026 -0600
 
     Modificando Clase controlador de Proveedores por error de nombre
 
+<<<<<<< HEAD
 commit 35228baf7a39249c98d196d139cbf81b523bb7c8
 Merge: 98dd254 dfa7444
 Author: Marco Hernandez <mhernandezt23@miumg.edu.gt>
@@ -888,6 +915,8 @@ Date:   Thu May 14 17:46:12 2026 -0600
 
     Merge branch 'main' of https://github.com/Ivan774gt/proyectop32k26b into MarcoHernandezumg9959-24-6201
 
+=======
+>>>>>>> 6fe6565592a20110027faedea42620cde371accb
 commit dfa7444145d3743cbaf350ffa295f29f9ee7a52f
 Merge: 665c43d 80e3a41
 Author: Boris de Leon <50037610+Ivan774gt@users.noreply.github.com>
@@ -1100,12 +1129,15 @@ Date:   Wed May 13 17:47:26 2026 -0600
 
     Solucion error git en frmCompras
 
+<<<<<<< HEAD
 commit 98dd254df7c678a767c036a3933b2264434cea9b
 Author: Marco Hernandez <mhernandezt23@miumg.edu.gt>
 Date:   Wed May 13 17:35:00 2026 -0600
 
     Mantenimiento Bodega
 
+=======
+>>>>>>> 6fe6565592a20110027faedea42620cde371accb
 commit 7ed24d03a63a13f2b1df20a1d301993075f2f98d
 Merge: 5de4dba 6c26c45
 Author: Boris de Leon <50037610+Ivan774gt@users.noreply.github.com>

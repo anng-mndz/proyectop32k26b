@@ -54,32 +54,64 @@
 	<columnHeader>
 		<band height="61" splitType="Stretch">
 			<staticText>
-				<reportElement x="32" y="41" width="100" height="20" uuid="47f7c23e-8907-43ee-8c3d-6dd6721fc2e1"/>
+				<reportElement x="0" y="41" width="66" height="20" uuid="47f7c23e-8907-43ee-8c3d-6dd6721fc2e1"/>
 				<text><![CDATA[Cliid]]></text>
 			</staticText>
 			<staticText>
-				<reportElement x="153" y="41" width="100" height="20" uuid="28462e2d-dcea-4fea-8634-9bf69e72170d"/>
+				<reportElement x="66" y="41" width="100" height="20" uuid="28462e2d-dcea-4fea-8634-9bf69e72170d"/>
 				<text><![CDATA[Clinombre]]></text>
 			</staticText>
 			<staticText>
-				<reportElement x="286" y="41" width="100" height="20" uuid="850b69ae-76de-4a87-a29c-59195991c685"/>
+				<reportElement x="166" y="41" width="63" height="20" uuid="850b69ae-76de-4a87-a29c-59195991c685"/>
 				<text><![CDATA[Clinit]]></text>
+			</staticText>
+			<staticText>
+				<reportElement x="229" y="41" width="81" height="20" uuid="5ce93dd5-104b-40a1-ae69-6c45ed1ffe09"/>
+				<text><![CDATA[Cliestado]]></text>
+			</staticText>
+			<staticText>
+				<reportElement x="310" y="41" width="84" height="20" uuid="77d63d6e-086d-4a6b-b480-0288323900b5"/>
+				<text><![CDATA[Clitelefono]]></text>
+			</staticText>
+			<staticText>
+				<reportElement x="394" y="41" width="100" height="20" uuid="d2203913-e404-4bc0-9e17-def27778cd0b"/>
+				<text><![CDATA[Clidireccion]]></text>
+			</staticText>
+			<staticText>
+				<reportElement x="494" y="41" width="61" height="20" uuid="f9920dc5-6ba3-46c6-8d3a-59fa4c8dbfbf"/>
+				<text><![CDATA[Clicorreo]]></text>
 			</staticText>
 		</band>
 	</columnHeader>
 	<detail>
 		<band height="125" splitType="Stretch">
 			<textField>
-				<reportElement x="32" y="15" width="100" height="20" uuid="7b949969-789a-45d6-9358-034d057cb200"/>
+				<reportElement x="0" y="0" width="66" height="20" uuid="7b949969-789a-45d6-9358-034d057cb200"/>
 				<textFieldExpression><![CDATA[$F{Cliid}]]></textFieldExpression>
 			</textField>
 			<textField>
-				<reportElement x="153" y="15" width="100" height="20" uuid="120d4166-2dc5-4944-9049-0cd75be668d1"/>
+				<reportElement x="66" y="0" width="100" height="20" uuid="120d4166-2dc5-4944-9049-0cd75be668d1"/>
 				<textFieldExpression><![CDATA[$F{Clinombre}]]></textFieldExpression>
 			</textField>
 			<textField>
-				<reportElement x="286" y="15" width="100" height="20" uuid="bf3a0855-f783-4ef9-8db6-2d5913543f6a"/>
+				<reportElement x="166" y="0" width="63" height="20" uuid="bf3a0855-f783-4ef9-8db6-2d5913543f6a"/>
 				<textFieldExpression><![CDATA[$F{Clinit}]]></textFieldExpression>
+			</textField>
+			<textField>
+				<reportElement x="229" y="0" width="81" height="20" uuid="5721bc38-8042-4227-8feb-e587f78851a3"/>
+				<textFieldExpression><![CDATA[$F{Cliestado}]]></textFieldExpression>
+			</textField>
+			<textField>
+				<reportElement x="310" y="0" width="84" height="20" uuid="0b52edc1-392b-412c-81df-46f363888c5c"/>
+				<textFieldExpression><![CDATA[$F{Clitelefono}]]></textFieldExpression>
+			</textField>
+			<textField>
+				<reportElement x="394" y="0" width="100" height="20" uuid="e1fddf57-18c4-47cd-bf5a-ee14f6d83a8d"/>
+				<textFieldExpression><![CDATA[$F{Clidireccion}]]></textFieldExpression>
+			</textField>
+			<textField>
+				<reportElement x="494" y="0" width="61" height="20" uuid="a1453b2f-f8da-49a6-8f00-b0fc4c96c403"/>
+				<textFieldExpression><![CDATA[$F{Clicorreo}]]></textFieldExpression>
 			</textField>
 		</band>
 	</detail>

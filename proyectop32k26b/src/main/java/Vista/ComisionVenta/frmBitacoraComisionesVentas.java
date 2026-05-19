@@ -3,8 +3,8 @@
  * Click nbfs://nbhost/SystemFileSystem/Templates/GUIForms/JInternalFrame.java to edit this template
  */
 package Vista.ComisionVenta;
-import Controlador.clsBitacora;
-import Modelo.BitacoraDAO;
+import Controlador.ComisionesVentas.clsBitacoraComisionesVenta;
+import Modelo.ComisionesVentas.BitacoraComisionesDAO;
 import Modelo.PermisosDAO;
 import java.util.List;
 import javax.swing.table.DefaultTableModel;
@@ -15,7 +15,7 @@ import java.io.File;
  */
 public class frmBitacoraComisionesVentas extends javax.swing.JInternalFrame {
 int idUsuario = Controlador.clsUsuarioConectado.getUsuId(); //este se mandó a llamar del clsUsuarioConectado
-    private static final int Aplcodigo = 10005; //Codigo de aplicacion dado en clase para bitacora
+    private static final int Aplcodigo = 7000; //Codigo de aplicacion dado en clase para bitacora
 
     /**
      * Creates new form frmBitacoraComisionesVentas
@@ -33,18 +33,20 @@ int idUsuario = Controlador.clsUsuarioConectado.getUsuId(); //este se mandó a l
         setIconifiable(true);
         setMaximizable(true);
         setResizable(true);
-        setTitle("Bitácora");
+        setTitle("Bitácora Comisiones");
         setVisible(true);
         //Deben agregar esta línea para cargar el metodo 
-        cargarPermisos();
+        //cargarPermisos();
         
         cboxTipoBusquedaActionPerformed(null);
+        BitacoraComisionesDAO bitacoraDAO = new BitacoraComisionesDAO();    
+    bitacoraDAO.insert(idUsuario, Aplcodigo, "CONSULTA");
     }
 
     public void cargarPermisos() {
     PermisosDAO permisosDAO = new PermisosDAO();
 
-    boolean puedeBuscar = permisosDAO.puedeBuscar(idUsuario, 10005);
+    boolean puedeBuscar = permisosDAO.puedeBuscar(idUsuario, 7000);
 
     btnBuscar.setEnabled(puedeBuscar);
     cboxTipoBusqueda.setEnabled(puedeBuscar);
@@ -55,31 +57,38 @@ int idUsuario = Controlador.clsUsuarioConectado.getUsuId(); //este se mandó a l
     // Limpia la tabla antes de llenarla
     // Recorre la lista de bitácoras y agrega cada registro al JTable
     public void llenadoDeTabla() {
-        DefaultTableModel modelo = (DefaultTableModel) tablaBitacora.getModel();
-        modelo.setRowCount(0);
+    DefaultTableModel modelo = (DefaultTableModel) tablaBitacoraComisiones.getModel();
+    modelo.setRowCount(0);
 
-        BitacoraDAO bitacoraDAO = new BitacoraDAO();
-        List<clsBitacora> bitacoras = bitacoraDAO.select();
+    BitacoraComisionesDAO bitacoracomisionesDAO = new BitacoraComisionesDAO();
+    List<clsBitacoraComisionesVenta> bitacoras = bitacoracomisionesDAO.select();
 
+    // Bucle for-each: más limpio, eficiente y evita usar bitacoras.get(i) continuamente
+    for (clsBitacoraComisionesVenta bitacora : bitacoras) {
+        // Se crea un arreglo nuevo por cada registro para evitar datos duplicados
         String[] dato = new String[7];
-        for (int i = 0; i < bitacoras.size(); i++) {
-            dato[0] = Integer.toString(bitacoras.get(i).getBitcodigo());
-            dato[1] = Integer.toString(bitacoras.get(i).getUsucodigo());
-            dato[2] = Integer.toString(bitacoras.get(i).getAplcodigo());
-            dato[3] = bitacoras.get(i).getBitfecha(); 
-            dato[4] = bitacoras.get(i).getBitip();
-            dato[5] = bitacoras.get(i).getBitequipo();
-            dato[6] = bitacoras.get(i).getBitaccion();
-            modelo.addRow(dato);
-        }
+        
+        dato[0] = Integer.toString(bitacora.getBitcodigo());
+        dato[1] = Integer.toString(bitacora.getUsucodigo());
+        dato[2] = Integer.toString(bitacora.getAplcodigo());
+        dato[3] = bitacora.getBitfecha(); 
+        dato[4] = bitacora.getBitip();
+        dato[5] = bitacora.getBitequipo();
+        dato[6] = bitacora.getBitaccion();
+        
+        System.out.println("Agregando a tabla: " + dato[0] + " - " + dato[6]);
+        
+        modelo.addRow(dato);
     }
+}
+
     public void buscarPorCodigo() {
-        clsBitacora bitacora = new clsBitacora();
-        BitacoraDAO bitacoraDAO = new BitacoraDAO();
+        clsBitacoraComisionesVenta bitacora = new clsBitacoraComisionesVenta();
+        BitacoraComisionesDAO bitacoraDAO = new BitacoraComisionesDAO();
         bitacora.setBitcodigo(Integer.parseInt(txtBuscar.getText()));
         bitacora = bitacoraDAO.queryPorCodigo(bitacora);
 
-        DefaultTableModel modelo = (DefaultTableModel) tablaBitacora.getModel();
+        DefaultTableModel modelo = (DefaultTableModel) tablaBitacoraComisiones.getModel();
         modelo.setRowCount(0);
 
         if (bitacora != null) {
@@ -103,11 +112,11 @@ int idUsuario = Controlador.clsUsuarioConectado.getUsuId(); //este se mandó a l
     // Busca todos los registros de bitácora de un usuario específico
     // Muestra los resultados en la tabla
     public void buscarPorUsuario() {
-        BitacoraDAO bitacoraDAO = new BitacoraDAO();
-        List<clsBitacora> bitacoras = bitacoraDAO.queryPorUsuario(
+        BitacoraComisionesDAO bitacoraDAO = new BitacoraComisionesDAO();
+        List<clsBitacoraComisionesVenta> bitacoras = bitacoraDAO.queryPorUsuario(
                 Integer.parseInt(txtBuscar.getText()));
 
-        DefaultTableModel modelo = (DefaultTableModel) tablaBitacora.getModel();
+        DefaultTableModel modelo = (DefaultTableModel) tablaBitacoraComisiones.getModel();
         modelo.setRowCount(0);
 
         if (bitacoras.isEmpty()) {
@@ -134,11 +143,11 @@ int idUsuario = Controlador.clsUsuarioConectado.getUsuId(); //este se mandó a l
     // Busca registros de bitácora según la aplicación utilizada
     // Muestra los resultados en la tabla
     public void buscarPorAplicacion() {
-        BitacoraDAO bitacoraDAO = new BitacoraDAO();
-        List<clsBitacora> bitacoras = bitacoraDAO.queryPorAplicacion(
+        BitacoraComisionesDAO bitacoraDAO = new BitacoraComisionesDAO();
+        List<clsBitacoraComisionesVenta> bitacoras = bitacoraDAO.queryPorAplicacion(
                 Integer.parseInt(txtBuscar.getText()));
 
-        DefaultTableModel modelo = (DefaultTableModel) tablaBitacora.getModel();
+        DefaultTableModel modelo = (DefaultTableModel) tablaBitacoraComisiones.getModel();
         modelo.setRowCount(0);
 
         if (bitacoras.isEmpty()) {
@@ -165,10 +174,10 @@ int idUsuario = Controlador.clsUsuarioConectado.getUsuId(); //este se mandó a l
     // Busca registros de bitácora según la acción realizada
     // Ejemplo: INSERT, UPDATE, DELETE
     public void buscarPorAccion() {
-        BitacoraDAO bitacoraDAO = new BitacoraDAO();
-        List<clsBitacora> bitacoras = bitacoraDAO.queryPorAccion(txtBuscar.getText());
+        BitacoraComisionesDAO bitacoraDAO = new BitacoraComisionesDAO();
+        List<clsBitacoraComisionesVenta> bitacoras = bitacoraDAO.queryPorAccion(txtBuscar.getText());
 
-        DefaultTableModel modelo = (DefaultTableModel) tablaBitacora.getModel();
+        DefaultTableModel modelo = (DefaultTableModel) tablaBitacoraComisiones.getModel();
         modelo.setRowCount(0);
 
         if (bitacoras.isEmpty()) {
@@ -208,12 +217,12 @@ int idUsuario = Controlador.clsUsuarioConectado.getUsuId(); //este se mandó a l
         btnBuscar = new javax.swing.JButton();
         btnLimpiar = new javax.swing.JButton();
         jScrollPane2 = new javax.swing.JScrollPane();
-        tablaBitacora = new javax.swing.JTable();
+        tablaBitacoraComisiones = new javax.swing.JTable();
         jLabel1 = new javax.swing.JLabel();
         jLabel2 = new javax.swing.JLabel();
 
         jLabel3.setFont(new java.awt.Font("Segoe UI Black", 0, 18)); // NOI18N
-        jLabel3.setText("Bitácora: ");
+        jLabel3.setText("Bitácora Comisiones: ");
 
         cboxTipoBusqueda.setFont(new java.awt.Font("Segoe UI", 0, 14)); // NOI18N
         cboxTipoBusqueda.setModel(new javax.swing.DefaultComboBoxModel<>(new String[] { "Código", "Usuario", "Aplicación", "Accion", "Rango de Fechas" }));
@@ -255,7 +264,8 @@ int idUsuario = Controlador.clsUsuarioConectado.getUsuId(); //este se mandó a l
             }
         });
 
-        tablaBitacora.setModel(new javax.swing.table.DefaultTableModel(
+        tablaBitacoraComisiones.setBackground(new java.awt.Color(51, 255, 255));
+        tablaBitacoraComisiones.setModel(new javax.swing.table.DefaultTableModel(
             new Object [][] {
 
             },
@@ -263,7 +273,7 @@ int idUsuario = Controlador.clsUsuarioConectado.getUsuId(); //este se mandó a l
                 "Código", "Usuario", "Aplicación", "Fecha", "IP", "Equipo", "Acción"
             }
         ));
-        jScrollPane2.setViewportView(tablaBitacora);
+        jScrollPane2.setViewportView(tablaBitacoraComisiones);
 
         jLabel1.setFont(new java.awt.Font("Segoe UI", 0, 14)); // NOI18N
         jLabel1.setText("Fecha Inicio:");
@@ -311,16 +321,16 @@ int idUsuario = Controlador.clsUsuarioConectado.getUsuId(); //este se mandó a l
                         .addGap(0, 0, Short.MAX_VALUE)))
                 .addContainerGap())
             .addGroup(layout.createSequentialGroup()
-                .addGap(321, 321, 321)
+                .addGap(266, 266, 266)
                 .addComponent(jLabel3)
                 .addContainerGap(javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))
         );
         layout.setVerticalGroup(
             layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
             .addGroup(layout.createSequentialGroup()
-                .addGap(11, 11, 11)
+                .addContainerGap()
                 .addComponent(jLabel3)
-                .addGap(30, 30, 30)
+                .addGap(35, 35, 35)
                 .addComponent(cboxTipoBusqueda, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
                 .addGap(12, 12, 12)
                 .addComponent(txtBuscar, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
@@ -344,44 +354,6 @@ int idUsuario = Controlador.clsUsuarioConectado.getUsuId(); //este se mandó a l
 
         pack();
     }// </editor-fold>//GEN-END:initComponents
-
-    private void cboxTipoBusquedaActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_cboxTipoBusquedaActionPerformed
-        // TODO add your handling code here:
-
-        // Oculta todos los campos de búsqueda al inicio
-        // para evitar que aparezcan controles innecesarios
-        txtBuscar.setVisible(false);
-        fechaInicio.setVisible(false);
-        fechaFin.setVisible(false);
-        jLabel1.setVisible(false);
-        jLabel2.setVisible(false);
-        btnBuscar.setVisible(false);
-
-        // Obtiene el tipo de búsqueda seleccionado en el ComboBox
-        String seleccion = cboxTipoBusqueda.getSelectedItem().toString();
-
-        // Dependiendo del tipo de búsqueda se muestran
-        // los controles necesarios para ingresar los datos
-        switch (seleccion) {
-            // Para estas búsquedas se necesita un valor en el campo de texto
-            case "Código":
-            case "Usuario":
-            case "Aplicación":
-            case "Accion":
-            txtBuscar.setVisible(true);
-            btnBuscar.setVisible(true);
-            break;
-            // Para esta búsqueda se requiere seleccionar un rango de fechas
-            case "Rango de Fechas":
-            fechaInicio.setVisible(true);
-            fechaFin.setVisible(true);
-            jLabel1.setVisible(true);
-            jLabel2.setVisible(true);
-            btnBuscar.setVisible(true);
-            break;
-        }
-        
-    }//GEN-LAST:event_cboxTipoBusquedaActionPerformed
 // Búsqueda por rango de fechas
     // Busca registros dentro de un rango de fechas seleccionado
     // Convierte fechas de JDateChooser a LocalDateTime
@@ -399,10 +371,10 @@ int idUsuario = Controlador.clsUsuarioConectado.getUsuId(); //este se mandó a l
     String fInicio = sdf.format(fechaInicio.getDate());
     String fFin = sdf.format(fechaFin.getDate());
 
-    BitacoraDAO bitacoraDAO = new BitacoraDAO();
-    List<clsBitacora> bitacoras = bitacoraDAO.queryPorFechas(fInicio, fFin);
+    BitacoraComisionesDAO bitacoraDAO = new BitacoraComisionesDAO();
+    List<clsBitacoraComisionesVenta> bitacoras = bitacoraDAO.queryPorFechas(fInicio, fFin);
 
-    DefaultTableModel modelo = (DefaultTableModel) tablaBitacora.getModel();
+    DefaultTableModel modelo = (DefaultTableModel) tablaBitacoraComisiones.getModel();
     modelo.setRowCount(0);
 
     if (bitacoras.isEmpty()) {
@@ -455,10 +427,6 @@ int idUsuario = Controlador.clsUsuarioConectado.getUsuId(); //este se mandó a l
             ex.printStackTrace();
         }
     }//GEN-LAST:event_jButton2ActionPerformed
-
-    private void txtBuscarActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_txtBuscarActionPerformed
-        // TODO add your handling code here:
-    }//GEN-LAST:event_txtBuscarActionPerformed
 
     private void btnBuscarActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnBuscarActionPerformed
         // TODO add your handling code here:
@@ -518,7 +486,7 @@ int idUsuario = Controlador.clsUsuarioConectado.getUsuId(); //este se mandó a l
                 javax.swing.JOptionPane.WARNING_MESSAGE);
         }
         //Agruegué el Registro de la accion en bitacora - Astrid
-        BitacoraDAO bitacoraDAO = new BitacoraDAO();
+        BitacoraComisionesDAO bitacoraDAO = new BitacoraComisionesDAO();
         bitacoraDAO.insert(idUsuario, Aplcodigo, "CONSULTA");
     }//GEN-LAST:event_btnBuscarActionPerformed
 
@@ -526,6 +494,48 @@ int idUsuario = Controlador.clsUsuarioConectado.getUsuId(); //este se mandó a l
         // TODO add your handling code here:
         limpiar();
     }//GEN-LAST:event_btnLimpiarActionPerformed
+
+    private void cboxTipoBusquedaActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_cboxTipoBusquedaActionPerformed
+        // TODO add your handling code here:
+
+        // Oculta todos los campos de búsqueda al inicio
+        // para evitar que aparezcan controles innecesarios
+        txtBuscar.setVisible(false);
+        fechaInicio.setVisible(false);
+        fechaFin.setVisible(false);
+        jLabel1.setVisible(false);
+        jLabel2.setVisible(false);
+        btnBuscar.setVisible(false);
+
+        // Obtiene el tipo de búsqueda seleccionado en el ComboBox
+        String seleccion = cboxTipoBusqueda.getSelectedItem().toString();
+
+        // Dependiendo del tipo de búsqueda se muestran
+        // los controles necesarios para ingresar los datos
+        switch (seleccion) {
+            // Para estas búsquedas se necesita un valor en el campo de texto
+            case "Código":
+            case "Usuario":
+            case "Aplicación":
+            case "Accion":
+            txtBuscar.setVisible(true);
+            btnBuscar.setVisible(true);
+            break;
+            // Para esta búsqueda se requiere seleccionar un rango de fechas
+            case "Rango de Fechas":
+            fechaInicio.setVisible(true);
+            fechaFin.setVisible(true);
+            jLabel1.setVisible(true);
+            jLabel2.setVisible(true);
+            btnBuscar.setVisible(true);
+            break;
+        }
+
+    }//GEN-LAST:event_cboxTipoBusquedaActionPerformed
+
+    private void txtBuscarActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_txtBuscarActionPerformed
+        // TODO add your handling code here:
+    }//GEN-LAST:event_txtBuscarActionPerformed
 
 
     // Variables declaration - do not modify//GEN-BEGIN:variables
@@ -539,7 +549,7 @@ int idUsuario = Controlador.clsUsuarioConectado.getUsuId(); //este se mandó a l
     private javax.swing.JLabel jLabel2;
     private javax.swing.JLabel jLabel3;
     private javax.swing.JScrollPane jScrollPane2;
-    private javax.swing.JTable tablaBitacora;
+    private javax.swing.JTable tablaBitacoraComisiones;
     private javax.swing.JTextField txtBuscar;
     // End of variables declaration//GEN-END:variables
 }

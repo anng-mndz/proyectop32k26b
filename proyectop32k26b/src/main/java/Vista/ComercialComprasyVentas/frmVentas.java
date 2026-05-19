@@ -20,6 +20,8 @@ public class frmVentas extends javax.swing.JInternalFrame {
      */
     public frmVentas() {
         initComponents();
+        
+        
     }
 
     /**
@@ -375,7 +377,8 @@ public class frmVentas extends javax.swing.JInternalFrame {
 
         pack();
     }// </editor-fold>//GEN-END:initComponents
-
+// Colócalo arriba, junto a tus otras variables globales del formulario
+private Modelo.Compras.ProveedorDAO proveedoresDAO = new Modelo.Compras.ProveedorDAO();
     private void subtotalPreviaActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_subtotalPreviaActionPerformed
         // TODO add your handling code here:
     }//GEN-LAST:event_subtotalPreviaActionPerformed
@@ -429,7 +432,10 @@ public class frmVentas extends javax.swing.JInternalFrame {
         // TODO add your handling code here:
     }//GEN-LAST:event_btnModificarActionPerformed
 
+    
     private void proveedoresTablaActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_proveedoresTablaActionPerformed
+      
+
         // TODO add your handling code here:
     }//GEN-LAST:event_proveedoresTablaActionPerformed
 
@@ -444,7 +450,7 @@ public class frmVentas extends javax.swing.JInternalFrame {
 
         // TODO add your handling code here:
     }//GEN-LAST:event_helpActionPerformed
-
+    
     private void buscarIDActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_buscarIDActionPerformed
         // TODO add your handling code here:
     }//GEN-LAST:event_buscarIDActionPerformed
@@ -526,7 +532,6 @@ public class frmVentas extends javax.swing.JInternalFrame {
     precioUnitario.setText("");
     
     javax.swing.JOptionPane.showMessageDialog(this, "Venta registrada en la tabla exitosamente.");
-
 
  // TODO add your handling code here:
     }//GEN-LAST:event_btnRegistrarActionPerformed

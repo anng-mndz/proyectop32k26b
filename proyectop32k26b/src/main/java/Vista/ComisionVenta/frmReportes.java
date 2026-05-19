@@ -175,7 +175,7 @@ public class frmReportes extends javax.swing.JInternalFrame {
         //  Si la lista no está vacía, agrega una fila final con el total general del periodo
         if (!lista.isEmpty()) {
             // Se dejan vacíos los primeros campos y se pone el total en la columna correspondiente
-            modelo.addRow(new Object[]{"", "", "TOTAL PERIODO:", sumaComisiones});
+            modelo.addRow(new Object[]{"", "", "TOTAL COMISION:", sumaComisiones});
         } else {
             // Informa al usuario si la consulta no devolvió ningún registro
             JOptionPane.showMessageDialog(this, "No hay registros para este vendedor en las fechas indicadas.");

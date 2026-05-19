@@ -109,7 +109,7 @@ public class frmProcesoPerfilUsuario extends javax.swing.JInternalFrame {
     }
 
     public void llenarTablas(int idUsuario) {
-        DefaultTableModel modeloDisp = (DefaultTableModel) tablaDisponibles.getModel();
+       DefaultTableModel modeloDisp = (DefaultTableModel) tablaDisponibles.getModel();
         DefaultTableModel modeloAsig = (DefaultTableModel) tablaAsignados.getModel();
 
         modeloDisp.setRowCount(0);
@@ -117,7 +117,16 @@ public class frmProcesoPerfilUsuario extends javax.swing.JInternalFrame {
 
         try {
             PerfilDAO daoPerfil = new PerfilDAO();
-            List<clsPerfil> perfiles = daoPerfil.obtenerPerfiles(new clsBitacora()); 
+            
+            // --- CORRECCIÓN LOCAL PARA ASIGNAR EL USUARIO CORRECTO ---
+            clsBitacora bitacoraActiva = new clsBitacora();
+      
+            bitacoraActiva.setUsucodigo(idUsuarioConectado); 
+            
+             bitacoraActiva.setAplcodigo(Aplcodigo);
+            bitacoraActiva.setBitaccion("Consulta de Perfiles");
+            
+            List<clsPerfil> perfiles = daoPerfil.obtenerPerfiles(bitacoraActiva); 
 
             for (clsPerfil perfil : perfiles) {
                 if (asignacionDAO.buscar(idUsuario, perfil.getPercodigo())) {

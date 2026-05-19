@@ -66,6 +66,7 @@ public class frmProcesoAplicacionPerfil extends javax.swing.JInternalFrame {
     DefaultListModel modeloA = new DefaultListModel();
     AppDis.setModel(modeloD);
     AppAsig.setModel(modeloA);
+    cargarPermisos();
     }
      public void cargarPermisos() {
     int usuId = clsUsuarioConectado.getUsuId();
@@ -329,6 +330,7 @@ private void activarPermisos() {
         });
 
         guardar.setText("Guardar");
+        guardar.setEnabled(false);
         guardar.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
                 guardarActionPerformed(evt);

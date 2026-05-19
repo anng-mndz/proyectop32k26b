@@ -28,7 +28,13 @@ public class BodegasDAO {
             ps.setString(1, obj.getBodnombre());
             ps.setString(2, obj.getBodubicacion());
 
-            return ps.executeUpdate() > 0;
+            boolean resultado = ps.executeUpdate() > 0;
+
+            if (resultado) {
+                registrarBitacora("Se insertó bodega: " + obj.getBodnombre());
+            }
+
+            return resultado;
 
         } catch (Exception e) {
             e.printStackTrace();
@@ -47,7 +53,13 @@ public class BodegasDAO {
             ps.setString(2, obj.getBodubicacion());
             ps.setInt(3, obj.getBodegaid());
 
-            return ps.executeUpdate() > 0;
+            boolean resultado = ps.executeUpdate() > 0;
+
+            if (resultado) {
+                registrarBitacora("Se actualizó bodega ID: " + obj.getBodegaid());
+            }
+
+            return resultado;
 
         } catch (Exception e) {
             e.printStackTrace();
@@ -64,7 +76,13 @@ public class BodegasDAO {
 
             ps.setInt(1, id);
 
-            return ps.executeUpdate() > 0;
+            boolean resultado = ps.executeUpdate() > 0;
+
+            if (resultado) {
+                registrarBitacora("Se eliminó bodega ID: " + id);
+            }
+
+            return resultado;
 
         } catch (Exception e) {
             e.printStackTrace();
@@ -90,6 +108,8 @@ public class BodegasDAO {
 
                 lista.add(obj);
             }
+
+            registrarBitacora("Se consultó listado de bodegas");
 
         } catch (Exception e) {
             e.printStackTrace();
@@ -117,29 +137,27 @@ public class BodegasDAO {
                 obj.setBodubicacion(rs.getString("Bodubicacion"));
             }
 
+            registrarBitacora("Se consultó bodega ID: " + id);
+
         } catch (Exception e) {
             e.printStackTrace();
         }
 
         return obj;
     }
+
     /**
      * Registra una acción en la bitácora del sistema.
-     * 
-     * @param accion Descripción de la acción realizada
      */
     private void registrarBitacora(String accion) {
 
         int usuario = clsUsuarioConectado.getUsuId();
 
-        // Validación de usuario autenticado
         if (usuario == 0) {
             throw new RuntimeException("No hay usuario autenticado");
         }
 
         BitacoraDAO bitacora = new BitacoraDAO();
-
-        // ID de aplicación para bitácora (debe existir en la BD)
         int aplCodigoBitacora = 2000;
 
         bitacora.insert(usuario, aplCodigoBitacora, accion);

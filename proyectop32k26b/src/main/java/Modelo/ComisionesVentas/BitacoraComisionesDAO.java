@@ -3,7 +3,7 @@
  * Click nbfs://nbhost/SystemFileSystem/Templates/Classes/Class.java to edit this template
  */
 package Modelo.ComisionesVentas;
-import Controlador.clsBitacora;
+import Controlador.ComisionesVentas.clsBitacoraComisionesVenta;
 import Modelo.Conexion;
 import java.net.InetAddress;
 import java.net.UnknownHostException;
@@ -21,15 +21,15 @@ import java.util.List;
  * @author Jorge Reyes
  */
 public class BitacoraComisionesDAO {
-    private static final String SQL_SELECT = "SELECT BCVid, Usuid, Aplcodigo, BCVfecha, BCVip, Bitequipo, BCVaccion FROM BitacoraComisiones";
-    private static final String SQL_INSERT = "INSERT INTO BitacoraComisiones(Usuid, Aplcodigo, BCVfecha, Bitip, Bitequipo, BCVaccion) VALUES(?, ?, NOW(), ?, ?, ?)";
+    private static final String SQL_SELECT = "SELECT BCVid, BCVusuarioaccion, BCVtabla, BCVfecha, BCVregistroid, BCVdescripcion, BCVaccion FROM bitacoracomisionventa";
+    private static final String SQL_INSERT = "INSERT INTO bitacoracomisionventa(BCVusuarioaccion, BCVtabla, BCVfecha, BCVregistroid, BCVdescripcion, BCVaccion) VALUES(?, ?, NOW(), ?, ?, ?)";
     //Se agregaron varios querys para poder buscar por diferentes tipos en la bitacora (ya sea codigo, usuario, fecha,etc) 
-    private static final String SQL_QUERY_POR_CODIGO = "SELECT BCVid, Usuid, Aplcodigo, BCVfecha, BCVip, Bitequipo, BCVaccion FROM BitacoraComisiones WHERE BCVid=?";
-    private static final String SQL_QUERY_POR_USUARIO = "SELECT BCVid, Usuid, Aplcodigo, BCVfecha, BCVip, Bitequipo, Bitaccion FROM BitacoraComisiones WHERE Usuid=?";
-    private static final String SQL_QUERY_POR_APLICACION = "SELECT BCVid, Usuid, Aplcodigo, BCVfecha, BCVip, Bitequipo, Bitaccion FROM BitacoraComisiones WHERE Aplcodigo=?";
-    private static final String SQL_QUERY_POR_FECHAS = "SELECT BCVid, Usuid, Aplcodigo, BCVfecha, BCVip, Bitequipo, BitaccionComisiones FROM BitacoraComisiones WHERE BCVfecha BETWEEN ? AND ?"; //between y and para buscar desde el inicio d fecha que el usuario seleccione hasta el final (el intervalo d fechas)
-    private static final String SQL_QUERY_POR_ACCION = "SELECT BCVid, Usuid, Aplcodigo, BCVfecha, BCVip, Bitequipo, BitaccionComisiones FROM BitacoraComisiones WHERE BCVaccion=?";
-
+    private static final String SQL_QUERY_POR_CODIGO = "SELECT BCVid, BCVusuarioaccion, BCVtabla, BCVfecha, BCVregistroid, BCVdescripcion, BCVaccion FROM bitacoracomisionventa WHERE BCVid=?";
+    private static final String SQL_QUERY_POR_USUARIO = "SELECT BCVid, BCVusuarioaccion, BCVtabla, BCVfecha, BCVregistroid, BCVdescripcion, BCVaccion FROM bitacoracomisionventa WHERE BCVusuarioaccion=?";
+    private static final String SQL_QUERY_POR_APLICACION = "SELECT BCVid, BCVusuarioaccion, BCVtabla, BCVfecha, BCVregistroid, BCVdescripcion, BCVaccion FROM bitacoracomisionventa WHERE BCVtabla=?";
+    private static final String SQL_QUERY_POR_FECHAS = "SELECT BCVid, BCVusuarioaccion, BCVtabla, BCVfecha, BCVregistroid, BCVdescripcion, BCVaccion FROM bitacoracomisionventa WHERE BCVfecha BETWEEN ? AND ?"; //between y and para buscar desde el inicio d fecha que el usuario seleccione hasta el final (el intervalo d fechas)
+    private static final String SQL_QUERY_POR_ACCION = "SELECT BCVid, BCVusuarioaccion, BCVtabla, BCVfecha, BCVregistroid, BCVdescripcion, BCVaccion FROM bitacoracomisionventa WHERE BCVaccion=?";
+ //Bit
 
     // SELECT (trae todos los registros) 
         public String fechaActual() {
@@ -60,12 +60,12 @@ public class BitacoraComisionesDAO {
         InetAddress ip = InetAddress.getLocalHost();
         return ip.getHostAddress();
     }        
-    public List<clsBitacora> select() {
+    public List<clsBitacoraComisionesVenta> select() {
         Connection conn = null;
         PreparedStatement stmt = null;
         ResultSet rs = null;
-        clsBitacora bitacora = null;
-        List<clsBitacora> bitacoras = new ArrayList<clsBitacora>(); //lista para almacenar todos los registros
+        clsBitacoraComisionesVenta bitacora = null;
+        List<clsBitacoraComisionesVenta> bitacoras = new ArrayList<clsBitacoraComisionesVenta>(); //lista para almacenar todos los registros
 
         try {
             conn = Conexion.getConnection();
@@ -73,15 +73,16 @@ public class BitacoraComisionesDAO {
             rs = stmt.executeQuery(); //se ejecuta la consulta
             while (rs.next()) {
                 //valores de cada columna del ResultSet
-                int Bitcodigo    = rs.getInt("Bitcodigo");
-                int Usuid    = rs.getInt("Usuid");
-                int Aplcodigo    = rs.getInt("Aplcodigo");
-                String Bitfecha  = rs.getString("Bitfecha");
-                String Bitip     = rs.getString("Bitip");
-                String Bitequipo = rs.getString("Bitequipo");
-                String Bitaccion = rs.getString("Bitaccion");
+                
+                 int Bitcodigo    = rs.getInt("BCVid");
+                int Usuid    = rs.getInt("BCVusuarioaccion");
+                int Aplcodigo    = rs.getInt("BCVtabla");
+                String Bitfecha = rs.getString("BCVfecha");
+                String Bitip     = rs.getString("BCVregistroid");
+                String Bitequipo = rs.getString("BCVdescripcion");
+                String Bitaccion = rs.getString("BCVaccion");
 
-                bitacora = new clsBitacora();
+                bitacora = new clsBitacoraComisionesVenta();
                 bitacora.setBitcodigo(Bitcodigo);
                 bitacora.setUsucodigo(Usuid);
                 bitacora.setAplcodigo(Aplcodigo);
@@ -122,7 +123,6 @@ public class BitacoraComisionesDAO {
                 }                           
             //asignación d valores a los parametros
             stmt = conn.prepareStatement(SQL_INSERT);
-            stmt = conn.prepareStatement(SQL_INSERT);
             stmt.setInt(1, Usuid);
             stmt.setInt(2, Aplcodigo);
             stmt.setString(3, ipAsignada);
@@ -142,7 +142,7 @@ public class BitacoraComisionesDAO {
     }
 
     // Query por código 
-    public clsBitacora queryPorCodigo(clsBitacora bitacora) {
+    public clsBitacoraComisionesVenta queryPorCodigo(clsBitacoraComisionesVenta bitacora) {
         Connection conn = null;
         PreparedStatement stmt = null;
         ResultSet rs = null;
@@ -155,15 +155,15 @@ public class BitacoraComisionesDAO {
             stmt.setInt(1, bitacora.getBitcodigo());
             rs = stmt.executeQuery();
             while (rs.next()) {
-                int Bitcodigo    = rs.getInt("Bitcodigo");
-                int Usuid    = rs.getInt("Usuid");
-                int Aplcodigo    = rs.getInt("Aplcodigo");
-                String Bitfecha = rs.getString("Bitfecha");
-                String Bitip     = rs.getString("Bitip");
-                String Bitequipo = rs.getString("Bitequipo");
-                String Bitaccion = rs.getString("Bitaccion");
+                int Bitcodigo    = rs.getInt("BCVid");
+                int Usuid    = rs.getInt("BCVusuarioaccion");
+                int Aplcodigo    = rs.getInt("BCVtabla");
+                String Bitfecha = rs.getString("BCVfecha");
+                String Bitip     = rs.getString("BCVregistroid");
+                String Bitequipo = rs.getString("BCVdescripcion");
+                String Bitaccion = rs.getString("BCVaccion");
 
-                bitacora = new clsBitacora();
+                bitacora = new clsBitacoraComisionesVenta();
                 bitacora.setBitcodigo(Bitcodigo);
                 bitacora.setUsucodigo(Usuid);
                 bitacora.setAplcodigo(Aplcodigo);
@@ -185,12 +185,12 @@ public class BitacoraComisionesDAO {
     //Se hace el mismo proceso para los demás querys: ejecutar la consulta, recorrer el ResultSet, convertir cada registro en un objeto Bitacora y agregarlo a una lista.
     
     // Query por usuario
-    public List<clsBitacora> queryPorUsuario(int Usuid) {
+    public List<clsBitacoraComisionesVenta> queryPorUsuario(int Usuid) {
         Connection conn = null;
         PreparedStatement stmt = null;
         ResultSet rs = null;
-        clsBitacora bitacora = null;
-        List<clsBitacora> bitacoras = new ArrayList<clsBitacora>();
+        clsBitacoraComisionesVenta bitacora = null;
+        List<clsBitacoraComisionesVenta> bitacoras = new ArrayList<clsBitacoraComisionesVenta>();
 
         try {
             conn = Conexion.getConnection();
@@ -199,15 +199,16 @@ public class BitacoraComisionesDAO {
             stmt.setInt(1, Usuid);
             rs = stmt.executeQuery();
             while (rs.next()) {
-                int Bitcodigo    = rs.getInt("Bitcodigo");
-                int usu          = rs.getInt("Usuid");
-                int Aplcodigo    = rs.getInt("Aplcodigo");
-                String Bitfecha  = rs.getString("Bitfecha");
-                String Bitip     = rs.getString("Bitip");
-                String Bitequipo = rs.getString("Bitequipo");
-                String Bitaccion = rs.getString("Bitaccion");
+                
+                 int Bitcodigo    = rs.getInt("BCVid");
+                int Usu    = rs.getInt("BCVusuarioaccion");
+                int Aplcodigo    = rs.getInt("BCVtabla");
+                String Bitfecha = rs.getString("BCVfecha");
+                String Bitip     = rs.getString("BCVregistroid");
+                String Bitequipo = rs.getString("BCVdescripcion");
+                String Bitaccion = rs.getString("BCVaccion");
 
-                bitacora = new clsBitacora();
+                bitacora = new clsBitacoraComisionesVenta();
                 bitacora.setBitcodigo(Bitcodigo);
                 bitacora.setUsucodigo(Usuid);
                 bitacora.setAplcodigo(Aplcodigo);
@@ -229,12 +230,12 @@ public class BitacoraComisionesDAO {
     }
 
     // Query por aplicación
-    public List<clsBitacora> queryPorAplicacion(int Aplcodigo) {
+    public List<clsBitacoraComisionesVenta> queryPorAplicacion(int Aplcodigo) {
         Connection conn = null;
         PreparedStatement stmt = null;
         ResultSet rs = null;
-        clsBitacora bitacora = null;
-        List<clsBitacora> bitacoras = new ArrayList<clsBitacora>();
+        clsBitacoraComisionesVenta bitacora = null;
+        List<clsBitacoraComisionesVenta> bitacoras = new ArrayList<clsBitacoraComisionesVenta>();
 
         try {
             conn = Conexion.getConnection();
@@ -243,18 +244,18 @@ public class BitacoraComisionesDAO {
             stmt.setInt(1, Aplcodigo);
             rs = stmt.executeQuery();
             while (rs.next()) {
-                int Bitcodigo    = rs.getInt("Bitcodigo");
-                int Usuid    = rs.getInt("Usuid");
-                int apl          = rs.getInt("Aplcodigo");
-                String Bitfecha  = rs.getString("Bitfecha");
-                String Bitip     = rs.getString("Bitip");
-                String Bitequipo = rs.getString("Bitequipo");
-                String Bitaccion = rs.getString("Bitaccion");
+                 int Bitcodigo    = rs.getInt("BCVid");
+                int Usuid    = rs.getInt("BCVusuarioaccion");
+                int Apl    = rs.getInt("BCVtabla");
+                String Bitfecha = rs.getString("BCVfecha");
+                String Bitip     = rs.getString("BCVregistroid");
+                String Bitequipo = rs.getString("BCVdescripcion");
+                String Bitaccion = rs.getString("BCVaccion");
 
-                bitacora = new clsBitacora();
+                bitacora = new clsBitacoraComisionesVenta();
                 bitacora.setBitcodigo(Bitcodigo);
                 bitacora.setUsucodigo(Usuid);
-                bitacora.setAplcodigo(apl);
+                bitacora.setAplcodigo(Apl);
                 bitacora.setBitfecha(Bitfecha);
                 bitacora.setBitip(Bitip);
                 bitacora.setBitequipo(Bitequipo);
@@ -273,12 +274,12 @@ public class BitacoraComisionesDAO {
     }
 
     // Query por rango de fechas
-    public List<clsBitacora> queryPorFechas (String fechaInicio, String fechaFin) {
+    public List<clsBitacoraComisionesVenta> queryPorFechas (String fechaInicio, String fechaFin) {
         Connection conn = null;
         PreparedStatement stmt = null;
         ResultSet rs = null;
-        clsBitacora bitacora = null;
-        List<clsBitacora> bitacoras = new ArrayList<clsBitacora>();
+        clsBitacoraComisionesVenta bitacora = null;
+        List<clsBitacoraComisionesVenta> bitacoras = new ArrayList<clsBitacoraComisionesVenta>();
 
         try {
             conn = Conexion.getConnection();
@@ -288,15 +289,16 @@ public class BitacoraComisionesDAO {
             stmt.setString(2, fechaFin);
             rs = stmt.executeQuery();
             while (rs.next()) {
-                int Bitcodigo    = rs.getInt("Bitcodigo");
-                int Usuid    = rs.getInt("Usuid");
-                int Aplcodigo    = rs.getInt("Aplcodigo");
-                String Bitfecha  = rs.getString("Bitfecha");
-                String Bitip     = rs.getString("Bitip");
-                String Bitequipo = rs.getString("Bitequipo");
-                String Bitaccion = rs.getString("Bitaccion");
+                
+                 int Bitcodigo    = rs.getInt("BCVid");
+                int Usuid    = rs.getInt("BCVusuarioaccion");
+                int Aplcodigo    = rs.getInt("BCVtabla");
+                String Bitfecha = rs.getString("BCVfecha");
+                String Bitip     = rs.getString("BCVregistroid");
+                String Bitequipo = rs.getString("BCVdescripcion");
+                String Bitaccion = rs.getString("BCVaccion");
 
-                bitacora = new clsBitacora();
+                bitacora = new clsBitacoraComisionesVenta();
                 bitacora.setBitcodigo(Bitcodigo);
                 bitacora.setUsucodigo(Usuid);
                 bitacora.setAplcodigo(Aplcodigo);
@@ -318,12 +320,12 @@ public class BitacoraComisionesDAO {
     }
 
     // Query por acción
-    public List<clsBitacora> queryPorAccion(String Bitaccion) {
+    public List<clsBitacoraComisionesVenta> queryPorAccion(String Bitaccion) {
         Connection conn = null;
         PreparedStatement stmt = null;
         ResultSet rs = null;
-        clsBitacora bitacora = null;
-        List<clsBitacora> bitacoras = new ArrayList<clsBitacora>();
+        clsBitacoraComisionesVenta bitacora = null;
+        List<clsBitacoraComisionesVenta> bitacoras = new ArrayList<clsBitacoraComisionesVenta>();
 
         try {
             conn = Conexion.getConnection();
@@ -332,15 +334,16 @@ public class BitacoraComisionesDAO {
             stmt.setString(1, Bitaccion);
             rs = stmt.executeQuery();
             while (rs.next()) {
-                int Bitcodigo    = rs.getInt("Bitcodigo");
-                int Usuid    = rs.getInt("Usuid");
-                int Aplcodigo    = rs.getInt("Aplcodigo");
-                String Bitfecha  = rs.getString("Bitfecha");
-                String Bitip     = rs.getString("Bitip");
-                String Bitequipo = rs.getString("Bitequipo");
-                String Bitaccion2 = rs.getString("Bitaccion");
+                
+                 int Bitcodigo    = rs.getInt("BCVid");
+                int Usuid    = rs.getInt("BCVusuarioaccion");
+                int Aplcodigo    = rs.getInt("BCVtabla");
+                String Bitfecha = rs.getString("BCVfecha");
+                String Bitip     = rs.getString("BCVregistroid");
+                String Bitequipo = rs.getString("BCVdescripcion");
+                String Bitaccion2 = rs.getString("BCVaccion");
 
-                bitacora = new clsBitacora();
+                bitacora = new clsBitacoraComisionesVenta();
                 bitacora.setBitcodigo(Bitcodigo);
                 bitacora.setUsucodigo(Usuid);
                 bitacora.setAplcodigo(Aplcodigo);
@@ -360,5 +363,4 @@ public class BitacoraComisionesDAO {
         }
         return bitacoras;
     }
-    
 }

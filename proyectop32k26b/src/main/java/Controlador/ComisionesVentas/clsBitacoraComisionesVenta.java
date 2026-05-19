@@ -5,11 +5,13 @@
 package Controlador.ComisionesVentas;
 import java.time.LocalDateTime;
 
+
 /**
  *
  * @author Jorge Reyes
  */
 public class clsBitacoraComisionesVenta {
+ 
     private int Bitcodigo;
     private int Usucodigo;
     private int Aplcodigo;
@@ -58,6 +60,5 @@ public class clsBitacoraComisionesVenta {
     public String toString() {
         return "Bitacora{" + "Bitcodigo=" + Bitcodigo + ", Usucodigo=" + Usucodigo + ", Aplcodigo=" + Aplcodigo + ", Bitfecha=" + Bitfecha + ", Bitip='" + Bitip + ", Bitequipo='" + Bitequipo + ", Bitaccion='" + Bitaccion + '}';
     }
-
     
 }

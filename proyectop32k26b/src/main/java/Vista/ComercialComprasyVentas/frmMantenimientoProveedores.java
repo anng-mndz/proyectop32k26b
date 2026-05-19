@@ -7,7 +7,7 @@ package Vista.ComercialComprasyVentas;
 import Controlador.Compras.clsProveedor;
 import Controlador.clsUsuarioConectado;
 
-// 2. Importar clases de la capa Modelo (Los DAOs para DB)
+// 2. Importar clases de la capa Modelo 
 import Modelo.Compras.ProveedorDAO;
 import Modelo.BitacoraDAO;
 import Modelo.PermisosDAO;
@@ -21,21 +21,35 @@ import java.io.File;
 
 import java.lang.Process;
 
+
 import java.lang.Runtime;
+
+import java.sql.Connection;
+import java.util.HashMap;
+import java.util.Map;
+import net.sf.jasperreports.engine.JasperCompileManager;
+import net.sf.jasperreports.engine.JasperFillManager;
+import net.sf.jasperreports.engine.JasperPrint;
+import net.sf.jasperreports.engine.JasperReport;
+import net.sf.jasperreports.view.JasperViewer;
+
+import Modelo.Conexion;
+
 
 /**
  *
  * @author JENNIFER BARRIOS 
+ * ACTUALIZACIÓN: Incorporación de seguridad por perfil, Bypass Admin (ID 1) y control Solo Lectura.
+ * Y CORRECCIÓN DE BOTONES
+ *
  */
 
-
-
-public class frmMantenimientoProveedores extends javax.swing.JFrame{
+public class frmMantenimientoProveedores extends javax.swing.JFrame {
     ProveedorDAO proveedorDAO = new ProveedorDAO();
     BitacoraDAO bitacoraDAO = new BitacoraDAO();
     PermisosDAO permisosDAO = new PermisosDAO();
     
-
+    private int idUsuarioConectado = clsUsuarioConectado.getUsuId();
     int Aplcodigo = 30004;
 
     /**
@@ -44,12 +58,49 @@ public class frmMantenimientoProveedores extends javax.swing.JFrame{
     public frmMantenimientoProveedores() {
         initComponents();
         
+        // CORRECCIÓN LOCAL: Si no es Admin (ID 1), debe tener permisos mínimos para poder VER el módulo (Buscar)
+        if (idUsuarioConectado != 1 && !permisosDAO.puedeBuscar(idUsuarioConectado, Aplcodigo)) {
+            JOptionPane.showMessageDialog(null, "No tiene acceso a este módulo para visualizar datos.");
+            this.dispose();
+            return;
+        }
+        
         jComboBox1.removeAllItems();
         jComboBox1.addItem("Seleccione un estado");
         jComboBox1.addItem("Activo");
         jComboBox1.addItem("Inactivo");
         
         llenarTabla();
+        cargarPermisosVisuales();
+    }
+
+    // Deshabilita o habilita los botones en la carga inicial según permisos (Solo Lectura dinámico)
+    public void cargarPermisosVisuales() {
+        btnRegistrar.setEnabled(puedeInsertar());
+        btnModificarr.setEnabled(puedeModificar());
+        btnEliminar.setEnabled(puedeEliminar());
+        btnBuscar.setEnabled(puedeBuscar());
+    }
+
+    // Métodos lógicos locales con Bypass integrado para Administrador (ID 1)
+    private boolean puedeInsertar() {
+        if (idUsuarioConectado == 1) return true;
+        return permisosDAO.puedeInsertar(idUsuarioConectado, Aplcodigo);
+    }
+
+    private boolean puedeModificar() {
+        if (idUsuarioConectado == 1) return true;
+        return permisosDAO.puedeModificar(idUsuarioConectado, Aplcodigo);
+    }
+
+    private boolean puedeEliminar() {
+        if (idUsuarioConectado == 1) return true;
+        return permisosDAO.puedeEliminar(idUsuarioConectado, Aplcodigo);
+    }
+
+    private boolean puedeBuscar() {
+        if (idUsuarioConectado == 1) return true;
+        return permisosDAO.puedeBuscar(idUsuarioConectado, Aplcodigo);
     }
 
     public void llenarTabla() {
@@ -122,8 +173,10 @@ public class frmMantenimientoProveedores extends javax.swing.JFrame{
         jComboBox1 = new javax.swing.JComboBox<>();
         jLabel8 = new javax.swing.JLabel();
         jButton6 = new javax.swing.JButton();
+        btnSalida = new javax.swing.JButton();
+        btnReportes = new javax.swing.JButton();
 
-        setDefaultCloseOperation(javax.swing.WindowConstants.EXIT_ON_CLOSE);
+        setDefaultCloseOperation(javax.swing.WindowConstants.DISPOSE_ON_CLOSE);
 
         jInternalFrame1.setVisible(true);
 
@@ -200,6 +253,20 @@ public class frmMantenimientoProveedores extends javax.swing.JFrame{
             }
         });
 
+        btnSalida.setText("SALIR");
+        btnSalida.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                btnSalidaActionPerformed(evt);
+            }
+        });
+
+        btnReportes.setText("REPORTES");
+        btnReportes.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                btnReportesActionPerformed(evt);
+            }
+        });
+
         javax.swing.GroupLayout jInternalFrame1Layout = new javax.swing.GroupLayout(jInternalFrame1.getContentPane());
         jInternalFrame1.getContentPane().setLayout(jInternalFrame1Layout);
         jInternalFrame1Layout.setHorizontalGroup(
@@ -243,6 +310,10 @@ public class frmMantenimientoProveedores extends javax.swing.JFrame{
                         .addGap(57, 57, 57))
                     .addGroup(jInternalFrame1Layout.createSequentialGroup()
                         .addComponent(jButton6)
+                        .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.UNRELATED)
+                        .addComponent(btnSalida)
+                        .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
+                        .addComponent(btnReportes)
                         .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)))
                 .addComponent(jSeparator1, javax.swing.GroupLayout.PREFERRED_SIZE, 12, javax.swing.GroupLayout.PREFERRED_SIZE)
                 .addGap(18, 18, 18)
@@ -294,7 +365,10 @@ public class frmMantenimientoProveedores extends javax.swing.JFrame{
                             .addComponent(jComboBox1, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
                             .addComponent(jLabel8))
                         .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
-                        .addComponent(jButton6)
+                        .addGroup(jInternalFrame1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
+                            .addComponent(jButton6)
+                            .addComponent(btnSalida)
+                            .addComponent(btnReportes))
                         .addGap(21, 21, 21))))
         );
 
@@ -320,6 +394,12 @@ public class frmMantenimientoProveedores extends javax.swing.JFrame{
 
     private void btnRegistrarActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnRegistrarActionPerformed
 
+   // VALIDACIÓN DE PERMISO (Incluye Bypass Admin ID 1)
+    if (!puedeInsertar()) {
+        JOptionPane.showMessageDialog(null, "No posee permisos para registrar proveedores.");
+        return;
+    }
+
     clsProveedor proveedor = new clsProveedor();
     proveedor.setPronombre(txtProNombre.getText());
     proveedor.setPronit(txtProNit.getText());
@@ -330,8 +410,8 @@ public class frmMantenimientoProveedores extends javax.swing.JFrame{
 
     if (proveedorDAO.ingresarProveedor(proveedor) > 0) {
         JOptionPane.showMessageDialog(null, "Proveedor Registrado con éxito");
-        // Registro en bitácora 
-        bitacoraDAO.insert(clsUsuarioConectado.getUsuId(), Aplcodigo, "Registró Proveedor");
+        // Registro en bitácora con el ID del usuario actual
+        bitacoraDAO.insert(idUsuarioConectado, Aplcodigo, "Registró Proveedor");
         llenarTabla();
         limpiarCampos();
     }
@@ -340,6 +420,15 @@ public class frmMantenimientoProveedores extends javax.swing.JFrame{
     }//GEN-LAST:event_btnRegistrarActionPerformed
 
     private void btnBuscarActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnBuscarActionPerformed
+if (!puedeBuscar()) {
+        JOptionPane.showMessageDialog(null, "No posee permisos para realizar búsquedas.");
+        return;
+    }
+
+    if (txtProCodigo.getText().trim().isEmpty()) {
+        JOptionPane.showMessageDialog(null, "Por favor, ingrese un código para buscar.");
+        return;
+    }
 
     clsProveedor proveedor = new clsProveedor();
     proveedor.setProcodigo(Integer.parseInt(txtProCodigo.getText()));
@@ -352,6 +441,9 @@ public class frmMantenimientoProveedores extends javax.swing.JFrame{
         txtProContacto.setText(proveedor.getProcontacto());
         txtProDepto.setText(proveedor.getProdepartamento());
         jComboBox1.setSelectedItem(proveedor.getProestado());
+        
+        // Registro en bitácora de la consulta realizada
+        bitacoraDAO.insert(idUsuarioConectado, Aplcodigo, "Buscó Proveedor ID: " + txtProCodigo.getText());
     } else {
         JOptionPane.showMessageDialog(null, "Proveedor no encontrado");
     }
@@ -360,6 +452,16 @@ public class frmMantenimientoProveedores extends javax.swing.JFrame{
     }//GEN-LAST:event_btnBuscarActionPerformed
 
     private void btnModificarrActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnModificarrActionPerformed
+// VALIDACIÓN DE PERMISO (Incluye Bypass Admin ID 1)
+    if (!puedeModificar()) {
+        JOptionPane.showMessageDialog(null, "No posee permisos para modificar información.");
+        return;
+    }
+
+    if (txtProCodigo.getText().trim().isEmpty()) {
+        JOptionPane.showMessageDialog(null, "Debe buscar primero un proveedor antes de modificarlo.");
+        return;
+    }
 
     clsProveedor proveedor = new clsProveedor();
     proveedor.setProcodigo(Integer.parseInt(txtProCodigo.getText()));
@@ -372,6 +474,8 @@ public class frmMantenimientoProveedores extends javax.swing.JFrame{
 
     if (proveedorDAO.actualizaProveedor(proveedor) > 0) {
         JOptionPane.showMessageDialog(null, "Información actualizada correctamente");
+        // Registro en bitácora
+        bitacoraDAO.insert(idUsuarioConectado, Aplcodigo, "Modificó Proveedor ID: " + txtProCodigo.getText());
         llenarTabla();
         limpiarCampos();
     }
@@ -380,12 +484,25 @@ public class frmMantenimientoProveedores extends javax.swing.JFrame{
     }//GEN-LAST:event_btnModificarrActionPerformed
 
     private void btnEliminarActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnEliminarActionPerformed
+if (!puedeEliminar()) {
+        JOptionPane.showMessageDialog(null, "No posee permisos para eliminar registros.");
+        return;
+    }
+
+    if (txtProCodigo.getText().trim().isEmpty()) {
+        JOptionPane.showMessageDialog(null, "Ingrese el código del proveedor que desea eliminar.");
+        return;
+    }
 
     int confirmacion = JOptionPane.showConfirmDialog(null, "¿Desea eliminar este proveedor?", "Confirmar", JOptionPane.YES_NO_OPTION);
     if (confirmacion == 0) {
         clsProveedor proveedor = new clsProveedor();
         proveedor.setProcodigo(Integer.parseInt(txtProCodigo.getText()));
-        proveedorDAO.borrarProveedor(proveedor);
+        
+        if (proveedorDAO.borrarProveedor(proveedor) > 0) {
+            // Registro en bitácora si se eliminó con éxito
+            bitacoraDAO.insert(idUsuarioConectado, Aplcodigo, "Eliminó Proveedor ID: " + txtProCodigo.getText());
+        }
         llenarTabla();
         limpiarCampos();
     }
@@ -400,11 +517,11 @@ public class frmMantenimientoProveedores extends javax.swing.JFrame{
     private void jButton6ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jButton6ActionPerformed
 
         try {
-    if ((new File("\"C:\\Users\\50240\\Documents\\proyectop32k26b\\proyectop32k26b\\src\\main\\java\\Ayudas\\Compras\\AyudaComprasHelp.chm\"")).exists()) {
+    if ((new File("AyudaComprasHelp.chm")).exists()) {
    
         Process p = Runtime
             .getRuntime()
-            .exec("rundll32 url.dll,FileProtocolHandler \"C:\\Users\\50240\\Documents\\proyectop32k26b\\proyectop32k26b\\src\\main\\java\\Ayudas\\Compras\\AyudaComprasHelp.chm\"");
+            .exec("AyudaComprasHelp.chm");
         p.waitFor();
         
     } else {
@@ -421,6 +538,52 @@ public class frmMantenimientoProveedores extends javax.swing.JFrame{
         
         // TODO add your handling code here:
     }//GEN-LAST:event_jButton6ActionPerformed
+
+    private void btnSalidaActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnSalidaActionPerformed
+    this.dispose();
+    bitacoraDAO.insert(idUsuarioConectado, Aplcodigo, "Cerró ventana de mantenimiento de proveedores");
+    // TODO add your handling code here:
+    }//GEN-LAST:event_btnSalidaActionPerformed
+
+    private void btnReportesActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnReportesActionPerformed
+
+        Connection conn = null;
+    try {
+        
+        conn = Conexion.getConexion(); 
+        
+        String rutaReporte = "src/main/java/Reportes/ComprayVentas/reporteProveedores.jrxml";
+        
+        JasperReport jasperReport = JasperCompileManager.compileReport(rutaReporte);
+        
+        Map<String, Object> parametros = new HashMap<>();
+        
+        // 5. Llenar el reporte con los datos de la DB
+        JasperPrint jasperPrint = JasperFillManager.fillReport(jasperReport, parametros, conn);
+        
+        // 6. Mostrar el reporte en una ventana flotante (Viewer)
+        JasperViewer viewer = new JasperViewer(jasperPrint, false); // El 'false' evita que se cierre toda la app al cerrar el reporte
+        viewer.setTitle("Reporte de Proveedores");
+        viewer.setVisible(true);
+        
+        bitacoraDAO.insert(idUsuarioConectado, Aplcodigo, "Generó Reporte de Proveedores");
+
+    } catch (Exception ex) {
+        JOptionPane.showMessageDialog(null, "Error al generar el reporte de proveedores: " + ex.getMessage());
+        ex.printStackTrace();
+    } finally {
+      
+        try {
+            if (conn != null && !conn.isClosed()) {
+                conn.close();
+            }
+        } catch (Exception e) {
+            e.printStackTrace();
+        }
+    }
+        
+        // TODO add your handling code here:
+    }//GEN-LAST:event_btnReportesActionPerformed
 
     /**
      * @param args the command line arguments
@@ -463,6 +626,8 @@ public class frmMantenimientoProveedores extends javax.swing.JFrame{
     private javax.swing.JButton btnLimpiar;
     private javax.swing.JButton btnModificarr;
     private javax.swing.JButton btnRegistrar;
+    private javax.swing.JButton btnReportes;
+    private javax.swing.JButton btnSalida;
     private javax.swing.JButton jButton6;
     private javax.swing.JComboBox<String> jComboBox1;
     private javax.swing.JInternalFrame jInternalFrame1;

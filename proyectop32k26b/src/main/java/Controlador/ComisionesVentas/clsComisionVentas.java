@@ -10,6 +10,7 @@ package Controlador.ComisionesVentas;
  */
 public class clsComisionVentas {
     //atributos comisiones ventas
+    
     private int id_comision;
     private int id_empleado; 
     private double monto_ventas;
@@ -26,15 +27,17 @@ public class clsComisionVentas {
     private int proid;
     private String prodnombre;
     private double prodprecioventa;
+    private double procomision;
     //atributos marca
     private String marnombre;
+    private double marcomision;
     //atributos linea
     private String linnombre;
     private double lincomision;
     //atributos cuentas por pagar
 
     //constructores
-    public clsComisionVentas(int id_comision, int id_empleado, double monto_ventas, double meta, double ventas_adicionales, double comision, int venid, String vennombre, String ventelefono, String vencorreo, int proid, String prodnombre, double prodprecioventa, String marnombre, String linnombre, double lincomision, String cppcodigo) {
+    public clsComisionVentas(int id_comision, int id_empleado, double monto_ventas, double meta, double ventas_adicionales, double comision, int venid, String vennombre, String ventelefono, String vencorreo, int proid, String prodnombre, double prodprecioventa, String marnombre,double marcomision, String linnombre, double lincomision, String cppcodigo) {
         this.id_comision = id_comision;
         this.id_empleado = id_empleado;
         this.monto_ventas = monto_ventas;
@@ -50,6 +53,7 @@ public class clsComisionVentas {
         this.prodnombre = prodnombre;
         this.prodprecioventa = prodprecioventa;
         this.marnombre = marnombre;
+        this.marcomision = marcomision;
         this.linnombre = linnombre;
         this.lincomision = lincomision;
     }
@@ -61,6 +65,13 @@ public class clsComisionVentas {
 
     public void setId_comision(int id_comision) {
         this.id_comision = id_comision;
+    }
+    public double getMarcomision(){
+        return marcomision;
+    }
+
+    public void setMarcomision(double marcomision) {
+        this.marcomision = marcomision;
     }
 
     public int getId_empleado() {
@@ -194,7 +205,13 @@ public class clsComisionVentas {
     public void setLincomision(double lincomision) {
         this.lincomision = lincomision;
     }
-    
+       public double getProcomision() {
+        return procomision;
+    }
+
+    public void setProcomision(double procomision) {
+        this.procomision = procomision;
+    }
 
     //constructor vacio
     public clsComisionVentas() {

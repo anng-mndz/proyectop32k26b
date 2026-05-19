@@ -1,0 +1,112 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<jasperReport xmlns="http://jasperreports.sourceforge.net/jasperreports" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:schemaLocation="http://jasperreports.sourceforge.net/jasperreports http://jasperreports.sourceforge.net/xsd/jasperreport.xsd" name="null" language="groovy" pageWidth="595" pageHeight="842" columnWidth="555" leftMargin="20" rightMargin="20" topMargin="20" bottomMargin="20" uuid="fa84d6df-1d25-4afb-87dc-3631db7085e9">
+	<property name="ireport.zoom" value="1.0"/>
+	<property name="ireport.x" value="0"/>
+	<property name="ireport.y" value="0"/>
+	<queryString language="SQL">
+		<![CDATA[SELECT * FROM sig.proveedores;]]>
+	</queryString>
+	<field name="Procodigo" class="java.lang.Integer">
+		<fieldDescription><![CDATA[]]></fieldDescription>
+	</field>
+	<field name="Pronombre" class="java.lang.String">
+		<fieldDescription><![CDATA[]]></fieldDescription>
+	</field>
+	<field name="Pronit" class="java.lang.String">
+		<fieldDescription><![CDATA[]]></fieldDescription>
+	</field>
+	<field name="Procuentabancaria" class="java.lang.String">
+		<fieldDescription><![CDATA[]]></fieldDescription>
+	</field>
+	<field name="Proestado" class="java.lang.String">
+		<fieldDescription><![CDATA[]]></fieldDescription>
+	</field>
+	<field name="Procontacto" class="java.lang.String">
+		<fieldDescription><![CDATA[]]></fieldDescription>
+	</field>
+	<field name="Prodepartamento" class="java.lang.String">
+		<fieldDescription><![CDATA[]]></fieldDescription>
+	</field>
+	<background>
+		<band splitType="Stretch"/>
+	</background>
+	<title>
+		<band height="79" splitType="Stretch"/>
+	</title>
+	<pageHeader>
+		<band height="35" splitType="Stretch"/>
+	</pageHeader>
+	<columnHeader>
+		<band height="61" splitType="Stretch">
+			<staticText>
+				<reportElement x="-20" y="0" width="100" height="20" uuid="f7aa03eb-5dec-40f2-ae09-75be61a3652c"/>
+				<text><![CDATA[Procodigo]]></text>
+			</staticText>
+			<staticText>
+				<reportElement x="57" y="0" width="100" height="20" uuid="daffb61d-fe09-484d-886e-ee9fc66145bd"/>
+				<text><![CDATA[Pronombre]]></text>
+			</staticText>
+			<staticText>
+				<reportElement x="143" y="0" width="100" height="20" uuid="60997df7-4c2b-459c-8d05-e5ca63ffaa55"/>
+				<text><![CDATA[Pronit]]></text>
+			</staticText>
+			<staticText>
+				<reportElement x="227" y="0" width="100" height="20" uuid="c6d276df-1ead-474a-ac57-8f06c4323aec"/>
+				<text><![CDATA[Procuentabancaria]]></text>
+			</staticText>
+			<staticText>
+				<reportElement x="327" y="0" width="100" height="20" uuid="1b6aebda-3c6e-4adb-8d4e-7ecacc1a7c7b"/>
+				<text><![CDATA[Proestado]]></text>
+			</staticText>
+			<staticText>
+				<reportElement x="411" y="0" width="100" height="20" uuid="70cf8450-f683-479e-b3ec-d82cd8709cfe"/>
+				<text><![CDATA[Procontacto]]></text>
+			</staticText>
+			<staticText>
+				<reportElement x="494" y="0" width="100" height="20" uuid="9080852d-67db-486f-ba46-1c940a7e352e"/>
+				<text><![CDATA[Prodepartamento]]></text>
+			</staticText>
+		</band>
+	</columnHeader>
+	<detail>
+		<band height="125" splitType="Stretch">
+			<textField>
+				<reportElement x="-20" y="27" width="100" height="20" uuid="0820eb40-9d31-45f6-8ea9-2e06c48e6199"/>
+				<textFieldExpression><![CDATA[$F{Procodigo}]]></textFieldExpression>
+			</textField>
+			<textField>
+				<reportElement x="57" y="27" width="100" height="20" uuid="bb8c7b1c-c7e6-4ff3-9fc3-2021ea89c209"/>
+				<textFieldExpression><![CDATA[$F{Pronombre}]]></textFieldExpression>
+			</textField>
+			<textField>
+				<reportElement x="143" y="27" width="100" height="20" uuid="c96d90c3-2612-489a-9406-44ab7eb9dcc2"/>
+				<textFieldExpression><![CDATA[$F{Pronit}]]></textFieldExpression>
+			</textField>
+			<textField>
+				<reportElement x="227" y="27" width="100" height="20" uuid="1c4ca138-8a7f-44f4-94e3-d7b9ca47ac5e"/>
+				<textFieldExpression><![CDATA[$F{Procuentabancaria}]]></textFieldExpression>
+			</textField>
+			<textField>
+				<reportElement x="327" y="27" width="100" height="20" uuid="897f013d-f540-4b64-b488-ebb460cd3d1e"/>
+				<textFieldExpression><![CDATA[$F{Proestado}]]></textFieldExpression>
+			</textField>
+			<textField>
+				<reportElement x="411" y="27" width="100" height="20" uuid="a3241e43-a895-4741-a167-e21a3dcf1c5d"/>
+				<textFieldExpression><![CDATA[$F{Procontacto}]]></textFieldExpression>
+			</textField>
+			<textField>
+				<reportElement x="494" y="27" width="100" height="20" uuid="903088e4-fa22-451b-9e08-5d7efad8b29e"/>
+				<textFieldExpression><![CDATA[$F{Prodepartamento}]]></textFieldExpression>
+			</textField>
+		</band>
+	</detail>
+	<columnFooter>
+		<band height="45" splitType="Stretch"/>
+	</columnFooter>
+	<pageFooter>
+		<band height="54" splitType="Stretch"/>
+	</pageFooter>
+	<summary>
+		<band height="42" splitType="Stretch"/>
+	</summary>
+</jasperReport>

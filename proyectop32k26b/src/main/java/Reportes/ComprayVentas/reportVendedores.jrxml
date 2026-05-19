@@ -1,0 +1,109 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<jasperReport xmlns="http://jasperreports.sourceforge.net/jasperreports" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:schemaLocation="http://jasperreports.sourceforge.net/jasperreports http://jasperreports.sourceforge.net/xsd/jasperreport.xsd" name="null" language="groovy" pageWidth="595" pageHeight="842" columnWidth="555" leftMargin="20" rightMargin="20" topMargin="20" bottomMargin="20" uuid="531b6aa2-eefe-4357-a27f-08b90fe77219">
+	<property name="ireport.zoom" value="1.0"/>
+	<property name="ireport.x" value="0"/>
+	<property name="ireport.y" value="0"/>
+	<queryString language="SQL">
+		<![CDATA[SELECT * FROM sig.vendedores;]]>
+	</queryString>
+	<field name="Venid" class="java.lang.Integer">
+		<fieldDescription><![CDATA[]]></fieldDescription>
+	</field>
+	<field name="Empcodigo" class="java.lang.Integer">
+		<fieldDescription><![CDATA[]]></fieldDescription>
+	</field>
+	<field name="Vennombre" class="java.lang.String">
+		<fieldDescription><![CDATA[]]></fieldDescription>
+	</field>
+	<field name="Ventelefono" class="java.lang.String">
+		<fieldDescription><![CDATA[]]></fieldDescription>
+	</field>
+	<field name="Vendireccion" class="java.lang.String">
+		<fieldDescription><![CDATA[]]></fieldDescription>
+	</field>
+	<field name="Vencorreo" class="java.lang.String">
+		<fieldDescription><![CDATA[]]></fieldDescription>
+	</field>
+	<background>
+		<band splitType="Stretch"/>
+	</background>
+	<title>
+		<band height="79" splitType="Stretch">
+			<staticText>
+				<reportElement x="206" y="18" width="154" height="48" uuid="00ad0eb2-9ed1-4b4e-b395-90e573efe5c4"/>
+				<textElement>
+					<font size="26" isBold="true"/>
+				</textElement>
+				<text><![CDATA[Vendedores]]></text>
+			</staticText>
+		</band>
+	</title>
+	<pageHeader>
+		<band height="35" splitType="Stretch"/>
+	</pageHeader>
+	<columnHeader>
+		<band height="61" splitType="Stretch">
+			<staticText>
+				<reportElement x="0" y="41" width="60" height="20" uuid="8cfe20d9-17fd-40eb-8b69-96c67f8e46bf"/>
+				<text><![CDATA[Venid]]></text>
+			</staticText>
+			<staticText>
+				<reportElement x="60" y="41" width="100" height="20" uuid="1c494105-4355-4986-b94a-5b41bde2b563"/>
+				<text><![CDATA[Empcodigo]]></text>
+			</staticText>
+			<staticText>
+				<reportElement x="160" y="41" width="100" height="20" uuid="454ee199-fb1f-4fd7-92de-d67dc88b95a1"/>
+				<text><![CDATA[Vennombre]]></text>
+			</staticText>
+			<staticText>
+				<reportElement x="260" y="41" width="100" height="20" uuid="e8c9cc8f-cff9-4d54-a002-649adda0f309"/>
+				<text><![CDATA[Ventelefono]]></text>
+			</staticText>
+			<staticText>
+				<reportElement x="360" y="41" width="100" height="20" uuid="ba70928e-a6d4-4e26-8f76-7082361b1d6f"/>
+				<text><![CDATA[Vendireccion]]></text>
+			</staticText>
+			<staticText>
+				<reportElement x="460" y="41" width="82" height="20" uuid="b6051d0d-733c-428f-ba7e-f4d8e5a67174"/>
+				<text><![CDATA[Vencorreo]]></text>
+			</staticText>
+		</band>
+	</columnHeader>
+	<detail>
+		<band height="125" splitType="Stretch">
+			<textField>
+				<reportElement x="0" y="5" width="60" height="20" uuid="bb949d46-b13a-4c96-87a9-17e122e1eba3"/>
+				<textFieldExpression><![CDATA[$F{Venid}]]></textFieldExpression>
+			</textField>
+			<textField>
+				<reportElement x="60" y="5" width="100" height="20" uuid="486ef3eb-09b8-4977-93ae-b08c888bbbe0"/>
+				<textFieldExpression><![CDATA[$F{Empcodigo}]]></textFieldExpression>
+			</textField>
+			<textField>
+				<reportElement x="160" y="5" width="100" height="20" uuid="12acfbef-aceb-4587-ac2a-f5091a1dfaee"/>
+				<textFieldExpression><![CDATA[$F{Vennombre}]]></textFieldExpression>
+			</textField>
+			<textField>
+				<reportElement x="260" y="5" width="100" height="20" uuid="2a1955d1-23b7-4b57-adb6-58bb5c9ee6cd"/>
+				<textFieldExpression><![CDATA[$F{Ventelefono}]]></textFieldExpression>
+			</textField>
+			<textField>
+				<reportElement x="360" y="5" width="100" height="20" uuid="b09e2580-d80c-4368-a430-d57706fa972b"/>
+				<textFieldExpression><![CDATA[$F{Vendireccion}]]></textFieldExpression>
+			</textField>
+			<textField>
+				<reportElement x="460" y="5" width="82" height="20" uuid="159f25c9-d145-4d6e-b475-cc4f259b725b"/>
+				<textFieldExpression><![CDATA[$F{Vencorreo}]]></textFieldExpression>
+			</textField>
+		</band>
+	</detail>
+	<columnFooter>
+		<band height="45" splitType="Stretch"/>
+	</columnFooter>
+	<pageFooter>
+		<band height="54" splitType="Stretch"/>
+	</pageFooter>
+	<summary>
+		<band height="42" splitType="Stretch"/>
+	</summary>
+</jasperReport>
